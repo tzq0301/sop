@@ -44,8 +44,8 @@ nginx -s reload
 # user <username> [groupname];
 
 # 设置 Nginx 将启动的工作进程数目
-# worker_processes 5;
-worker_processes auto;
+# worker_processes 5;     # 可以设置为数字
+# worker_processes auto;  # 也可以设置为 auto，即 CPU 核数
 
 events {
     # 应当根据系统的文件描述符限制来配置
