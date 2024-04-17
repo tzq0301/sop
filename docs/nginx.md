@@ -55,7 +55,7 @@ events {
 }
 
 http {
-    include /etc/nginx/mime.types; # 能根据文件的扩展名来设置 HTTP 的 Content-Type
+    # include /etc/nginx/mime.types; # 能根据文件的扩展名来设置 HTTP 的 Content-Type
 
     # 引入所有 .conf 文件
     # .conf 文件包含 server 块，可以用于文件的分离
