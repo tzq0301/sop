@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Nginx · GitBook</title>
+        <title>ssh · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="shell.html" />
     
-    
-    <link rel="prev" href="../" />
+    <link rel="prev" href="shell.html" />
     
 
     </head>
@@ -102,7 +100,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2" data-path="nginx.html">
+        <li class="chapter " data-level="1.2" data-path="nginx.html">
             
                 <a href="nginx.html">
             
@@ -128,7 +126,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4" data-path="ssh.html">
+        <li class="chapter active" data-level="1.4" data-path="ssh.html">
             
                 <a href="ssh.html">
             
@@ -171,7 +169,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Nginx</a>
+        <a href=".." >ssh</a>
     </h1>
 </div>
 
@@ -186,49 +184,46 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="nginx">Nginx</h1>
-<h2 id="&#x6821;&#x9A8C;-nginx-&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x6B63;&#x786E;&#x6027;">&#x6821;&#x9A8C; Nginx &#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x6B63;&#x786E;&#x6027;</h2>
-<pre><code class="lang-bash">nginx -t
+                                <h1 id="ssh">ssh</h1>
+<h2 id="&#x751F;&#x6210;-ssh-&#x5BC6;&#x94A5;">&#x751F;&#x6210; ssh &#x5BC6;&#x94A5;</h2>
+<p>&#x6240;&#x6709;&#x4EA4;&#x4E92;&#x90FD;&#x76F4;&#x63A5;&#x6309;&#x56DE;&#x8F66;&#x7684;&#x8BDD;&#xFF0C;&#x4F1A;&#x751F;&#x6210;&#xFF08;1&#xFF09;&#x516C;&#x94A5;&#x6587;&#x4EF6; ~/.ssh/id_rsa.pub&#xFF08;2&#xFF09;&#x79C1;&#x94A5;&#x6587;&#x4EF6; ~/.ssh/id_rsa</p>
+<pre><code class="lang-bash">ssh-keygen
 </code></pre>
-<h2 id="&#x91CD;&#x65B0;&#x52A0;&#x8F7D;-nginx-&#x914D;&#x7F6E;&#x6587;&#x4EF6;">&#x91CD;&#x65B0;&#x52A0;&#x8F7D; Nginx &#x914D;&#x7F6E;&#x6587;&#x4EF6;</h2>
-<pre><code class="lang-bash">nginx <span class="hljs-_">-s</span> reload
+<h2 id="ssh-&#x8FDE;&#x63A5;&#x8FDC;&#x7A0B;&#x670D;&#x52A1;&#x5668;">ssh &#x8FDE;&#x63A5;&#x8FDC;&#x7A0B;&#x670D;&#x52A1;&#x5668;</h2>
+<pre><code class="lang-bash">Username= &amp;&amp; Password= &amp;&amp; IP=
+sshpass -p <span class="hljs-variable">$Password</span> ssh <span class="hljs-variable">$Username</span>@<span class="hljs-variable">$IP</span>
 </code></pre>
-<h2 id="&#x914D;&#x7F6E;&#x6587;&#x4EF6;-demo">&#x914D;&#x7F6E;&#x6587;&#x4EF6; demo</h2>
-<pre><code class="lang-nginx"><span class="hljs-section">events</span> {}
-
-<span class="hljs-section">http</span> {
-    <span class="hljs-comment"># include /etc/nginx/mime.types; # &#x80FD;&#x6839;&#x636E;&#x6587;&#x4EF6;&#x7684;&#x6269;&#x5C55;&#x540D;&#x6765;&#x8BBE;&#x7F6E; HTTP &#x7684; Content-Type</span>
-
-    <span class="hljs-comment"># &#x5F15;&#x5165;&#x6240;&#x6709; .conf &#x6587;&#x4EF6;</span>
-    <span class="hljs-comment"># .conf &#x6587;&#x4EF6;&#x5305;&#x542B; server &#x5757;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x4E8E;&#x6587;&#x4EF6;&#x7684;&#x5206;&#x79BB;</span>
-    <span class="hljs-comment"># include /etc/nginx/conf.d/*.conf;</span>
-
-    <span class="hljs-comment"># upstream &#x7528;&#x4E8E;&#x914D;&#x5236;&#x670D;&#x52A1;&#x5668;&#x96C6;&#x7FA4;</span>
-    <span class="hljs-comment"># backend-servers &#x53EF;&#x4EE5;&#x66FF;&#x6362;&#x4E3A;&#x522B;&#x7684;&#x540D;&#x5B57;&#xFF0C;&#x8BE5;&#x914D;&#x7F6E;&#x5C06;&#x5728; server &#x5757;&#x7684; proxy_pass &#x4E2D;&#x88AB;&#x4F7F;&#x7528;</span>
-    <span class="hljs-attribute">upstream</span> backend-servers {
-        <span class="hljs-attribute">server</span> localhost:<span class="hljs-number">3000</span>;
-        <span class="hljs-attribute">server</span> localhost:<span class="hljs-number">3001</span>;
-
-        <span class="hljs-comment"># &#x53EF;&#x4EE5;&#x4E3A;&#x4E0D;&#x540C;&#x6027;&#x80FD;&#x7684;&#x670D;&#x52A1;&#x5668;&#x8BBE;&#x7F6E;&#x4E0D;&#x540C;&#x7684;&#x6743;&#x91CD;</span>
-        <span class="hljs-comment"># server localhost:3000 weight=3;</span>
-        <span class="hljs-comment"># server localhost:3001 weight=7;</span>
-    }
-
-    <span class="hljs-section">server</span> {
-        <span class="hljs-attribute">listen</span> <span class="hljs-number">80</span>;
-        <span class="hljs-attribute">server_name</span> localhost;
-
-        <span class="hljs-comment"># &#x9759;&#x6001;&#x6587;&#x4EF6;&#x7684;&#x6839;&#x76EE;&#x5F55;</span>
-        <span class="hljs-comment"># root /var/www/localhost; </span>
-
-        <span class="hljs-comment"># &#x8BBE;&#x7F6E;&#x9ED8;&#x8BA4;&#x7684; index &#x9875;</span>
-        <span class="hljs-comment"># index index.html;</span>
-
-        <span class="hljs-attribute">location</span> / {
-            <span class="hljs-attribute">proxy_pass</span> http://backend-servers; <span class="hljs-comment"># backend-servers &#x4E3A;&#x4E0A;&#x9762;&#x914D;&#x7F6E;&#x7684;&#x4E00;&#x4E2A; upstream &#x670D;&#x52A1;&#x5668;&#x96C6;&#x7FA4;&#x7684;&#x540D;&#x5B57;</span>
-        }
-    }
-}
+<h2 id="&#x5B9E;&#x73B0;&#x514D;&#x5BC6;&#x767B;&#x5F55;-&#x2014;&#x2014;-&#x5C06;&#x81EA;&#x5DF1;&#x7684;-ssh-&#x516C;&#x94A5;-copy-&#x5230;&#x670D;&#x52A1;&#x5668;&#x4E0A;">&#x5B9E;&#x73B0;&#x514D;&#x5BC6;&#x767B;&#x5F55; &#x2014;&#x2014; &#x5C06;&#x81EA;&#x5DF1;&#x7684; ssh &#x516C;&#x94A5; copy &#x5230;&#x670D;&#x52A1;&#x5668;&#x4E0A;</h2>
+<p>&#x5C06;&#x672C;&#x673A;&#x7684; ~/.ssh/id_rsa.pub &#x516C;&#x94A5;&#x8FFD;&#x52A0;&#x5230;&#x8FDC;&#x7A0B;&#x670D;&#x52A1;&#x5668;&#x7684; ~/.ssh/authorized_keys</p>
+<pre><code class="lang-bash">Username= &amp;&amp; Password= &amp;&amp; IP=
+sshpass -p <span class="hljs-variable">$Password</span> ssh-copy-id <span class="hljs-variable">$Username</span>@<span class="hljs-variable">$IP</span>
+</code></pre>
+<h2 id="&#x5B9E;&#x73B0;-sudo-&#x514D;&#x5BC6;&#x63D0;&#x6743;">&#x5B9E;&#x73B0; sudo &#x514D;&#x5BC6;&#x63D0;&#x6743;</h2>
+<pre><code class="lang-bash">UserName=
+<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$UserName</span> ALL=(ALL) NOPASSWD:ALL&quot;</span> &gt;&gt; /etc/sudoers
+</code></pre>
+<h2 id="ssh-&#x767B;&#x5F55;&#x65F6;&#xFF0C;&#x4E0D;&#x68C0;&#x67E5;-host">ssh &#x767B;&#x5F55;&#x65F6;&#xFF0C;&#x4E0D;&#x68C0;&#x67E5; host</h2>
+<p>&#x573A;&#x666F;&#xFF1A;</p>
+<pre><code>The authenticity of host &apos;192.168.0.110 (192.168.0.110)&apos; can&apos;t be established.
+RSA key fingerprint is a3:ca:ad:95:a1:45:d2:57:3a:e9:e7:75:a8:4c:1f:9f.
+Are you sure you want to continue connecting (yes/no)?
+</code></pre><p>&#x6216;&#xFF1A;</p>
+<pre><code>@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
+Someone could be eavesdropping on you right now (man-in-the-middle attack)!
+It is also possible that the RSA host key has just been changed.
+The fingerprint for the RSA key sent by the remote host is
+e9:0c:36:89:7f:3c:07:71:09:5a:9f:28:8c:44:e9:05.
+Please contact your system administrator.
+Add correct host key in /home/jiangxin/.ssh/known_hosts to get rid of this message.
+Offending key in /home/jiangxin/.ssh/known_hosts:81
+RSA host key for 192.168.0.110 has changed and you have requested strict checking.
+Host key verification failed.
+</code></pre><p>&#x89E3;&#x51B3;&#x65B9;&#x6848;&#xFF1A;</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># ssh &#x52A0;&#x4E0A;&#x53C2;&#x6570;</span>
+-o StrictHostKeyChecking=no
 </code></pre>
 
                                 
@@ -257,14 +252,10 @@
 
             
                 
-                <a href="../" class="navigation navigation-prev " aria-label="Previous page: Introduction">
+                <a href="shell.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Shell">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
-                
-                <a href="shell.html" class="navigation navigation-next " aria-label="Next page: Shell">
-                    <i class="fa fa-angle-right"></i>
-                </a>
                 
             
         
@@ -273,7 +264,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Nginx","level":"1.2","depth":1,"next":{"title":"Shell","level":"1.3","depth":1,"path":"docs/shell.md","ref":"docs/shell.md","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/nginx.md","mtime":"2024-04-17T16:50:01.366Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-04-17T16:50:30.246Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"ssh","level":"1.4","depth":1,"previous":{"title":"Shell","level":"1.3","depth":1,"path":"docs/shell.md","ref":"docs/shell.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/ssh.md","mtime":"2024-04-17T16:50:01.366Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-04-17T16:50:30.246Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
