@@ -75,6 +75,16 @@ ls -a | tee output
 mkdir -p
 ```
 
+## tar 解压
+
+```bash
+# x -> 解压
+# v -> verbose 输出日志
+# f -> 指定文件
+# C -> 解压到目标文件夹，并 cd 到目标文件夹
+tar xvf /mnt/gentoo/portage-latest.tar.gz -C /mnt/gentoo/usr
+```
+
 ## 查看 Linux 发行版
 
 ```bash
