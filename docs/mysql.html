@@ -284,6 +284,51 @@
 <h2 id="&#x67E5;&#x770B;-server-id">&#x67E5;&#x770B; server id</h2>
 <pre><code class="lang-sql"><span class="hljs-keyword">SELECT</span> @@server_id;
 </code></pre>
+<h2 id="&#x642D;&#x5EFA;&#x4E3B;&#x4ECE;&#x8FDE;&#x63A5;">&#x642D;&#x5EFA;&#x4E3B;&#x4ECE;&#x8FDE;&#x63A5;</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>IP</th>
+<th>server-id</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&#x4E3B;&#x5E93; source</td>
+<td>192.168.244.10</td>
+<td>1</td>
+</tr>
+<tr>
+<td>&#x4ECE;&#x5E93; replica</td>
+<td>192.168.244.20</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<p>&#x5728; source &#x7AEF;&#xFF08;&#x4E3B;&#x5E93;&#xFF09;&#xFF0C;&#x521B;&#x5EFA;&#x590D;&#x5236;&#x7528;&#x6237;&#xFF1A;</p>
+<pre><code class="lang-sql">mysql&gt; CREATE USER &apos;repl&apos;@&apos;192.168.244.20&apos; IDENTIFIED BY &apos;repl123&apos;;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql&gt; GRANT REPLICATION SLAVE ON *.* TO &apos;repl&apos;@&apos;192.168.244.20&apos;;
+Query OK, 0 rows affected (0.01 sec)
+</code></pre>
+<p>&#x5728; replica &#x7AEF;&#xFF08;&#x4ECE;&#x5E93;&#xFF09;&#xFF0C;&#x6D4B;&#x8BD5;&#x662F;&#x5426;&#x80FD;&#x8FDE;&#x63A5;&#x5230;&#x4E3B;&#x5E93;&#xFF1A;</p>
+<pre><code class="lang-bash">mysql -h 192.168.244.10 -urepl -prepl123
+</code></pre>
+<p>&#x5728; replica &#x7AEF;&#xFF08;&#x4ECE;&#x5E93;&#xFF09;&#xFF0C;&#x6267;&#x884C; <code>CHANGE MASTER TO</code> &#x547D;&#x4EE4;&#xFF1A;</p>
+<blockquote>
+<p>&#x5728;&#x4E3B;&#x5E93;&#x4E2D;&#x6267;&#x884C; <code>SHOW MASTER STATUS</code>&#xFF0C;&#x7ED3;&#x679C;&#x4E2D;&#x7684; File &#x4E0E; Position &#x7684;&#x503C;&#xFF0C;&#x5C31;&#x662F; master_log_file &#x4E0E; master_log_pos &#x7684;&#x503C;</p>
+</blockquote>
+<pre><code class="lang-sql"><span class="hljs-keyword">CHANGE</span> <span class="hljs-keyword">MASTER</span> <span class="hljs-keyword">TO</span> 
+    master_host=<span class="hljs-string">&apos;192.168.244.10&apos;</span>, 
+    master_user=<span class="hljs-string">&apos;repl&apos;</span>, 
+    master_password=<span class="hljs-string">&apos;repl123&apos;</span>, 
+    master_log_file=<span class="hljs-string">&apos;binlog.000002&apos;</span>, 
+    master_log_pos=<span class="hljs-number">1988</span>;
+</code></pre>
+<p>&#x5728; replica &#x7AEF;&#xFF08;&#x4ECE;&#x5E93;&#xFF09;&#xFF0C;&#x6267;&#x884C; <code>START SLAVE</code> &#x547D;&#x4EE4;&#xFF0C;&#x5F00;&#x542F;&#x4E3B;&#x4ECE;&#x590D;&#x5236;&#xFF0C;&#x5E76;&#x4F7F;&#x7528; <code>SHOW SLAVE STATUS\G</code> &#x8FDB;&#x884C;&#x68C0;&#x67E5;&#xFF1A;&#x82E5; <code>Slave_IO_Running</code> &#x4E0E; <code>Slave_SQL_Running</code> &#x7684;&#x503C;&#x5747;&#x4E3A; <code>Yes</code>&#xFF0C;&#x90A3;&#x4E48;&#x8BF4;&#x660E;&#x4E3B;&#x4ECE;&#x590D;&#x5236;&#x642D;&#x5EFA;&#x6210;&#x529F;</p>
+<p>&#xFF08;&#x53EF;&#x9009;&#xFF09;&#x6700;&#x540E;&#xFF0C;&#x5728; source &#x968F;&#x610F;&#x6267;&#x884C;&#x4E00;&#x4E9B; SQL&#xFF0C;&#x7136;&#x540E;&#x5230; replica &#x67E5;&#x770B;&#x6570;&#x636E;&#x662F;&#x5426;&#x5DF2;&#x590D;&#x5236;&#x8FC7;&#x6765;&#x4E86;</p>
 <h2 id="&#x67E5;&#x770B;&#x5F53;&#x524D;&#x7684;-connections-&#x8FDE;&#x63A5;&#x6570;">&#x67E5;&#x770B;&#x5F53;&#x524D;&#x7684; connections &#x8FDE;&#x63A5;&#x6570;</h2>
 <pre><code class="lang-bash">mysql <span class="hljs-_">-e</span> <span class="hljs-string">&quot;SHOW PROCESSLIST;&quot;</span> | tail -n +2 | wc <span class="hljs-_">-l</span>
 </code></pre>
@@ -355,7 +400,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"MySQL","level":"1.7","depth":1,"next":{"title":"Nginx","level":"1.8","depth":1,"path":"docs/nginx.md","ref":"docs/nginx.md","articles":[]},"previous":{"title":"JavaScript","level":"1.6","depth":1,"path":"docs/javascript.md","ref":"docs/javascript.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/mysql.md","mtime":"2024-04-18T07:56:31.630Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-04-18T07:56:59.592Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"MySQL","level":"1.7","depth":1,"next":{"title":"Nginx","level":"1.8","depth":1,"path":"docs/nginx.md","ref":"docs/nginx.md","articles":[]},"previous":{"title":"JavaScript","level":"1.6","depth":1,"path":"docs/javascript.md","ref":"docs/javascript.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/mysql.md","mtime":"2024-04-18T08:12:08.579Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-04-18T08:12:36.199Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
