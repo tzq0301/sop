@@ -1,6 +1,7 @@
 * [Introduction](README.md)
 * [C++](docs/cpp.md)
 * [Docker](docs/docker.md)
+* [earlyoom](docs/earlyoom.md)
 * [Git](docs/git.md)
 * [JavaScript](docs/javascript.md)
 * [MySQL](docs/mysql.md)
