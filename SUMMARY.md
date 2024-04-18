@@ -1,5 +1,6 @@
 * [Introduction](README.md)
 * [Git](docs/git.md)
+* [MySQL](docs/mysql.md)
 * [Nginx](docs/nginx.md)
 * [Shell](docs/shell.md)
 * [ssh](docs/ssh.md)
