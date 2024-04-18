@@ -1,29 +1,5 @@
 # Nginx
 
-## Install
-
-```bash
-sudo apt update
-sudo apt install nginx -y
-```
-
-```bash
-yum install gcc openssl openssl-devel pcre pcre-devel zlib zlib-devel -y
-yum install nginx
-```
-
-## systemctl
-
-```bash
-sudo systemctl start nginx    # 启动
-sudo systemctl status nginx   # 查看运行状态
-sudo systemctl stop nginx     # 停止
-sudo systemctl restart nginx  # 重启
-sudo systemctl reload nginx   # 修改配置文件后的重新加载
-sudo systemctl enable nginx   # 设置开机自启动
-sudo systemctl disable nginx  # 取消开机自启动
-```
-
 ## 校验 Nginx 配置文件正确性
 
 ```bash
