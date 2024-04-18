@@ -1,3 +1,3 @@
-# Blog & SOP
+# SOP
 
-https://github.com/tzq0301/blog
+[https://github.com/tzq0301/sop](https://github.com/tzq0301/sop)
