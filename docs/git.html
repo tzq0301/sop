@@ -57,7 +57,7 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="mysql.html" />
+    <link rel="next" href="javascript.html" />
     
     
     <link rel="prev" href="docker.html" />
@@ -141,7 +141,20 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5" data-path="mysql.html">
+        <li class="chapter " data-level="1.5" data-path="javascript.html">
+            
+                <a href="javascript.html">
+            
+                    
+                    JavaScript
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="mysql.html">
             
                 <a href="mysql.html">
             
@@ -154,7 +167,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6" data-path="nginx.html">
+        <li class="chapter " data-level="1.7" data-path="nginx.html">
             
                 <a href="nginx.html">
             
@@ -167,7 +180,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.7" data-path="shell.html">
+        <li class="chapter " data-level="1.8" data-path="shell.html">
             
                 <a href="shell.html">
             
@@ -180,7 +193,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.8" data-path="ssh.html">
+        <li class="chapter " data-level="1.9" data-path="ssh.html">
             
                 <a href="ssh.html">
             
@@ -193,7 +206,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9" data-path="vim.html">
+        <li class="chapter " data-level="1.10" data-path="vim.html">
             
                 <a href="vim.html">
             
@@ -266,6 +279,62 @@ git config --global user.email johndoe@example.com
 <h2 id="git-log-&#x4E00;&#x4E2A;-commit-&#x5728;&#x4E00;&#x884C;&#x5185;&#x663E;&#x793A;">git log &#x4E00;&#x4E2A; commit &#x5728;&#x4E00;&#x884C;&#x5185;&#x663E;&#x793A;</h2>
 <pre><code class="lang-bash">git <span class="hljs-built_in">log</span> --online
 </code></pre>
+<h2 id="gitignore-&#x793A;&#x4F8B;">.gitignore &#x793A;&#x4F8B;</h2>
+<pre><code class="lang-text">.idea/
+.fleat/
+.vscode/
+.settings/
+
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+.Spotlight-V100
+.Trashes
+
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+*.log
+
+*.sqlite
+*.db
+
+*.war
+*.jar
+*.class
+*.exe
+*.exe~
+*.out
+*.o
+*.so
+*.ddl
+*.dylib
+
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+target/
+out/
+build/
+
+go.work
+*.test
+*.prof
+vendor/
+*.out
+</code></pre>
+<p>&#x6DFB;&#x52A0;&#x540E;&#xFF0C;gitignore &#x53EF;&#x80FD;&#x4E0D;&#x4F1A;&#x751F;&#x6548;&#xFF0C;&#x6B64;&#x65F6;&#x8FD0;&#x884C;&#x4EE5;&#x4E0B;&#x547D;&#x4EE4;&#xFF1A;</p>
+<pre><code class="lang-bash">git rm -rf --cached .
+git add .
+</code></pre>
 
                                 
                                 </section>
@@ -298,7 +367,7 @@ git config --global user.email johndoe@example.com
                 </a>
                 
                 
-                <a href="mysql.html" class="navigation navigation-next " aria-label="Next page: MySQL">
+                <a href="javascript.html" class="navigation navigation-next " aria-label="Next page: JavaScript">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -309,7 +378,7 @@ git config --global user.email johndoe@example.com
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Git","level":"1.4","depth":1,"next":{"title":"MySQL","level":"1.5","depth":1,"path":"docs/mysql.md","ref":"docs/mysql.md","articles":[]},"previous":{"title":"Docker","level":"1.3","depth":1,"path":"docs/docker.md","ref":"docs/docker.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/git.md","mtime":"2024-04-18T04:24:35.346Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-04-18T04:25:03.195Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Git","level":"1.4","depth":1,"next":{"title":"JavaScript","level":"1.5","depth":1,"path":"docs/javascript.md","ref":"docs/javascript.md","articles":[]},"previous":{"title":"Docker","level":"1.3","depth":1,"path":"docs/docker.md","ref":"docs/docker.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/git.md","mtime":"2024-04-18T05:06:16.991Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-04-18T05:06:47.616Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

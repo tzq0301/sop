@@ -25,3 +25,65 @@ git commit --amend --no-edit
 ```bash
 git log --online
 ```
+
+## .gitignore 示例
+
+```text
+.idea/
+.fleat/
+.vscode/
+.settings/
+
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+.Spotlight-V100
+.Trashes
+
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+*.log
+
+*.sqlite
+*.db
+
+*.war
+*.jar
+*.class
+*.exe
+*.exe~
+*.out
+*.o
+*.so
+*.ddl
+*.dylib
+
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+target/
+out/
+build/
+
+go.work
+*.test
+*.prof
+vendor/
+*.out
+```
+
+添加后，gitignore 可能不会生效，此时运行以下命令：
+
+```bash
+git rm -rf --cached .
+git add .
+```

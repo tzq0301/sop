@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>MySQL · GitBook</title>
+        <title>JavaScript · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="nginx.html" />
+    <link rel="next" href="mysql.html" />
     
     
-    <link rel="prev" href="javascript.html" />
+    <link rel="prev" href="git.html" />
     
 
     </head>
@@ -141,7 +141,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5" data-path="javascript.html">
+        <li class="chapter active" data-level="1.5" data-path="javascript.html">
             
                 <a href="javascript.html">
             
@@ -154,7 +154,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.6" data-path="mysql.html">
+        <li class="chapter " data-level="1.6" data-path="mysql.html">
             
                 <a href="mysql.html">
             
@@ -249,7 +249,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >MySQL</a>
+        <a href=".." >JavaScript</a>
     </h1>
 </div>
 
@@ -264,28 +264,13 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="mysql">MySQL</h1>
-<h2 id="&#x547D;&#x4EE4;&#x884C;-cli-&#x6267;&#x884C;-mysql-&#x547D;&#x4EE4;&#xFF08;&#x4E0D;&#x8FDB;&#x5165;&#x4EA4;&#x4E92;&#x6A21;&#x5F0F;&#xFF09;">&#x547D;&#x4EE4;&#x884C; cli &#x6267;&#x884C; MySQL &#x547D;&#x4EE4;&#xFF08;&#x4E0D;&#x8FDB;&#x5165;&#x4EA4;&#x4E92;&#x6A21;&#x5F0F;&#xFF09;</h2>
-<pre><code class="lang-bash">mysql <span class="hljs-_">-e</span> <span class="hljs-string">&quot;SELECT VERSION();&quot;</span>
-</code></pre>
-<h2 id="&#x65F6;&#x95F4;&#x7C7B;&#x578B;&#x4E0E;-int&#x3001;varchar-&#x7B49;&#x7C7B;&#x578B;&#x76F8;&#x4E92;&#x8F6C;&#x6362;">&#x65F6;&#x95F4;&#x7C7B;&#x578B;&#x4E0E; INT&#x3001;VARCHAR &#x7B49;&#x7C7B;&#x578B;&#x76F8;&#x4E92;&#x8F6C;&#x6362;</h2>
-<pre><code class="lang-sql"><span class="hljs-comment">-- NOW() -&gt; VARCHAR</span>
-<span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">DATE_FORMAT</span>(<span class="hljs-keyword">NOW</span>(<span class="hljs-number">6</span>), <span class="hljs-string">&apos;%Y-%m-%d %H:%m:%s.%f&apos;</span>);
-
-<span class="hljs-comment">-- CURRENT_TIMESTAMP -&gt; VARCHAR</span>
-<span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">DATE_FORMAT</span>(<span class="hljs-keyword">CURRENT_TIMESTAMP</span>, <span class="hljs-string">&apos;%Y-%m-%d %H:%m:%s.%f&apos;</span>);
-
-<span class="hljs-comment">-- VARCHAR -&gt; DATETIME</span>
-<span class="hljs-comment">--   %W: Weekday name from Sunday to Saturday.</span>
-<span class="hljs-comment">--   %d: Day of the month as a numeric value from 01 to 31.</span>
-<span class="hljs-comment">--   %m: Month as a numeric value from 01 to 12.</span>
-<span class="hljs-comment">--   %Y: Year as a 4-digit numeric value (yyyy).</span>
-<span class="hljs-comment">--   %T: Time in the 24-hour format (hh:mm:ss).</span>
-<span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">STR_TO_DATE</span>(<span class="hljs-string">&apos;2023-07-13 03:49:11&apos;</span>, <span class="hljs-string">&apos;%Y-%m-%d %T&apos;</span>);
-
-<span class="hljs-comment">-- BIGINT -&gt; DATETIME</span>
-<span class="hljs-keyword">SELECT</span> FROM_UNIXTIME(<span class="hljs-number">1680873114</span>);           <span class="hljs-comment">-- &#x6BEB;&#x79D2;</span>
-<span class="hljs-keyword">SELECT</span> FROM_UNIXTIME(<span class="hljs-number">1680873114000</span> / <span class="hljs-number">1000</span>); <span class="hljs-comment">-- &#x5FAE;&#x79D2;</span>
+                                <h1 id="javascript">JavaScript</h1>
+<h2 id="&#x7834;&#x89E3;&#x7F51;&#x9875;&#x4E0D;&#x53EF;&#x7C98;&#x8D34;&#x5185;&#x5BB9;&#x7B49;&#x9650;&#x5236;">&#x7834;&#x89E3;&#x7F51;&#x9875;&#x4E0D;&#x53EF;&#x7C98;&#x8D34;&#x5185;&#x5BB9;&#x7B49;&#x9650;&#x5236;</h2>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> allowPaste = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">e</span>)</span>{
+  e.stopImmediatePropagation();
+  <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+};
+<span class="hljs-built_in">document</span>.addEventListener(<span class="hljs-string">&apos;paste&apos;</span>, allowPaste, <span class="hljs-literal">true</span>);
 </code></pre>
 
                                 
@@ -314,12 +299,12 @@
 
             
                 
-                <a href="javascript.html" class="navigation navigation-prev " aria-label="Previous page: JavaScript">
+                <a href="git.html" class="navigation navigation-prev " aria-label="Previous page: Git">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="nginx.html" class="navigation navigation-next " aria-label="Next page: Nginx">
+                <a href="mysql.html" class="navigation navigation-next " aria-label="Next page: MySQL">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -330,7 +315,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"MySQL","level":"1.6","depth":1,"next":{"title":"Nginx","level":"1.7","depth":1,"path":"docs/nginx.md","ref":"docs/nginx.md","articles":[]},"previous":{"title":"JavaScript","level":"1.5","depth":1,"path":"docs/javascript.md","ref":"docs/javascript.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/mysql.md","mtime":"2024-04-18T05:06:16.991Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-04-18T05:06:47.616Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"JavaScript","level":"1.5","depth":1,"next":{"title":"MySQL","level":"1.6","depth":1,"path":"docs/mysql.md","ref":"docs/mysql.md","articles":[]},"previous":{"title":"Git","level":"1.4","depth":1,"path":"docs/git.md","ref":"docs/git.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/javascript.md","mtime":"2024-04-18T05:06:16.991Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-04-18T05:06:47.616Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
