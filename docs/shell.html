@@ -259,7 +259,7 @@ world
 wow
 </code></pre>
 <h2 id="grep-&#x6392;&#x9664;&#x5339;&#x914D;&#x6A21;&#x5F0F;">grep &#x201C;&#x6392;&#x9664;&#x201D;&#x5339;&#x914D;&#x6A21;&#x5F0F;</h2>
-<pre><code class="lang-bash">grep -v <span class="hljs-string">&apos;#&apos;</span>  <span class="hljs-comment"># &#x53BB;&#x6389;&#x5305;&#x542B; # &#x7684;&#x884C;</span>
+<pre><code class="lang-bash">grep -v <span class="hljs-string">&apos;#&apos;</span>  <span class="hljs-comment"># &#x53BB;&#x6389;&#x5305;&#x542B; # &#x7684;&#x884C;&#xFF08;&#x53EF;&#x4EE5;&#x7528;&#x4E8E;&#x8FC7;&#x6EE4;&#x201C;&#x6CE8;&#x91CA;&#x884C;&#x201D;&#x7B49;&#xFF09;</span>
 </code></pre>
 <h2 id="grep-&#x67E5;&#x770B;&#x6307;&#x5B9A;&#x5185;&#x5BB9;&#x4E0A;&#x4E0B;&#x51E0;&#x884C;">grep &#x67E5;&#x770B;&#x6307;&#x5B9A;&#x5185;&#x5BB9;&#x4E0A;&#x4E0B;&#x51E0;&#x884C;</h2>
 <pre><code class="lang-bash">grep -10         <span class="hljs-string">&apos;123&apos;</span> app.log <span class="hljs-comment"># &#x524D;&#x540E; 10 &#x884C;</span>
@@ -286,6 +286,15 @@ grep -B 10       <span class="hljs-string">&apos;123&apos;</span> app.log <span 
 </code></pre>
 <h2 id="&#x5F3A;&#x5236;-apt-install-&#x4E0D;&#x4E0B;&#x8F7D;&#x5176;&#x63A8;&#x8350;&#x7684;&#x8F6F;&#x4EF6;&#x5305;&#xFF0C;&#x4EE5;&#x51CF;&#x5C11;&#x8F6F;&#x4EF6;&#x5305;&#x7684;&#x4E0B;&#x8F7D;&#x4E0E;&#x5B89;&#x88C5;">&#x5F3A;&#x5236; apt install &#x4E0D;&#x4E0B;&#x8F7D;&#x5176;&#x201C;&#x63A8;&#x8350;&#x201D;&#x7684;&#x8F6F;&#x4EF6;&#x5305;&#xFF0C;&#x4EE5;&#x51CF;&#x5C11;&#x8F6F;&#x4EF6;&#x5305;&#x7684;&#x4E0B;&#x8F7D;&#x4E0E;&#x5B89;&#x88C5;</h2>
 <pre><code class="lang-bash">sudo apt install --no-install-recommends ...
+</code></pre>
+<h2 id="&#x6E05;&#x7A7A;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x7684;&#x5185;&#x5BB9;">&#x6E05;&#x7A7A;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x7684;&#x5185;&#x5BB9;</h2>
+<pre><code class="lang-bash">:&gt; <span class="hljs-variable">$FILE</span>
+<span class="hljs-comment"># or</span>
+truncate <span class="hljs-_">-s</span> 0 <span class="hljs-variable">$FILE</span>  <span class="hljs-comment"># &quot;-s 0&quot; to specify the size</span>
+<span class="hljs-comment"># or</span>
+cat /dev/null &gt; <span class="hljs-variable">$FILE</span>
+<span class="hljs-comment"># or</span>
+dd <span class="hljs-keyword">if</span>=/dev/null of=<span class="hljs-variable">$FILE</span>
 </code></pre>
 <h2 id="&#x4F7F;&#x7528;-eof-&#x5199;&#x5165;&#x591A;&#x884C;&#x6587;&#x672C;">&#x4F7F;&#x7528; EOF &#x5199;&#x5165;&#x591A;&#x884C;&#x6587;&#x672C;</h2>
 <pre><code class="lang-bash">cat &lt;&lt;EOF &gt; hello.txt
@@ -349,7 +358,7 @@ EOF
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Shell","level":"1.5","depth":1,"next":{"title":"ssh","level":"1.6","depth":1,"path":"docs/ssh.md","ref":"docs/ssh.md","articles":[]},"previous":{"title":"Nginx","level":"1.4","depth":1,"path":"docs/nginx.md","ref":"docs/nginx.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/shell.md","mtime":"2024-04-18T03:38:15.098Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-04-18T03:38:43.747Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Shell","level":"1.5","depth":1,"next":{"title":"ssh","level":"1.6","depth":1,"path":"docs/ssh.md","ref":"docs/ssh.md","articles":[]},"previous":{"title":"Nginx","level":"1.4","depth":1,"path":"docs/nginx.md","ref":"docs/nginx.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/shell.md","mtime":"2024-04-18T03:55:47.359Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-04-18T03:56:15.365Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

@@ -44,7 +44,7 @@ wow
 ## grep “排除”匹配模式
 
 ```bash
-grep -v '#'  # 去掉包含 # 的行
+grep -v '#'  # 去掉包含 # 的行（可以用于过滤“注释行”等）
 ```
 
 ## grep 查看指定内容上下几行
@@ -92,6 +92,18 @@ cat /proc/meminfo | grep MemTotal | awk '{print $2}'
 
 ```bash
 sudo apt install --no-install-recommends ...
+```
+
+## 清空一个文件的内容
+
+```bash
+:> $FILE
+# or
+truncate -s 0 $FILE  # "-s 0" to specify the size
+# or
+cat /dev/null > $FILE
+# or
+dd if=/dev/null of=$FILE
 ```
 
 ## 使用 EOF 写入多行文本
