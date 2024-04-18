@@ -45,6 +45,14 @@ docker buildx build \
   . # Dockerfile 所在的文件夹
 ```
 
+## 分析镜像
+
+[dive](https://github.com/wagoodman/dive)
+
+```bash
+dive <your-image-tag>
+```
+
 ## docker-compose.yaml 示例 - Go 语言
 
 ```yaml
