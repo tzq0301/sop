@@ -6,6 +6,12 @@
 mysql -e "SELECT VERSION();"
 ```
 
+## 查看 server id
+
+```sql
+SELECT @@server_id;
+```
+
 ## 查看当前的 connections 连接数
 
 ```bash
@@ -14,14 +20,14 @@ mysql -e "SHOW PROCESSLIST;" | tail -n +2 | wc -l
 
 ## 查看是否开启了慢查询日志 & 查看慢查询日志的文件位置
 
-```bash
-mysql -e "SHOW VARIABLES LIKE '%slow_query_log%';
+```sql
+SHOW VARIABLES LIKE '%slow_query_log%';
 ```
 
 ## 查看 innodb_buffer_pool_size 内存大小
 
-```bash
-mysql -e "SELECT  @@innodb_buffer_pool_size/1024/1024/1024;"  # 以 G 为单位
+```sql
+SELECT  @@innodb_buffer_pool_size/1024/1024/1024;  -- 以 G 为单位
 ```
 
 ## 时间类型与 INT、VARCHAR 等类型相互转换
