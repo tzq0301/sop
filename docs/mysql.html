@@ -284,6 +284,21 @@
 <h2 id="&#x67E5;&#x770B;-server-id">&#x67E5;&#x770B; server id</h2>
 <pre><code class="lang-sql"><span class="hljs-keyword">SELECT</span> @@server_id;
 </code></pre>
+<h2 id="&#x67E5;&#x770B;&#x5F53;&#x524D;&#x7684;-connections-&#x8FDE;&#x63A5;&#x6570;">&#x67E5;&#x770B;&#x5F53;&#x524D;&#x7684; connections &#x8FDE;&#x63A5;&#x6570;</h2>
+<pre><code class="lang-bash">mysql <span class="hljs-_">-e</span> <span class="hljs-string">&quot;SHOW PROCESSLIST;&quot;</span> | tail -n +2 | wc <span class="hljs-_">-l</span>
+</code></pre>
+<h2 id="&#x67E5;&#x770B;&#x662F;&#x5426;&#x5F00;&#x542F;&#x4E86;&#x6162;&#x67E5;&#x8BE2;&#x65E5;&#x5FD7;--&#x67E5;&#x770B;&#x6162;&#x67E5;&#x8BE2;&#x65E5;&#x5FD7;&#x7684;&#x6587;&#x4EF6;&#x4F4D;&#x7F6E;">&#x67E5;&#x770B;&#x662F;&#x5426;&#x5F00;&#x542F;&#x4E86;&#x6162;&#x67E5;&#x8BE2;&#x65E5;&#x5FD7; &amp; &#x67E5;&#x770B;&#x6162;&#x67E5;&#x8BE2;&#x65E5;&#x5FD7;&#x7684;&#x6587;&#x4EF6;&#x4F4D;&#x7F6E;</h2>
+<pre><code class="lang-sql"><span class="hljs-keyword">SHOW</span> <span class="hljs-keyword">VARIABLES</span> <span class="hljs-keyword">LIKE</span> <span class="hljs-string">&apos;%slow_query_log%&apos;</span>;
+</code></pre>
+<h2 id="&#x67E5;&#x770B;-innodbbufferpoolsize-&#x5185;&#x5B58;&#x5927;&#x5C0F;">&#x67E5;&#x770B; innodb_buffer_pool_size &#x5185;&#x5B58;&#x5927;&#x5C0F;</h2>
+<pre><code class="lang-sql"><span class="hljs-keyword">SELECT</span>  @@innodb_buffer_pool_size/<span class="hljs-number">1024</span>/<span class="hljs-number">1024</span>/<span class="hljs-number">1024</span>;  <span class="hljs-comment">-- &#x4EE5; G &#x4E3A;&#x5355;&#x4F4D;</span>
+</code></pre>
+<h2 id="&#x67E5;&#x770B;&#x5B9E;&#x4F8B;&#x5F53;&#x524D;&#x62E5;&#x6709;&#x7684;-binlog">&#x67E5;&#x770B;&#x5B9E;&#x4F8B;&#x5F53;&#x524D;&#x62E5;&#x6709;&#x7684; binlog</h2>
+<pre><code class="lang-sql"><span class="hljs-keyword">SHOW</span> <span class="hljs-built_in">BINARY</span> <span class="hljs-keyword">LOGS</span>;
+</code></pre>
+<h2 id="&#x5728;&#x7EBF;&#x67E5;&#x770B;-binlog-&#x5185;&#x5BB9;">&#x5728;&#x7EBF;&#x67E5;&#x770B; binlog &#x5185;&#x5BB9;</h2>
+<pre><code class="lang-sql"><span class="hljs-keyword">SHOW</span> <span class="hljs-keyword">BINLOG</span> <span class="hljs-keyword">EVENTS</span> [<span class="hljs-keyword">IN</span> <span class="hljs-string">&apos;log_name&apos;</span>] [<span class="hljs-keyword">FROM</span> pos] [<span class="hljs-keyword">LIMIT</span> [<span class="hljs-keyword">offset</span>,], <span class="hljs-keyword">row_count</span>];
+</code></pre>
 <h2 id="&#x642D;&#x5EFA;&#x4E3B;&#x4ECE;&#x8FDE;&#x63A5;">&#x642D;&#x5EFA;&#x4E3B;&#x4ECE;&#x8FDE;&#x63A5;</h2>
 <table>
 <thead>
@@ -318,7 +333,7 @@ Query OK, 0 rows affected (0.01 sec)
 </code></pre>
 <p>&#x5728; replica &#x7AEF;&#xFF08;&#x4ECE;&#x5E93;&#xFF09;&#xFF0C;&#x6267;&#x884C; <code>CHANGE MASTER TO</code> &#x547D;&#x4EE4;&#xFF1A;</p>
 <blockquote>
-<p>&#x5728;&#x4E3B;&#x5E93;&#x4E2D;&#x6267;&#x884C; <code>SHOW MASTER STATUS</code>&#xFF0C;&#x7ED3;&#x679C;&#x4E2D;&#x7684; File &#x4E0E; Position &#x7684;&#x503C;&#xFF0C;&#x5C31;&#x662F; master_log_file &#x4E0E; master_log_pos &#x7684;&#x503C;</p>
+<p>&#x5728;&#x4E3B;&#x5E93;&#x4E2D;&#x6267;&#x884C; <code>SHOW MASTER STATUS</code> &#xFF0C;&#x7ED3;&#x679C;&#x4E2D;&#x7684; File &#x4E0E; Position &#x7684;&#x503C;&#xFF0C;&#x5C31;&#x662F; master_log_file &#x4E0E; master_log_pos &#x7684;&#x503C;</p>
 </blockquote>
 <pre><code class="lang-sql"><span class="hljs-keyword">CHANGE</span> <span class="hljs-keyword">MASTER</span> <span class="hljs-keyword">TO</span> 
     master_host=<span class="hljs-string">&apos;192.168.244.10&apos;</span>, 
@@ -327,16 +342,23 @@ Query OK, 0 rows affected (0.01 sec)
     master_log_file=<span class="hljs-string">&apos;binlog.000002&apos;</span>, 
     master_log_pos=<span class="hljs-number">1988</span>;
 </code></pre>
-<p>&#x5728; replica &#x7AEF;&#xFF08;&#x4ECE;&#x5E93;&#xFF09;&#xFF0C;&#x6267;&#x884C; <code>START SLAVE</code> &#x547D;&#x4EE4;&#xFF0C;&#x5F00;&#x542F;&#x4E3B;&#x4ECE;&#x590D;&#x5236;&#xFF0C;&#x5E76;&#x4F7F;&#x7528; <code>SHOW SLAVE STATUS\G</code> &#x8FDB;&#x884C;&#x68C0;&#x67E5;&#xFF1A;&#x82E5; <code>Slave_IO_Running</code> &#x4E0E; <code>Slave_SQL_Running</code> &#x7684;&#x503C;&#x5747;&#x4E3A; <code>Yes</code>&#xFF0C;&#x90A3;&#x4E48;&#x8BF4;&#x660E;&#x4E3B;&#x4ECE;&#x590D;&#x5236;&#x642D;&#x5EFA;&#x6210;&#x529F;</p>
+<p>&#x5728; replica &#x7AEF;&#xFF08;&#x4ECE;&#x5E93;&#xFF09;&#xFF0C;&#x6267;&#x884C; <code>START SLAVE</code> &#x6216; <code>START REPLICA</code> &#x547D;&#x4EE4;&#xFF0C;&#x5F00;&#x542F;&#x4E3B;&#x4ECE;&#x590D;&#x5236;&#xFF0C;&#x5E76;&#x4F7F;&#x7528; <code>SHOW SLAVE STATUS\G</code> &#x6216; <code>SHOW REPLICA STATUS\G</code> &#x8FDB;&#x884C;&#x68C0;&#x67E5;&#xFF1A;&#x82E5; <code>Slave_IO_Running</code> &#x4E0E; <code>Slave_SQL_Running</code> &#x7684;&#x503C;&#x5747;&#x4E3A; <code>Yes</code>&#xFF0C;&#x6216; <code>Replica_IO_Running</code> &#x4E0E; <code>Replica_SQL_Running</code> &#x7684;&#x503C;&#x5747;&#x4E3A; <code>Yes</code>&#xFF0C;&#x90A3;&#x4E48;&#x8BF4;&#x660E;&#x4E3B;&#x4ECE;&#x590D;&#x5236;&#x642D;&#x5EFA;&#x6210;&#x529F;</p>
 <p>&#xFF08;&#x53EF;&#x9009;&#xFF09;&#x6700;&#x540E;&#xFF0C;&#x5728; source &#x968F;&#x610F;&#x6267;&#x884C;&#x4E00;&#x4E9B; SQL&#xFF0C;&#x7136;&#x540E;&#x5230; replica &#x67E5;&#x770B;&#x6570;&#x636E;&#x662F;&#x5426;&#x5DF2;&#x590D;&#x5236;&#x8FC7;&#x6765;&#x4E86;</p>
-<h2 id="&#x67E5;&#x770B;&#x5F53;&#x524D;&#x7684;-connections-&#x8FDE;&#x63A5;&#x6570;">&#x67E5;&#x770B;&#x5F53;&#x524D;&#x7684; connections &#x8FDE;&#x63A5;&#x6570;</h2>
-<pre><code class="lang-bash">mysql <span class="hljs-_">-e</span> <span class="hljs-string">&quot;SHOW PROCESSLIST;&quot;</span> | tail -n +2 | wc <span class="hljs-_">-l</span>
+<h2 id="&#x4ECE;&#x5E93;&#x5F00;&#x542F;&#x4E3B;&#x4ECE;&#x590D;&#x5236;">&#x4ECE;&#x5E93;&#x5F00;&#x542F;&#x4E3B;&#x4ECE;&#x590D;&#x5236;</h2>
+<pre><code class="lang-sql"><span class="hljs-keyword">START</span> <span class="hljs-keyword">SLAVE</span>;
+<span class="hljs-comment">-- or</span>
+<span class="hljs-keyword">START</span> REPLICA;
 </code></pre>
-<h2 id="&#x67E5;&#x770B;&#x662F;&#x5426;&#x5F00;&#x542F;&#x4E86;&#x6162;&#x67E5;&#x8BE2;&#x65E5;&#x5FD7;--&#x67E5;&#x770B;&#x6162;&#x67E5;&#x8BE2;&#x65E5;&#x5FD7;&#x7684;&#x6587;&#x4EF6;&#x4F4D;&#x7F6E;">&#x67E5;&#x770B;&#x662F;&#x5426;&#x5F00;&#x542F;&#x4E86;&#x6162;&#x67E5;&#x8BE2;&#x65E5;&#x5FD7; &amp; &#x67E5;&#x770B;&#x6162;&#x67E5;&#x8BE2;&#x65E5;&#x5FD7;&#x7684;&#x6587;&#x4EF6;&#x4F4D;&#x7F6E;</h2>
-<pre><code class="lang-sql"><span class="hljs-keyword">SHOW</span> <span class="hljs-keyword">VARIABLES</span> <span class="hljs-keyword">LIKE</span> <span class="hljs-string">&apos;%slow_query_log%&apos;</span>;
+<h2 id="&#x4ECE;&#x5E93;&#x505C;&#x6B62;&#x4E3B;&#x4ECE;&#x590D;&#x5236;">&#x4ECE;&#x5E93;&#x505C;&#x6B62;&#x4E3B;&#x4ECE;&#x590D;&#x5236;</h2>
+<p>&#x4F1A;&#x540C;&#x65F6;&#x505C;&#x6B62; IO Thread &#x548C; SQL Thread</p>
+<pre><code class="lang-sql"><span class="hljs-keyword">STOP</span> <span class="hljs-keyword">SLAVE</span>; 
+<span class="hljs-comment">-- or</span>
+<span class="hljs-keyword">STOP</span> REPLICA;
 </code></pre>
-<h2 id="&#x67E5;&#x770B;-innodbbufferpoolsize-&#x5185;&#x5B58;&#x5927;&#x5C0F;">&#x67E5;&#x770B; innodb_buffer_pool_size &#x5185;&#x5B58;&#x5927;&#x5C0F;</h2>
-<pre><code class="lang-sql"><span class="hljs-keyword">SELECT</span>  @@innodb_buffer_pool_size/<span class="hljs-number">1024</span>/<span class="hljs-number">1024</span>/<span class="hljs-number">1024</span>;  <span class="hljs-comment">-- &#x4EE5; G &#x4E3A;&#x5355;&#x4F4D;</span>
+<h2 id="&#x5728;&#x4E3B;&#x5E93;&#x67E5;&#x770B;&#x4ECE;&#x5E93;-ip-&#x548C;&#x7AEF;&#x53E3;">&#x5728;&#x4E3B;&#x5E93;&#x67E5;&#x770B;&#x4ECE;&#x5E93; IP &#x548C;&#x7AEF;&#x53E3;</h2>
+<pre><code class="lang-sql"><span class="hljs-keyword">SHOW</span> <span class="hljs-keyword">SLAVE</span> <span class="hljs-keyword">HOSTS</span>;
+<span class="hljs-comment">-- or</span>
+<span class="hljs-keyword">SHOW</span> REPLICAS;
 </code></pre>
 <h2 id="&#x65F6;&#x95F4;&#x7C7B;&#x578B;&#x4E0E;-int&#x3001;varchar-&#x7B49;&#x7C7B;&#x578B;&#x76F8;&#x4E92;&#x8F6C;&#x6362;">&#x65F6;&#x95F4;&#x7C7B;&#x578B;&#x4E0E; INT&#x3001;VARCHAR &#x7B49;&#x7C7B;&#x578B;&#x76F8;&#x4E92;&#x8F6C;&#x6362;</h2>
 <pre><code class="lang-sql"><span class="hljs-comment">-- NOW() -&gt; VARCHAR</span>
@@ -400,7 +422,7 @@ Query OK, 0 rows affected (0.01 sec)
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"MySQL","level":"1.7","depth":1,"next":{"title":"Nginx","level":"1.8","depth":1,"path":"docs/nginx.md","ref":"docs/nginx.md","articles":[]},"previous":{"title":"JavaScript","level":"1.6","depth":1,"path":"docs/javascript.md","ref":"docs/javascript.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/mysql.md","mtime":"2024-04-18T08:12:08.579Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-04-18T08:12:36.199Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"MySQL","level":"1.7","depth":1,"next":{"title":"Nginx","level":"1.8","depth":1,"path":"docs/nginx.md","ref":"docs/nginx.md","articles":[]},"previous":{"title":"JavaScript","level":"1.6","depth":1,"path":"docs/javascript.md","ref":"docs/javascript.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/mysql.md","mtime":"2024-04-18T08:51:09.596Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-04-18T08:51:37.247Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
