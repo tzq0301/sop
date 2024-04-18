@@ -65,3 +65,15 @@ Host key verification failed.
 # ssh 加上参数
 -o StrictHostKeyChecking=no
 ```
+
+## sshd 查看当前生效的 ciphers
+
+```bash
+sudo sshd -T | grep cipher
+```
+
+## 查看 /etc/ssh/sshd_config 配置的 cipher
+
+```bash
+cat /etc/ssh/sshd_config | grep Ciphers
+```
