@@ -36,7 +36,7 @@ nginx -t
 nginx -s reload
 ```
 
-## 配置文件 demo
+## 配置文件 nginx.conf 示例
 
 ```nginx
 # 帮助限制 Nginx 进程的权限，从而减少系统遭受恶意攻击的风险
