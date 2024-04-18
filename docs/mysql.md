@@ -67,7 +67,7 @@ mysql -h 192.168.244.10 -urepl -prepl123
 
 在 replica 端（从库），执行 `CHANGE MASTER TO` 命令：
 
-> 在主库中执行 `SHOW MASTER STATUS` ，结果中的 File 与 Position 的值，就是 master_log_file 与 master_log_pos 的值
+> 在主库中执行 `SHOW MASTER STATUS` 或 `SHOW BINARY LOG STATUS`，结果中的 File 与 Position 的值，就是 master_log_file 与 master_log_pos 的值
 
 ```sql
 CHANGE MASTER TO 
