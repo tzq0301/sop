@@ -81,11 +81,22 @@ mkdir -p
 hostnamectl
 ```
 
-## 获取内存大小（纯数字）
+## 查看 CPU 核数
 
 ```bash
-cat /proc/meminfo | grep MemTotal | awk '{print $2}'
-# 16152104 即为 16G
+lscpu | grep '^CPU(s)' | awk '{print $2}'
+```
+
+## 查看内存大小
+
+```bash
+cat /proc/meminfo | grep MemTotal | awk '{print $2}'  # 16152104 即为 16G
+```
+
+## 查看硬盘空间
+
+```bash
+df --total -h | grep -e total -e Filesystem
 ```
 
 ## 强制 apt install 不下载其“推荐”的软件包，以减少软件包的下载与安装
