@@ -1,5 +1,18 @@
 # MySQL
 
+## 命令行 cli 连接 MySQL Server
+
+```bash
+# 在命令行里写明文密码是不安全的，例如 mysql -h$Host -u$Username -p$Password 会报 [Warning] Using a password on the command line interface can be insecure.
+# 
+# 安全的方法（选其一即可）：
+# * 使用 mysql_config_editor 将身份凭证存储在 .mylogin.cnf 加密登录路径文件中，参考 https://dev.mysql.com/doc/refman/8.0/en/mysql-config-editor.html
+# * 在命令行里使用 -p 或 --password 选项，让客户端程序提示输入密码
+# * 在 ~/.my.cnf 文件中配置明文密码，详细参考 https://dev.mysql.com/doc/refman/8.0/en/password-security-user.html#:~:text=%5Bclient%5D%0Apassword%3Dpassword
+# 
+MYSQL_PWD=$Password mysql -h$Host -u$Username  # 正确的方式是将 MYSQL_PWD 环境变量在其他地方进行设置
+```
+
 ## 命令行 cli 执行 MySQL 命令（不进入交互模式）
 
 ```bash
