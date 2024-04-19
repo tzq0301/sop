@@ -1,5 +1,19 @@
 # ssh
 
+## ssh 执行脚本
+
+```bash
+ssh $Username@$IP 'bash' < $SHELL_FILEPATH
+
+# -s 后面可以跟 Shell 文件所需要的参数
+ssh $Username@$IP 'bash -s 1 2 abc' < $SHELL_FILEPATH
+
+ssh $Username@$IP 'bash' <<EOF
+echo 1
+echo 2
+EOF
+```
+
 ## 生成 ssh 密钥
 
 所有交互都直接按回车的话，会生成（1）公钥文件 ~/.ssh/id_rsa.pub（2）私钥文件 ~/.ssh/id_rsa
