@@ -69,6 +69,12 @@ tr ' ' '\n'
 ls -a | tee output
 ```
 
+## 去掉第一行
+
+```bash
+tail -n +2 "$FILE"
+```
+
 ## mkdir 父目录不存在就自动创建
 
 ```bash
