@@ -278,6 +278,17 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="ssh">ssh</h1>
+<h2 id="ssh-&#x6267;&#x884C;&#x811A;&#x672C;">ssh &#x6267;&#x884C;&#x811A;&#x672C;</h2>
+<pre><code class="lang-bash">ssh <span class="hljs-variable">$Username</span>@<span class="hljs-variable">$IP</span> <span class="hljs-string">&apos;bash&apos;</span> &lt; <span class="hljs-variable">$SHELL_FILEPATH</span>
+
+<span class="hljs-comment"># -s &#x540E;&#x9762;&#x53EF;&#x4EE5;&#x8DDF; Shell &#x6587;&#x4EF6;&#x6240;&#x9700;&#x8981;&#x7684;&#x53C2;&#x6570;</span>
+ssh <span class="hljs-variable">$Username</span>@<span class="hljs-variable">$IP</span> <span class="hljs-string">&apos;bash -s 1 2 abc&apos;</span> &lt; <span class="hljs-variable">$SHELL_FILEPATH</span>
+
+ssh <span class="hljs-variable">$Username</span>@<span class="hljs-variable">$IP</span> <span class="hljs-string">&apos;bash&apos;</span> &lt;&lt;EOF
+<span class="hljs-built_in">echo</span> 1
+<span class="hljs-built_in">echo</span> 2
+EOF
+</code></pre>
 <h2 id="&#x751F;&#x6210;-ssh-&#x5BC6;&#x94A5;">&#x751F;&#x6210; ssh &#x5BC6;&#x94A5;</h2>
 <p>&#x6240;&#x6709;&#x4EA4;&#x4E92;&#x90FD;&#x76F4;&#x63A5;&#x6309;&#x56DE;&#x8F66;&#x7684;&#x8BDD;&#xFF0C;&#x4F1A;&#x751F;&#x6210;&#xFF08;1&#xFF09;&#x516C;&#x94A5;&#x6587;&#x4EF6; ~/.ssh/id_rsa.pub&#xFF08;2&#xFF09;&#x79C1;&#x94A5;&#x6587;&#x4EF6; ~/.ssh/id_rsa</p>
 <pre><code class="lang-bash">ssh-keygen
@@ -367,7 +378,7 @@ Host key verification failed.
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"ssh","level":"1.10","depth":1,"next":{"title":"Vim","level":"1.11","depth":1,"path":"docs/vim.md","ref":"docs/vim.md","articles":[]},"previous":{"title":"Shell","level":"1.9","depth":1,"path":"docs/shell.md","ref":"docs/shell.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/ssh.md","mtime":"2024-04-18T10:59:21.006Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-04-18T10:59:49.502Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"ssh","level":"1.10","depth":1,"next":{"title":"Vim","level":"1.11","depth":1,"path":"docs/vim.md","ref":"docs/vim.md","articles":[]},"previous":{"title":"Shell","level":"1.9","depth":1,"path":"docs/shell.md","ref":"docs/shell.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/ssh.md","mtime":"2024-04-19T07:04:07.873Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-04-19T07:04:34.995Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
