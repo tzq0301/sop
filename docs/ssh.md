@@ -29,7 +29,7 @@ Username= && Password= && IP=
 sshpass -p $Password ssh $Username@$IP
 ```
 
-## 实现免密登录 — 将自己的 ssh 公钥 copy 到服务器上
+## 实现免密登录 - 将自己的 ssh 公钥 copy 到服务器上
 
 将本机的 ~/.ssh/id_rsa.pub 公钥追加到远程服务器的 ~/.ssh/authorized_keys
 

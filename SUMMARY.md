@@ -9,3 +9,4 @@
 * [Shell](docs/shell.md)
 * [ssh](docs/ssh.md)
 * [Vim](docs/vim.md)
+* [正则表达式](docs/regexp.md)
