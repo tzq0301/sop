@@ -54,6 +54,37 @@ grep -B 10       '123' app.log # 前 10 行（Before）
 grep -n
 ```
 
+## sed 获取指定行
+
+```bash
+# -n 静默模式，防止输出文件全部内容
+
+sed -n '3p'     # 获取第 3 行
+sed -n '2p;5p'  # 获取第 2 行和第 5 行
+sed -n '2,5p'   # 获取第 2 ~ 5 行
+sed -n '2,$p'   # 获取第 2 ~ 最后一行
+sed -n '1~3p'   # 从第 1 行开始获取，step 为 3
+                # seq 20 | sed -n '1~3p' | tr '\n' ' ' 的输出结果是 1 4 7 10 13 16 19
+
+sed -n '/pattern/p'      # 获取与 pattern 相匹配的所有行
+sed -n '/2017/,/2024/p'  # 范围获取“最先的包含字符串 2017 的行”到“最后的包含字符串 2024 的行”
+```
+
+## sed 替换内容
+
+```bash
+# s -> substitute
+# g -> global
+sed 's/C++/CPP/g'  # 将 C++ 替换为 CPP 后的内容输出到标准输出
+sed 's#C++#CPP#g'
+sed 's@C++@CPP@g'
+sed 's|C++|CPP|g'
+   
+sed -i 's/C++/CPP/g'  # 原地更新，将文件中的 C++ 替换为 CPP，-i <=> --in-place
+
+sed -i.bak 's/C++/CPP/g' $FILENAME  # 将文件 $FILENAME 拷贝一份为 $FILENAME.bak，再对文件 $FILENAME 进行原地更新
+```
+
 ## sed “扩展正则”匹配
 
 ```bash
