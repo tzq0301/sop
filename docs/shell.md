@@ -11,14 +11,18 @@
 ```bash
 ~ ls -lSh # 根据文件大小排序
 total 81M
--rw-r--r--  1 minibase minibase  81M Mar 27 10:32 minibase-titan-2.16.0.tar.gz
-drwxr-xr-x  3 minibase minibase 4.0K Mar 27 11:17 MiniBase
-drwxr-xr-x  3 minibase minibase 4.0K Mar 27 11:17 pyenv
-drwxrwxr-x  9 minibase minibase 4.0K Mar 27 18:12 rke-tools
-drwxr-xr-x 17 minibase minibase 4.0K Mar 27 16:27 titan
--rw-------  1 minibase minibase  513 Mar 27 11:15 Deploy.key
--rw-rw-r--  1 minibase minibase  393 Mar 28 14:09 mysql-validate.yaml
--rw-r--r--  1 minibase minibase  183 Mar 27 11:15 Deploy.key.pub
+total 52K
+-rw-rw-rw- 1 codespace codespace 4.8K Apr 20 14:21 shell.md
+-rw-rw-rw- 1 codespace codespace 4.4K Apr 18 03:26 nginx.md
+-rw-rw-rw- 1 codespace codespace 4.0K Apr 19 06:53 mysql.md
+-rw-rw-rw- 1 codespace codespace 2.2K Apr 20 09:40 ssh.md
+-rw-rw-rw- 1 codespace codespace 2.0K Apr 18 05:10 docker.md
+-rw-rw-rw- 1 codespace codespace 1.3K Apr 20 10:47 regexp.md
+-rw-rw-rw- 1 codespace codespace  862 Apr 18 04:51 git.md
+-rw-rw-rw- 1 codespace codespace  772 Apr 18 05:26 earlyoom.md
+-rw-rw-rw- 1 codespace codespace  661 Apr 18 04:23 cpp.md
+-rw-rw-rw- 1 codespace codespace  201 Apr 18 05:00 javascript.md
+-rw-rw-rw- 1 codespace codespace  166 Apr 18 02:56 vim.md
 ```
 
 ## grep 正则匹配
@@ -89,6 +93,41 @@ sed -i.bak 's/C++/CPP/g' $FILENAME  # 将文件 $FILENAME 拷贝一份为 $FILEN
 
 ```bash
 sed -r pattern
+```
+
+## awk
+
+```bash
+# awk 选项 '条件{动作}'
+# * NR (Number of Record) 行号
+# * NF（Number of Field）每行有多少列，因此 $NF 可以表示最后一列
+# * $0 表示“整行”
+
+awk 'NR==1'               # 取第一行
+awk 'NR==1{print $0}'     # 取第一行
+awk 'NR >= 2 && NR <= 5'  # 取第二行到第五行
+awk '/ssh|shell/'         # 取所有包含 ssh 或 shell 的行
+awk '/mysql/,/shell/'     # 取从“包含 mysql 的第一行”到“包含 shell 的最后一行”范围内的所有行 
+
+awk '{print $5, $(NF-1), $NF}'  # 打印第 5 列、倒数第二列、倒数第一列
+
+awk '$1 ~ /system/'   # 输出第一列包含 system 的所有行
+awk '$1 !~ /system/'  # 输出第一列不包含 system 的所有行
+
+awk -F ':' '{print $1}'  # 指定分隔符
+
+free | awk '/Swap/ && $3 == 0{print "异常系统开始占用 swap"}'      # 如果 Swap 行的第三列的值大于 0，则打印信息
+cat /etc/passwd | awk -F ':' '$4 ~ /^[01]/ {print $1, $3, $4}'  # 过滤出 /etc/passwd 第 4 列以 0 或 1 开头的所有行，并输出第 1、3、4 列
+
+seq 10 | awk -F ':' '{i=i+1}; END{print i}'   # 统计行数，并在最后打印
+seq 10 | awk -F ':' '{i=i+$1}; END{print i}'  # 计算第一列的总和
+```
+
+## column 对齐每一列
+
+```bash
+column -t         # 制表
+column -t -s ','  # 指定分隔符来制表
 ```
 
 ## tr 替换 space 为换行符
