@@ -21,24 +21,15 @@ drwxr-xr-x 17 minibase minibase 4.0K Mar 27 16:27 titan
 -rw-r--r--  1 minibase minibase  183 Mar 27 11:15 Deploy.key.pub
 ```
 
-## grep “或”匹配
+## grep 正则匹配
 
 ```bash
-$ cat demo.txt | grep a
-bar
-```
+grep -e pattern
+grep -E pattern  # -E 表示“扩展正则”
+grep -P pattern  # -P 表示“Perl 正则”
 
-```bash
-$ cat demo.txt | grep w
-world
-wow
-```
-
-```bash
-$ cat demo.txt | grep -E 'a|w' # OR 或
-bar
-world
-wow
+# 例如 OR 或匹配
+grep -E 'a|w' 
 ```
 
 ## grep “排除”匹配模式
@@ -57,6 +48,18 @@ grep -A 10       '123' app.log # 后 10 行（After）
 grep -B 10       '123' app.log # 前 10 行（Before）
 ```
 
+## grep 显示行号
+
+```bash
+grep -n
+```
+
+## sed “扩展正则”匹配
+
+```bash
+sed -r pattern
+```
+
 ## tr 替换 space 为换行符
 
 ```bash
@@ -69,10 +72,16 @@ tr ' ' '\n'
 ls -a | tee output
 ```
 
-## 去掉第一行
+## tail 去掉第一行
 
 ```bash
 tail -n +2 "$FILE"
+```
+
+## wc 统计行数
+
+```bash
+wc -l
 ```
 
 ## mkdir 父目录不存在就自动创建
