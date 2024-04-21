@@ -6,10 +6,12 @@
 docker run --rm $(docker build . -q)
 ```
 
-## 删除空悬镜像
+## busybox - Linux 瑞士军刀
+
+集成了数百个 Linux 命令（例如 curl、grep、mount、telnet 等）的精简工具箱，只有几兆大小，可以用来做调试来查找生产环境中遇到的问题
 
 ```bash
-docker image prune
+docker pull busybox
 ```
 
 ## 快速启动 MySQL 实例
@@ -33,6 +35,9 @@ newgrp docker  # or logout and log back to make sure that your group membership 
 ```bash
 docker save -o helloworld.tar nju/hello-world:1.0.0
 docker load -i helloworld.tar
+
+docker export busybox > busybox.tar
+docker import busybox.tar busybox:test
 ```
 
 ## buildx 构建多架构镜像
@@ -43,6 +48,12 @@ docker buildx build \
   -t YOUR_IMAGENAME:YOUT_IMAGE_TAG \
   --push \ # 构建完就 push（如果只想 build、不想 push，就去掉 --push）
   . # Dockerfile 所在的文件夹
+```
+
+## 删除空悬镜像
+
+```bash
+docker image prune
 ```
 
 ## 分析镜像
