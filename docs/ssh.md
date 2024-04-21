@@ -38,13 +38,6 @@ Username= && Password= && IP=
 sshpass -p $Password ssh-copy-id $Username@$IP
 ```
 
-## 实现 sudo 免密提权
-
-```bash
-UserName=
-echo "$UserName ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
-```
-
 ## ssh 登录时，不检查 host
 
 场景：
