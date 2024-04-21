@@ -294,8 +294,9 @@
 <h2 id="build--run">build &amp; run</h2>
 <pre><code class="lang-bash">docker run --rm $(docker build . -q)
 </code></pre>
-<h2 id="&#x5220;&#x9664;&#x7A7A;&#x60AC;&#x955C;&#x50CF;">&#x5220;&#x9664;&#x7A7A;&#x60AC;&#x955C;&#x50CF;</h2>
-<pre><code class="lang-bash">docker image prune
+<h2 id="busybox---linux-&#x745E;&#x58EB;&#x519B;&#x5200;">busybox - Linux &#x745E;&#x58EB;&#x519B;&#x5200;</h2>
+<p>&#x96C6;&#x6210;&#x4E86;&#x6570;&#x767E;&#x4E2A; Linux &#x547D;&#x4EE4;&#xFF08;&#x4F8B;&#x5982; curl&#x3001;grep&#x3001;mount&#x3001;telnet &#x7B49;&#xFF09;&#x7684;&#x7CBE;&#x7B80;&#x5DE5;&#x5177;&#x7BB1;&#xFF0C;&#x53EA;&#x6709;&#x51E0;&#x5146;&#x5927;&#x5C0F;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x505A;&#x8C03;&#x8BD5;&#x6765;&#x67E5;&#x627E;&#x751F;&#x4EA7;&#x73AF;&#x5883;&#x4E2D;&#x9047;&#x5230;&#x7684;&#x95EE;&#x9898;</p>
+<pre><code class="lang-bash">docker pull busybox
 </code></pre>
 <h2 id="&#x5FEB;&#x901F;&#x542F;&#x52A8;-mysql-&#x5B9E;&#x4F8B;">&#x5FEB;&#x901F;&#x542F;&#x52A8; MySQL &#x5B9E;&#x4F8B;</h2>
 <pre><code class="lang-bash">docker run -p 3306:3306 --name mysql <span class="hljs-_">-e</span> MYSQL_ALLOW_EMPTY_PASSWORD=yes <span class="hljs-_">-d</span> mysql
@@ -311,6 +312,9 @@ newgrp docker  <span class="hljs-comment"># or logout and log back to make sure 
 <h2 id="docker-&#x5BFC;&#x51FA;&#x52A0;&#x8F7D;&#x955C;&#x50CF;">Docker &#x5BFC;&#x51FA;/&#x52A0;&#x8F7D;&#x955C;&#x50CF;</h2>
 <pre><code class="lang-bash">docker save -o helloworld.tar nju/hello-world:1.0.0
 docker load -i helloworld.tar
+
+docker <span class="hljs-built_in">export</span> busybox &gt; busybox.tar
+docker import busybox.tar busybox:<span class="hljs-built_in">test</span>
 </code></pre>
 <h2 id="buildx-&#x6784;&#x5EFA;&#x591A;&#x67B6;&#x6784;&#x955C;&#x50CF;">buildx &#x6784;&#x5EFA;&#x591A;&#x67B6;&#x6784;&#x955C;&#x50CF;</h2>
 <pre><code class="lang-bash">docker buildx build \
@@ -318,6 +322,9 @@ docker load -i helloworld.tar
   -t YOUR_IMAGENAME:YOUT_IMAGE_TAG \
   --push \ <span class="hljs-comment"># &#x6784;&#x5EFA;&#x5B8C;&#x5C31; push&#xFF08;&#x5982;&#x679C;&#x53EA;&#x60F3; build&#x3001;&#x4E0D;&#x60F3; push&#xFF0C;&#x5C31;&#x53BB;&#x6389; --push&#xFF09;</span>
   . <span class="hljs-comment"># Dockerfile &#x6240;&#x5728;&#x7684;&#x6587;&#x4EF6;&#x5939;</span>
+</code></pre>
+<h2 id="&#x5220;&#x9664;&#x7A7A;&#x60AC;&#x955C;&#x50CF;">&#x5220;&#x9664;&#x7A7A;&#x60AC;&#x955C;&#x50CF;</h2>
+<pre><code class="lang-bash">docker image prune
 </code></pre>
 <h2 id="&#x5206;&#x6790;&#x955C;&#x50CF;">&#x5206;&#x6790;&#x955C;&#x50CF;</h2>
 <p><a href="https://github.com/wagoodman/dive" target="_blank">dive</a></p>
@@ -403,7 +410,7 @@ ENTRYPOINT [<span class="hljs-string">&quot;/main&quot;</span>]
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Docker","level":"1.3","depth":1,"next":{"title":"earlyoom","level":"1.4","depth":1,"path":"docs/earlyoom.md","ref":"docs/earlyoom.md","articles":[]},"previous":{"title":"C++","level":"1.2","depth":1,"path":"docs/cpp.md","ref":"docs/cpp.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/docker.md","mtime":"2024-04-20T15:22:11.577Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-04-20T15:22:41.125Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Docker","level":"1.3","depth":1,"next":{"title":"earlyoom","level":"1.4","depth":1,"path":"docs/earlyoom.md","ref":"docs/earlyoom.md","articles":[]},"previous":{"title":"C++","level":"1.2","depth":1,"path":"docs/cpp.md","ref":"docs/cpp.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/docker.md","mtime":"2024-04-21T04:11:14.164Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-04-21T04:11:41.771Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
