@@ -240,3 +240,10 @@ set -x  # 启用跟踪模式，即 shell 会在执行每个命令之前将该命
 set -e  # 设置错误退出模式，当任何命令返回非零退出状态码时，shell 将会立即终止执行，并退出脚本
 set -u  # 启用参数检查，如果尝试使用一个未定义的变量，shell 将会引发错误并终止脚本的执行
 ```
+
+## 实现 sudo 免密提权
+
+```bash
+UserName=
+echo "$UserName ALL=(ALL) NOPASSWD:ALL" | sudo tee -a /etc/sudoers > /dev/null
+```
