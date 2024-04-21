@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>earlyoom · GitBook</title>
+        <title>systemd · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="git.html" />
+    <link rel="next" href="vim.html" />
     
     
-    <link rel="prev" href="docker.html" />
+    <link rel="prev" href="ssh.html" />
     
 
     </head>
@@ -102,7 +102,20 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2" data-path="cpp.html">
+        <li class="chapter " data-level="1.2" data-path="ansible.html">
+            
+                <a href="ansible.html">
+            
+                    
+                    Ansible
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="cpp.html">
             
                 <a href="cpp.html">
             
@@ -115,25 +128,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3" data-path="docker.html">
+        <li class="chapter " data-level="1.4" data-path="docker.html">
             
                 <a href="docker.html">
             
                     
                     Docker
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter active" data-level="1.4" data-path="earlyoom.html">
-            
-                <a href="earlyoom.html">
-            
-                    
-                    earlyoom
             
                 </a>
             
@@ -219,7 +219,20 @@
             
         </li>
     
-        <li class="chapter " data-level="1.11" data-path="vim.html">
+        <li class="chapter active" data-level="1.11" data-path="systemd.html">
+            
+                <a href="systemd.html">
+            
+                    
+                    systemd
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="vim.html">
             
                 <a href="vim.html">
             
@@ -232,7 +245,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.12" data-path="regexp.html">
+        <li class="chapter " data-level="1.13" data-path="regexp.html">
             
                 <a href="regexp.html">
             
@@ -275,7 +288,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >earlyoom</a>
+        <a href=".." >systemd</a>
     </h1>
 </div>
 
@@ -290,14 +303,15 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="earlyoom">earlyoom</h1>
+                                <h1 id="systemd">systemd</h1>
+<h2 id="earlyoom">earlyoom</h2>
 <p><a href="https://github.com/rfjakob/earlyoom" target="_blank">earlyoom</a> &#x6BCF;&#x79D2;&#x6700;&#x591A;&#x68C0;&#x67E5; 10 &#x6B21;&#x53EF;&#x7528;&#x5185;&#x5B58;&#x548C;&#x53EF;&#x7528;&#x4EA4;&#x6362;&#x7A7A;&#x95F4;&#xFF08;&#x5982;&#x679C;&#x6709;&#x5927;&#x91CF;&#x53EF;&#x7528;&#x5185;&#x5B58;&#xFF0C;&#x5219;&#x9891;&#x7387;&#x4F1A;&#x964D;&#x4F4E;&#xFF09;</p>
 <p>&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5982;&#x679C;&#x4E24;&#x8005;&#x90FD;&#x4F4E;&#x4E8E; 10%&#xFF0C;&#x5B83;&#x5C06;&#x6740;&#x6B7B;&#x6700;&#x5927;&#x7684;&#x8FDB;&#x7A0B;&#xFF08;&#x6700;&#x9AD8; oom_score&#xFF09;&#xFF0C;&#x767E;&#x5206;&#x6BD4;&#x503C;&#x53EF;&#x901A;&#x8FC7;&#x547D;&#x4EE4;&#x884C;&#x53C2;&#x6570;&#x8FDB;&#x884C;&#x914D;&#x7F6E;</p>
 <p>&#x6CE8;&#x610F;&#xFF1A;&#x4EE5; non-root &#x8FD0;&#x884C;&#x7684; earlyoom &#x6CA1;&#x6CD5; kill &#x6389;&#x4EE5; root &#x8FD0;&#x884C;&#x7684;&#x8FDB;&#x7A0B;</p>
-<h2 id="&#x67E5;&#x770B;-earlyoom-&#x7684;-log">&#x67E5;&#x770B; earlyoom &#x7684; log</h2>
+<h3 id="&#x67E5;&#x770B;-earlyoom-&#x7684;-log">&#x67E5;&#x770B; earlyoom &#x7684; log</h3>
 <pre><code class="lang-bash">sudo journalctl -u earlyoom | grep -iE <span class="hljs-string">&quot;(sending|killing)&quot;</span>
 </code></pre>
-<h2 id="&#x914D;&#x7F6E;&#x6587;&#x4EF6;">&#x914D;&#x7F6E;&#x6587;&#x4EF6;</h2>
+<h3 id="&#x914D;&#x7F6E;&#x6587;&#x4EF6;">&#x914D;&#x7F6E;&#x6587;&#x4EF6;</h3>
 <p>&#x9ED8;&#x8BA4;&#x4F4D;&#x7F6E;&#x4E3A; /etc/default/earlyoom&#xFF0C;&#x53C2;&#x6570;&#x53C2;&#x8003; <a href="https://github.com/rfjakob/earlyoom?tab=readme-ov-file#command-line-options" target="_blank">Command Line Options</a>&#xFF0C;&#x82E5;&#x4FEE;&#x6539;&#x4E86;&#x8BE5;&#x6587;&#x4EF6;&#xFF0C;&#x9700;&#x8981;&#x91CD;&#x542F; earlyoom &#x670D;&#x52A1;&#xFF1A;</p>
 <pre><code class="lang-bash">systemctl restart earlyoom
 </code></pre>
@@ -328,12 +342,12 @@
 
             
                 
-                <a href="docker.html" class="navigation navigation-prev " aria-label="Previous page: Docker">
+                <a href="ssh.html" class="navigation navigation-prev " aria-label="Previous page: ssh">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="git.html" class="navigation navigation-next " aria-label="Next page: Git">
+                <a href="vim.html" class="navigation navigation-next " aria-label="Next page: Vim">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -344,7 +358,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"earlyoom","level":"1.4","depth":1,"next":{"title":"Git","level":"1.5","depth":1,"path":"docs/git.md","ref":"docs/git.md","articles":[]},"previous":{"title":"Docker","level":"1.3","depth":1,"path":"docs/docker.md","ref":"docs/docker.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/earlyoom.md","mtime":"2024-04-21T04:11:14.164Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-04-21T04:11:41.771Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"systemd","level":"1.11","depth":1,"next":{"title":"Vim","level":"1.12","depth":1,"path":"docs/vim.md","ref":"docs/vim.md","articles":[]},"previous":{"title":"ssh","level":"1.10","depth":1,"path":"docs/ssh.md","ref":"docs/ssh.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/systemd.md","mtime":"2024-04-21T07:53:42.240Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-04-21T07:54:09.509Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
