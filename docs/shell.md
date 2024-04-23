@@ -206,6 +206,15 @@ df --total -h | grep -e total -e Filesystem
 sudo apt install --no-install-recommends ...
 ```
 
+## 输入输出重定向
+
+Shell 中，总有三个文件处于打开状态 —— 标准输入（键盘输入）、标准输出（输出到屏幕）、标准错误（输出到屏幕），分别对应的文件描述符（file description）为 0、1、2
+
+* `>` 等价于 `1>`，即为“标准输出”重定向
+* `2>&1` 把“标准错误”重定向到“标准输出”
+* `&> file` 将“标准输出”和“标准错误”都重定向到文件 file 中
+* `/dev/null` 是一个特殊文件，所有重定向到该文件的内容都会被丢弃掉，即当不想看到“输出”时可以使用 `> /dev/null` 或 `&> /dev/null`
+
 ## 清空一个文件的内容
 
 ```bash
