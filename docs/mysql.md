@@ -40,13 +40,17 @@ SELECT @@GLOBAL.max_user_connections;  -- 单个用户可以同时建立的连�
 
 ## 慢查询日志
 
-若开启了慢查询日志，需要注意慢查询日志文件的定期备份与清理，避免浪费磁盘空间
-
 ```sql
 SELECT @@GLOBAL.slow_query_log;                 -- 启用或禁用慢查询日志功能（有效值：ON/1、OFF/0）
 SELECT @@GLOBAL.slow_query_log_file;            -- 慢查询日志文件存储位置
 SELECT @@GLOBAL.long_query_time;                -- 设置慢查询的阈值时间（单位：秒）
 SELECT @@GLOBAL.log_queries_not_using_indexes;  -- 是否记录那些未使用索引的查询语句到慢查询日志中（有效值：ON/1、OFF/0）
+```
+
+若开启了慢查询日志，需要注意慢查询日志文件的定期备份与清理，避免浪费磁盘空间
+
+```bash
+cat /dev/null > $SLOW_QUERY_LOG_FILE
 ```
 
 ## 查看 innodb_buffer_pool_size 内存大小
