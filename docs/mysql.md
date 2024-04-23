@@ -31,10 +31,20 @@ SELECT @@server_id;
 mysql -e "SHOW PROCESSLIST;" | tail -n +2 | wc -l
 ```
 
-## 查看是否开启了慢查询日志 & 查看慢查询日志的文件位置
+## 最大连接数
 
 ```sql
-SHOW VARIABLES LIKE '%slow_query_log%';
+SELECT @@GLOBAL.max_connections;       -- 服务器上同时存在的最大连接数
+SELECT @@GLOBAL.max_user_connections;  -- 单个用户可以同时建立的连接数
+```
+
+## 慢查询日志
+
+```sql
+SELECT @@GLOBAL.slow_query_log;                 -- 启用或禁用慢查询日志功能（有效值：ON/1、OFF/0）
+SELECT @@GLOBAL.slow_query_log_file;            -- 慢查询日志文件存储位置
+SELECT @@GLOBAL.long_query_time;                -- 设置慢查询的阈值时间（单位：秒）
+SELECT @@GLOBAL.log_queries_not_using_indexes;  -- 是否记录那些未使用索引的查询语句到慢查询日志中（有效值：ON/1、OFF/0）
 ```
 
 ## 查看 innodb_buffer_pool_size 内存大小
