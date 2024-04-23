@@ -26,10 +26,10 @@ loginctl     # 查看当前登录的用户
 
 ## cron
 
-### 查看已有的 cron jobs
+### 查看已生效的 cron jobs
 
 ```bash
-crontab -t
+crontab -l
 ```
 
 ## earlyoom
