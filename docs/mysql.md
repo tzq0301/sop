@@ -40,6 +40,8 @@ SELECT @@GLOBAL.max_user_connections;  -- 单个用户可以同时建立的连�
 
 ## 慢查询日志
 
+若开启了慢查询日志，需要注意慢查询日志文件的定期备份与清理，避免浪费磁盘空间
+
 ```sql
 SELECT @@GLOBAL.slow_query_log;                 -- 启用或禁用慢查询日志功能（有效值：ON/1、OFF/0）
 SELECT @@GLOBAL.slow_query_log_file;            -- 慢查询日志文件存储位置
