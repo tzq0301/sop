@@ -439,6 +439,14 @@ tar xvf /mnt/gentoo/portage-latest.tar.gz -C /mnt/gentoo/usr
 <h2 id="&#x67E5;&#x770B;&#x786C;&#x76D8;&#x7A7A;&#x95F4;">&#x67E5;&#x770B;&#x786C;&#x76D8;&#x7A7A;&#x95F4;</h2>
 <pre><code class="lang-bash">df --total -h | grep <span class="hljs-_">-e</span> total <span class="hljs-_">-e</span> Filesystem
 </code></pre>
+<h2 id="top">top</h2>
+<ul>
+<li><code>id</code> - Time spent in idle operations</li>
+<li><code>wa</code> - Time spent on waiting on IO peripherals (eg. disk)<ul>
+<li>&#x4F8B;&#x5982;&#xFF1A;&#x82E5; MySQL &#x670D;&#x52A1;&#x5668;&#x4E0A; top &#x7684; <code>wa</code> &#x503C;&#x8F83;&#x9AD8;&#xFF0C;&#x8BF4;&#x660E; I/O &#x538B;&#x529B;&#x6BD4;&#x8F83;&#x5927;&#xFF0C;&#x6392;&#x67E5;&#x6162;&#x67E5;&#x8BE2;&#x7B49;</li>
+</ul>
+</li>
+</ul>
 <h2 id="&#x5F3A;&#x5236;-apt-install-&#x4E0D;&#x4E0B;&#x8F7D;&#x5176;&#x63A8;&#x8350;&#x7684;&#x8F6F;&#x4EF6;&#x5305;&#xFF0C;&#x4EE5;&#x51CF;&#x5C11;&#x8F6F;&#x4EF6;&#x5305;&#x7684;&#x4E0B;&#x8F7D;&#x4E0E;&#x5B89;&#x88C5;">&#x5F3A;&#x5236; apt install &#x4E0D;&#x4E0B;&#x8F7D;&#x5176;&#x201C;&#x63A8;&#x8350;&#x201D;&#x7684;&#x8F6F;&#x4EF6;&#x5305;&#xFF0C;&#x4EE5;&#x51CF;&#x5C11;&#x8F6F;&#x4EF6;&#x5305;&#x7684;&#x4E0B;&#x8F7D;&#x4E0E;&#x5B89;&#x88C5;</h2>
 <pre><code class="lang-bash">sudo apt install --no-install-recommends ...
 </code></pre>
@@ -517,7 +525,7 @@ EOF
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Shell","level":"1.9","depth":1,"next":{"title":"ssh","level":"1.10","depth":1,"path":"docs/ssh.md","ref":"docs/ssh.md","articles":[]},"previous":{"title":"Nginx","level":"1.8","depth":1,"path":"docs/nginx.md","ref":"docs/nginx.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/shell.md","mtime":"2024-04-22T14:16:10.181Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-04-22T14:16:38.753Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Shell","level":"1.9","depth":1,"next":{"title":"ssh","level":"1.10","depth":1,"path":"docs/ssh.md","ref":"docs/ssh.md","articles":[]},"previous":{"title":"Nginx","level":"1.8","depth":1,"path":"docs/nginx.md","ref":"docs/nginx.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/shell.md","mtime":"2024-04-23T03:10:27.644Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-04-23T03:10:55.876Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
