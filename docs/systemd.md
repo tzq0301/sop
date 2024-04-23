@@ -24,6 +24,14 @@ timedatectl  # 查看当前时区设置
 loginctl     # 查看当前登录的用户
 ```
 
+## cron
+
+### 查看已有的 cron jobs
+
+```bash
+crontab -t
+```
+
 ## earlyoom
 
 [earlyoom](https://github.com/rfjakob/earlyoom) 每秒最多检查 10 次可用内存和可用交换空间（如果有大量可用内存，则频率会降低）
