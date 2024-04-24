@@ -1,5 +1,7 @@
 # Shell
 
+* [Bash 脚本教程 - WangDoc](https://wangdoc.com/bash/)
+
 ## ls
 
 * **-l 使用 long listing format**
@@ -163,10 +165,10 @@ mkdir -p
 ## tar 解压
 
 ```bash
-# x -> 解压
-# v -> verbose 输出日志
-# f -> 指定文件
-# C -> 解压到目标文件夹，并 cd 到目标文件夹
+# x  -> 解压
+# v  -> verbose 输出日志
+# f  -> 指定文件
+# -C -> 解压到目标文件夹，并 cd 到目标文件夹
 tar xvf /mnt/gentoo/portage-latest.tar.gz -C /mnt/gentoo/usr
 ```
 
@@ -236,6 +238,37 @@ bar
 EOF
 ```
 
+## Shell 脚本设置执行模式
+
+```bash
+set -x           # 启用跟踪模式，即 shell 会在执行每个命令之前将该命令打印出来，然后再执行它
+set -e           # 设置错误退出模式，当任何命令返回非零退出状态码时，shell 将会立即终止执行，并退出脚本
+set -u           # 启用参数检查，如果尝试使用一个未定义的变量，shell 将会引发错误并终止脚本的执行
+set -o pipefail  # 当管道中的某个命令失败时，终止整个管道的执行
+```
+
+## Bash 环境变量
+
+* `HOME`：用户的主目录
+* `HOST`：当前主机的名称
+* `PWD`：当前工作目录
+* `RANDOM`：返回一个 0 到 32767 之间的随机数
+* `SHELL`：Shell 的名字
+* `UID`：当前用户的 ID 编号
+* `USER`：当前用户的用户名
+* `$?`：上一个命令的退出码，用来判断上一个命令是否执行成功（返回值是 0，表示上一个命令执行成功；如果不是 0，表示上一个命令执行失败）
+* `$$`：当前 Shell 的进程 ID，这个特殊变量可以用来命名临时文件，例如：`LOGFILE=/tmp/output_log.$$`
+* `$!`：最近一个后台执行的异步命令的进程 ID（用 `&` 执行的）
+* `$0`：当前 Shell 的名称（在命令行直接执行时）或者脚本名（在脚本中执行时）
+* `$#`：脚本的参数数量
+* `$@`：脚本的参数值
+* 设置默认值
+  * `${varname:-word}`：如果 `varname` 存在且不为空，则返回它的值；否则，返回我们指定的默认值 `word`
+  * `${varname:=word}`：如果 `varname` 存在且不为空，则返回它的值；否则，将 `varname` 设定为我们指定的默认值 `word`
+  * `${varname:+word}`：如果 `varname` 存在且不为空，则返回我们指定的默认值 `word`；否则，返回空值
+  * `${varname:?message}`：如果 `varname` 存在且不为空，则返回它的值；否则，打印 `message` 并中断脚本执行（用于防止变量未定义）
+* `readonly foo=1` 将 `foo` 设置为只读变量
+
 ## Shell 脚本中让用户输入 yes
 
 场景：让用户输入 yes 再执行下一步
@@ -248,13 +281,25 @@ if [ "$input" != "yes" ]; then
 fi
 ```
 
-## Shell 脚本设置执行模式
+## mktemp 创建临时文件
 
 ```bash
-set -x           # 启用跟踪模式，即 shell 会在执行每个命令之前将该命令打印出来，然后再执行它
-set -e           # 设置错误退出模式，当任何命令返回非零退出状态码时，shell 将会立即终止执行，并退出脚本
-set -u           # 启用参数检查，如果尝试使用一个未定义的变量，shell 将会引发错误并终止脚本的执行
-set -o pipefail  # 当管道中的某个命令失败时，终止整个管道的执行
+#!/bin/bash
+
+trap 'rm -f "$TMPFILE"' EXIT  # 保证脚本退出时临时文件被删除
+
+TMPFILE=$(mktemp) || exit 1   # 确保临时文件创建成功
+echo "Our temp file is $TMPFILE"
+```
+
+## 终端文本颜色
+
+参考 [How to change the output color of echo in Linux](https://stackoverflow.com/questions/5947742/how-to-change-the-output-color-of-echo-in-linux)
+
+```bash
+RED='\033[0;31m'
+NC='\033[0m' # No Color
+echo "I ${RED}love${NC} Stack Overflow\n"
 ```
 
 ## 实现 sudo 免密提权
