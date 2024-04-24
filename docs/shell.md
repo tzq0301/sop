@@ -165,7 +165,7 @@ mkdir -p
 ## tar 解压
 
 ```bash
-# x  -> 解压
+# x -> 解压
 # v  -> verbose 输出日志
 # f  -> 指定文件
 # -C -> 解压到目标文件夹，并 cd 到目标文件夹
@@ -302,9 +302,55 @@ NC='\033[0m' # No Color
 echo "I ${RED}love${NC} Stack Overflow\n"
 ```
 
+## Shell 要求 root 或 sudo 运行脚本
+
+```bash
+if [ `id -u` -ne 0 ]
+  then echo Please run this script as root or using sudo!
+  exit
+fi
+```
+
 ## 实现 sudo 免密提权
 
 ```bash
 UserName=
+echo "$UserName ALL=(ALL) NOPASSWD:ALL" | sudo tee -a /etc/sudoers > /dev/null
+```
+
+## 示例：创建用户（同名用户组、配置密码、免密提权）
+
+```bash
+#!/usr/bin/env bash
+
+set -xeuo pipefail
+
+# 需要以 root 运行，或者 sudo
+if [ `id -u` -ne 0 ]
+  then echo Please run this script as root or using sudo!
+  exit
+fi
+
+UserID=3001
+UserName=hello
+UserPwd=world
+
+# -m        创建用户的 home 目录，默认为 /home/$UserName
+# -s SHELL  指定用户的 login shell
+# -u UID    指定用户的 User ID
+# -U        创建用户组，默认创建于 UserName 同名的用户组
+useradd \
+  -m \
+  -s /bin/bash \
+  -u $UserID \
+  -U \
+  $UserName
+
+id $UserName
+
+# 配置密码
+echo "$UserName:$UserPwd" | chpasswd
+
+# 免密提权
 echo "$UserName ALL=(ALL) NOPASSWD:ALL" | sudo tee -a /etc/sudoers > /dev/null
 ```

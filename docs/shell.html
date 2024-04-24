@@ -424,7 +424,7 @@ column -t <span class="hljs-_">-s</span> <span class="hljs-string">&apos;,&apos;
 <pre><code class="lang-bash">mkdir -p
 </code></pre>
 <h2 id="tar-&#x89E3;&#x538B;">tar &#x89E3;&#x538B;</h2>
-<pre><code class="lang-bash"><span class="hljs-comment"># x  -&gt; &#x89E3;&#x538B;</span>
+<pre><code class="lang-bash"><span class="hljs-comment"># x -&gt; &#x89E3;&#x538B;</span>
 <span class="hljs-comment"># v  -&gt; verbose &#x8F93;&#x51FA;&#x65E5;&#x5FD7;</span>
 <span class="hljs-comment"># f  -&gt; &#x6307;&#x5B9A;&#x6587;&#x4EF6;</span>
 <span class="hljs-comment"># -C -&gt; &#x89E3;&#x538B;&#x5230;&#x76EE;&#x6807;&#x6587;&#x4EF6;&#x5939;&#xFF0C;&#x5E76; cd &#x5230;&#x76EE;&#x6807;&#x6587;&#x4EF6;&#x5939;</span>
@@ -528,8 +528,48 @@ TMPFILE=$(mktemp) || <span class="hljs-built_in">exit</span> 1   <span class="hl
 NC=<span class="hljs-string">&apos;\033[0m&apos;</span> <span class="hljs-comment"># No Color</span>
 <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;I <span class="hljs-variable">${RED}</span>love<span class="hljs-variable">${NC}</span> Stack Overflow\n&quot;</span>
 </code></pre>
+<h2 id="shell-&#x8981;&#x6C42;-root-&#x6216;-sudo-&#x8FD0;&#x884C;&#x811A;&#x672C;">Shell &#x8981;&#x6C42; root &#x6216; sudo &#x8FD0;&#x884C;&#x811A;&#x672C;</h2>
+<pre><code class="lang-bash"><span class="hljs-keyword">if</span> [ `id -u` <span class="hljs-_">-ne</span> 0 ]
+  <span class="hljs-keyword">then</span> <span class="hljs-built_in">echo</span> Please run this script as root or using sudo!
+  <span class="hljs-built_in">exit</span>
+<span class="hljs-keyword">fi</span>
+</code></pre>
 <h2 id="&#x5B9E;&#x73B0;-sudo-&#x514D;&#x5BC6;&#x63D0;&#x6743;">&#x5B9E;&#x73B0; sudo &#x514D;&#x5BC6;&#x63D0;&#x6743;</h2>
 <pre><code class="lang-bash">UserName=
+<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$UserName</span> ALL=(ALL) NOPASSWD:ALL&quot;</span> | sudo tee <span class="hljs-_">-a</span> /etc/sudoers &gt; /dev/null
+</code></pre>
+<h2 id="&#x793A;&#x4F8B;&#xFF1A;&#x521B;&#x5EFA;&#x7528;&#x6237;&#xFF08;&#x540C;&#x540D;&#x7528;&#x6237;&#x7EC4;&#x3001;&#x914D;&#x7F6E;&#x5BC6;&#x7801;&#x3001;&#x514D;&#x5BC6;&#x63D0;&#x6743;&#xFF09;">&#x793A;&#x4F8B;&#xFF1A;&#x521B;&#x5EFA;&#x7528;&#x6237;&#xFF08;&#x540C;&#x540D;&#x7528;&#x6237;&#x7EC4;&#x3001;&#x914D;&#x7F6E;&#x5BC6;&#x7801;&#x3001;&#x514D;&#x5BC6;&#x63D0;&#x6743;&#xFF09;</h2>
+<pre><code class="lang-bash"><span class="hljs-meta">#!/usr/bin/env bash
+</span>
+<span class="hljs-built_in">set</span> -xeuo pipefail
+
+<span class="hljs-comment"># &#x9700;&#x8981;&#x4EE5; root &#x8FD0;&#x884C;&#xFF0C;&#x6216;&#x8005; sudo</span>
+<span class="hljs-keyword">if</span> [ `id -u` <span class="hljs-_">-ne</span> 0 ]
+  <span class="hljs-keyword">then</span> <span class="hljs-built_in">echo</span> Please run this script as root or using sudo!
+  <span class="hljs-built_in">exit</span>
+<span class="hljs-keyword">fi</span>
+
+UserID=3001
+UserName=hello
+UserPwd=world
+
+<span class="hljs-comment"># -m        &#x521B;&#x5EFA;&#x7528;&#x6237;&#x7684; home &#x76EE;&#x5F55;&#xFF0C;&#x9ED8;&#x8BA4;&#x4E3A; /home/$UserName</span>
+<span class="hljs-comment"># -s SHELL  &#x6307;&#x5B9A;&#x7528;&#x6237;&#x7684; login shell</span>
+<span class="hljs-comment"># -u UID    &#x6307;&#x5B9A;&#x7528;&#x6237;&#x7684; User ID</span>
+<span class="hljs-comment"># -U        &#x521B;&#x5EFA;&#x7528;&#x6237;&#x7EC4;&#xFF0C;&#x9ED8;&#x8BA4;&#x521B;&#x5EFA;&#x4E8E; UserName &#x540C;&#x540D;&#x7684;&#x7528;&#x6237;&#x7EC4;</span>
+useradd \
+  -m \
+  <span class="hljs-_">-s</span> /bin/bash \
+  -u <span class="hljs-variable">$UserID</span> \
+  -U \
+  <span class="hljs-variable">$UserName</span>
+
+id <span class="hljs-variable">$UserName</span>
+
+<span class="hljs-comment"># &#x914D;&#x7F6E;&#x5BC6;&#x7801;</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$UserName</span>:<span class="hljs-variable">$UserPwd</span>&quot;</span> | chpasswd
+
+<span class="hljs-comment"># &#x514D;&#x5BC6;&#x63D0;&#x6743;</span>
 <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$UserName</span> ALL=(ALL) NOPASSWD:ALL&quot;</span> | sudo tee <span class="hljs-_">-a</span> /etc/sudoers &gt; /dev/null
 </code></pre>
 
@@ -575,7 +615,7 @@ NC=<span class="hljs-string">&apos;\033[0m&apos;</span> <span class="hljs-commen
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Shell","level":"1.9","depth":1,"next":{"title":"ssh","level":"1.10","depth":1,"path":"docs/ssh.md","ref":"docs/ssh.md","articles":[]},"previous":{"title":"Nginx","level":"1.8","depth":1,"path":"docs/nginx.md","ref":"docs/nginx.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/shell.md","mtime":"2024-04-24T05:42:16.395Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-04-24T05:42:44.434Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Shell","level":"1.9","depth":1,"next":{"title":"ssh","level":"1.10","depth":1,"path":"docs/ssh.md","ref":"docs/ssh.md","articles":[]},"previous":{"title":"Nginx","level":"1.8","depth":1,"path":"docs/nginx.md","ref":"docs/nginx.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/shell.md","mtime":"2024-04-24T06:01:14.324Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-04-24T06:01:44.198Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
