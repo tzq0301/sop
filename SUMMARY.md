@@ -7,6 +7,7 @@
 * [MySQL](docs/mysql.md)
 * [Nginx](docs/nginx.md)
 * [Shell](docs/shell.md)
+  * [创建用户、创建同名用户组、配置密码、配置免密提权](docs/shell-useradd.md)
 * [ssh](docs/ssh.md)
 * [systemd](docs/systemd.md)
 * [Vim](docs/vim.md)

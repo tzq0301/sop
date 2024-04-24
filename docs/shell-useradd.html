@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>C++ · GitBook</title>
+        <title>创建用户、创建同名用户组、配置密码、配置免密提权 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="docker.html" />
+    <link rel="next" href="ssh.html" />
     
     
-    <link rel="prev" href="ansible.html" />
+    <link rel="prev" href="shell.html" />
     
 
     </head>
@@ -115,7 +115,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.3" data-path="cpp.html">
+        <li class="chapter " data-level="1.3" data-path="cpp.html">
             
                 <a href="cpp.html">
             
@@ -207,7 +207,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.9.1" data-path="shell-useradd.html">
+        <li class="chapter active" data-level="1.9.1" data-path="shell-useradd.html">
             
                 <a href="shell-useradd.html">
             
@@ -307,7 +307,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >C++</a>
+        <a href=".." >创建用户、创建同名用户组、配置密码、配置免密提权</a>
     </h1>
 </div>
 
@@ -322,27 +322,39 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="c">C++</h1>
-<h2 id="cmake-&#x4F7F;&#x7528;-fetchcontent">CMake &#x4F7F;&#x7528; FetchContent</h2>
-<pre><code class="lang-cmake"><span class="hljs-keyword">cmake_minimum_required</span>(VERSION <span class="hljs-number">3.26</span>)
-<span class="hljs-keyword">project</span>(Learning_CMake)
+                                <h1 id="&#x521B;&#x5EFA;&#x7528;&#x6237;&#xFF08;&#x540C;&#x540D;&#x7528;&#x6237;&#x7EC4;&#x3001;&#x914D;&#x7F6E;&#x5BC6;&#x7801;&#x3001;&#x514D;&#x5BC6;&#x63D0;&#x6743;&#xFF09;">&#x521B;&#x5EFA;&#x7528;&#x6237;&#xFF08;&#x540C;&#x540D;&#x7528;&#x6237;&#x7EC4;&#x3001;&#x914D;&#x7F6E;&#x5BC6;&#x7801;&#x3001;&#x514D;&#x5BC6;&#x63D0;&#x6743;&#xFF09;</h1>
+<pre><code class="lang-bash"><span class="hljs-meta">#!/usr/bin/env bash
+</span>
+<span class="hljs-built_in">set</span> -xeuo pipefail
 
-<span class="hljs-keyword">set</span>(CMAKE_CXX_STANDARD <span class="hljs-number">23</span>)
+<span class="hljs-comment"># &#x9700;&#x8981;&#x4EE5; root &#x8FD0;&#x884C;&#xFF0C;&#x6216;&#x8005; sudo</span>
+<span class="hljs-keyword">if</span> [ `id -u` <span class="hljs-_">-ne</span> 0 ]
+  <span class="hljs-keyword">then</span> <span class="hljs-built_in">echo</span> Please run this script as root or using sudo!
+  <span class="hljs-built_in">exit</span>
+<span class="hljs-keyword">fi</span>
 
-<span class="hljs-keyword">include</span>(FetchContent)
+UserID=3001
+UserName=hello
+UserPwd=world
 
-FetchContent_Declare(fmt
-        GIT_REPOSITORY https://github.com/fmtlib/fmt.git)
-FetchContent_MakeAvailable(fmt)
+<span class="hljs-comment"># -m        &#x521B;&#x5EFA;&#x7528;&#x6237;&#x7684; home &#x76EE;&#x5F55;&#xFF0C;&#x9ED8;&#x8BA4;&#x4E3A; /home/$UserName</span>
+<span class="hljs-comment"># -s SHELL  &#x6307;&#x5B9A;&#x7528;&#x6237;&#x7684; login shell</span>
+<span class="hljs-comment"># -u UID    &#x6307;&#x5B9A;&#x7528;&#x6237;&#x7684; User ID</span>
+<span class="hljs-comment"># -U        &#x521B;&#x5EFA;&#x7528;&#x6237;&#x7EC4;&#xFF0C;&#x9ED8;&#x8BA4;&#x521B;&#x5EFA;&#x4E8E; UserName &#x540C;&#x540D;&#x7684;&#x7528;&#x6237;&#x7EC4;</span>
+useradd \
+  -m \
+  <span class="hljs-_">-s</span> /bin/bash \
+  -u <span class="hljs-variable">$UserID</span> \
+  -U \
+  <span class="hljs-variable">$UserName</span>
 
-FetchContent_Declare(Boost
-<span class="hljs-comment">#        GIT_REPOSITORY https://github.com/boostorg/boost.git</span>
-        URL https://github.com/boostorg/boost/releases/download/boost-<span class="hljs-number">1.83</span>.<span class="hljs-number">0</span>/boost-<span class="hljs-number">1.83</span>.<span class="hljs-number">0</span>.tar.xz
-        DOWNLOAD_EXTRACT_TIMESTAMP <span class="hljs-keyword">ON</span>)
-FetchContent_MakeAvailable(Boost)
+id <span class="hljs-variable">$UserName</span>
 
-<span class="hljs-keyword">add_executable</span>(Learning_CMake main.cpp)
-<span class="hljs-keyword">target_link_libraries</span>(Learning_CMake PRIVATE fmt Boost::uuid Boost::lexical_cast)
+<span class="hljs-comment"># &#x914D;&#x7F6E;&#x5BC6;&#x7801;</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$UserName</span>:<span class="hljs-variable">$UserPwd</span>&quot;</span> | chpasswd
+
+<span class="hljs-comment"># &#x514D;&#x5BC6;&#x63D0;&#x6743;</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$UserName</span> ALL=(ALL) NOPASSWD:ALL&quot;</span> | sudo tee <span class="hljs-_">-a</span> /etc/sudoers &gt; /dev/null
 </code></pre>
 
                                 
@@ -371,12 +383,12 @@ FetchContent_MakeAvailable(Boost)
 
             
                 
-                <a href="ansible.html" class="navigation navigation-prev " aria-label="Previous page: Ansible">
+                <a href="shell.html" class="navigation navigation-prev " aria-label="Previous page: Shell">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="docker.html" class="navigation navigation-next " aria-label="Next page: Docker">
+                <a href="ssh.html" class="navigation navigation-next " aria-label="Next page: ssh">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -387,7 +399,7 @@ FetchContent_MakeAvailable(Boost)
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"C++","level":"1.3","depth":1,"next":{"title":"Docker","level":"1.4","depth":1,"path":"docs/docker.md","ref":"docs/docker.md","articles":[]},"previous":{"title":"Ansible","level":"1.2","depth":1,"path":"docs/ansible.md","ref":"docs/ansible.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/cpp.md","mtime":"2024-04-24T09:13:03.846Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-04-24T09:13:33.716Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"创建用户、创建同名用户组、配置密码、配置免密提权","level":"1.9.1","depth":2,"next":{"title":"ssh","level":"1.10","depth":1,"path":"docs/ssh.md","ref":"docs/ssh.md","articles":[]},"previous":{"title":"Shell","level":"1.9","depth":1,"path":"docs/shell.md","ref":"docs/shell.md","articles":[{"title":"创建用户、创建同名用户组、配置密码、配置免密提权","level":"1.9.1","depth":2,"path":"docs/shell-useradd.md","ref":"docs/shell-useradd.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/shell-useradd.md","mtime":"2024-04-24T09:13:03.846Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-04-24T09:13:33.716Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
