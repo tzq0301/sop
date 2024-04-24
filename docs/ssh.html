@@ -304,6 +304,9 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="ssh">ssh</h1>
+<ul>
+<li><a href="https://wangdoc.com/ssh/client" target="_blank">SSH &#x6559;&#x7A0B; - WangDoc</a></li>
+</ul>
 <h2 id="ssh-&#x6267;&#x884C;&#x811A;&#x672C;">ssh &#x6267;&#x884C;&#x811A;&#x672C;</h2>
 <pre><code class="lang-bash">ssh <span class="hljs-variable">$Username</span>@<span class="hljs-variable">$IP</span> <span class="hljs-string">&apos;bash&apos;</span> &lt; <span class="hljs-variable">$SHELL_FILEPATH</span>
 
@@ -319,6 +322,10 @@ EOF
 <p>&#x6240;&#x6709;&#x4EA4;&#x4E92;&#x90FD;&#x76F4;&#x63A5;&#x6309;&#x56DE;&#x8F66;&#x7684;&#x8BDD;&#xFF0C;&#x4F1A;&#x751F;&#x6210;&#xFF08;1&#xFF09;&#x516C;&#x94A5;&#x6587;&#x4EF6; ~/.ssh/id_rsa.pub&#xFF08;2&#xFF09;&#x79C1;&#x94A5;&#x6587;&#x4EF6; ~/.ssh/id_rsa</p>
 <pre><code class="lang-bash">ssh-keygen
 </code></pre>
+<p>&#x751F;&#x6210;&#x5BC6;&#x94A5;&#x4EE5;&#x540E;&#xFF0C;&#x5EFA;&#x8BAE;&#x4FEE;&#x6539;&#x5B83;&#x4EEC;&#x7684;&#x6743;&#x9650;&#xFF0C;&#x9632;&#x6B62;&#x5176;&#x4ED6;&#x4EBA;&#x8BFB;&#x53D6;&#xFF1A;</p>
+<pre><code class="lang-bash">chmod 600 ~/.ssh/id_rsa
+chmod 600 ~/.ssh/id_rsa.pub
+</code></pre>
 <h2 id="ssh-&#x8FDE;&#x63A5;&#x8FDC;&#x7A0B;&#x670D;&#x52A1;&#x5668;">ssh &#x8FDE;&#x63A5;&#x8FDC;&#x7A0B;&#x670D;&#x52A1;&#x5668;</h2>
 <pre><code class="lang-bash">Username= &amp;&amp; Password= &amp;&amp; IP=
 sshpass -p <span class="hljs-variable">$Password</span> ssh <span class="hljs-variable">$Username</span>@<span class="hljs-variable">$IP</span>
@@ -328,12 +335,14 @@ sshpass -p <span class="hljs-variable">$Password</span> ssh <span class="hljs-va
 <pre><code class="lang-bash">Username= &amp;&amp; Password= &amp;&amp; IP=
 sshpass -p <span class="hljs-variable">$Password</span> ssh-copy-id <span class="hljs-variable">$Username</span>@<span class="hljs-variable">$IP</span>
 </code></pre>
-<h2 id="ssh-&#x767B;&#x5F55;&#x65F6;&#xFF0C;&#x4E0D;&#x68C0;&#x67E5;-host">ssh &#x767B;&#x5F55;&#x65F6;&#xFF0C;&#x4E0D;&#x68C0;&#x67E5; host</h2>
-<p>&#x573A;&#x666F;&#xFF1A;</p>
+<h2 id="ssh-&#x8FDE;&#x63A5;&#x6D41;&#x7A0B;">ssh &#x8FDE;&#x63A5;&#x6D41;&#x7A0B;</h2>
+<p>ssh &#x8FDE;&#x63A5;&#x8FDC;&#x7A0B;&#x670D;&#x52A1;&#x5668;&#x540E;&#xFF0C;&#x9996;&#x5148;&#x6709;&#x4E00;&#x4E2A;&#x9A8C;&#x8BC1;&#x8FC7;&#x7A0B;&#xFF0C;&#x9A8C;&#x8BC1;&#x8FDC;&#x7A0B;&#x670D;&#x52A1;&#x5668;&#x662F;&#x5426;&#x4E3A;&#x964C;&#x751F;&#x5730;&#x5740;</p>
+<p>&#x5982;&#x679C;&#x662F;&#x7B2C;&#x4E00;&#x6B21;&#x8FDE;&#x63A5;&#x67D0;&#x4E00;&#x53F0;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x547D;&#x4EE4;&#x884C;&#x4F1A;&#x663E;&#x793A;&#x4E00;&#x6BB5;&#x6587;&#x5B57;&#xFF0C;&#x8868;&#x793A;&#x4E0D;&#x8BA4;&#x8BC6;&#x8FD9;&#x53F0;&#x673A;&#x5668;&#xFF0C;&#x63D0;&#x9192;&#x7528;&#x6237;&#x786E;&#x8BA4;&#x662F;&#x5426;&#x9700;&#x8981;&#x8FDE;&#x63A5;</p>
 <pre><code>The authenticity of host &apos;192.168.0.110 (192.168.0.110)&apos; can&apos;t be established.
 RSA key fingerprint is a3:ca:ad:95:a1:45:d2:57:3a:e9:e7:75:a8:4c:1f:9f.
 Are you sure you want to continue connecting (yes/no)?
-</code></pre><p>&#x6216;&#xFF1A;</p>
+</code></pre><p>ssh &#x4F1A;&#x5C06;&#x672C;&#x673A;&#x8FDE;&#x63A5;&#x8FC7;&#x7684;&#x6240;&#x6709;&#x670D;&#x52A1;&#x5668;&#x516C;&#x94A5;&#x7684;&#x6307;&#x7EB9;&#xFF0C;&#x90FD;&#x50A8;&#x5B58;&#x5728;&#x672C;&#x673A;&#x7684; <code>~/.ssh/known_hosts</code> &#x6587;&#x4EF6;&#x4E2D;&#xFF0C;&#x6BCF;&#x6B21;&#x8FDE;&#x63A5;&#x670D;&#x52A1;&#x5668;&#x65F6;&#xFF0C;&#x901A;&#x8FC7;&#x8BE5;&#x6587;&#x4EF6;&#x5224;&#x65AD;&#x662F;&#x5426;&#x4E3A;&#x964C;&#x751F;&#x4E3B;&#x673A;&#xFF08;&#x964C;&#x751F;&#x516C;&#x94A5;&#xFF09;</p>
+<p>&#x5982;&#x679C;&#x670D;&#x52A1;&#x5668;&#x7684;&#x5BC6;&#x94A5;&#x53D1;&#x751F;&#x53D8;&#x66F4;&#xFF08;&#x6BD4;&#x5982;&#x91CD;&#x88C5;&#x4E86; SSH &#x670D;&#x52A1;&#x5668;&#x3001;&#x6709;&#x4EBA;&#x6076;&#x610F;&#x5192;&#x5145;&#x8FDC;&#x7A0B;&#x4E3B;&#x673A;&#xFF09;&#xFF0C;&#x5BA2;&#x6237;&#x7AEF;&#x518D;&#x6B21;&#x8FDE;&#x63A5;&#x65F6;&#xFF0C;&#x5C31;&#x4F1A;&#x53D1;&#x751F;&#x516C;&#x94A5;&#x6307;&#x7EB9;&#x4E0D;&#x543B;&#x5408;&#x7684;&#x60C5;&#x51B5;&#xFF0C;&#x8FD9;&#x65F6;&#xFF0C;&#x5BA2;&#x6237;&#x7AEF;&#x5C31;&#x4F1A;&#x4E2D;&#x65AD;&#x8FDE;&#x63A5;&#xFF0C;&#x5E76;&#x663E;&#x793A;&#x4E00;&#x6BB5;&#x8B66;&#x544A;&#x4FE1;&#x606F;&#xFF1A;</p>
 <pre><code>@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 @    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -348,6 +357,11 @@ Offending key in /home/jiangxin/.ssh/known_hosts:81
 RSA host key for 192.168.0.110 has changed and you have requested strict checking.
 Host key verification failed.
 </code></pre><p>&#x89E3;&#x51B3;&#x65B9;&#x6848;&#xFF1A;</p>
+<p>&#x5982;&#x679C;&#x65B0;&#x7684;&#x516C;&#x94A5;&#x786E;&#x8BA4;&#x53EF;&#x4EE5;&#x4FE1;&#x4EFB;&#xFF0C;&#x9700;&#x8981;&#x7EE7;&#x7EED;&#x6267;&#x884C;&#x8FDE;&#x63A5;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x6267;&#x884C;&#x4E0B;&#x9762;&#x7684;&#x547D;&#x4EE4;&#xFF0C;&#x5C06;&#x539F;&#x6765;&#x7684;&#x516C;&#x94A5;&#x6307;&#x7EB9;&#x4ECE; <code>~/.ssh/known_hosts</code> &#x6587;&#x4EF6;&#x5220;&#x9664;</p>
+<pre><code class="lang-bash">HOSTNAME=&#x53D1;&#x751F;&#x516C;&#x94A5;&#x53D8;&#x66F4;&#x7684;&#x4E3B;&#x673A;&#x540D;
+ssh-keygen -R <span class="hljs-variable">$HOSTNAME</span>
+</code></pre>
+<p>&#x4E34;&#x65F6;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#xFF1A;</p>
 <pre><code class="lang-bash"><span class="hljs-comment"># ssh &#x52A0;&#x4E0A;&#x53C2;&#x6570;</span>
 -o StrictHostKeyChecking=no
 </code></pre>
@@ -400,7 +414,7 @@ Host key verification failed.
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"ssh","level":"1.10","depth":1,"next":{"title":"systemd","level":"1.11","depth":1,"path":"docs/systemd.md","ref":"docs/systemd.md","articles":[]},"previous":{"title":"Shell","level":"1.9","depth":1,"path":"docs/shell.md","ref":"docs/shell.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/ssh.md","mtime":"2024-04-23T08:20:34.739Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-04-23T08:21:03.209Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"ssh","level":"1.10","depth":1,"next":{"title":"systemd","level":"1.11","depth":1,"path":"docs/systemd.md","ref":"docs/systemd.md","articles":[]},"previous":{"title":"Shell","level":"1.9","depth":1,"path":"docs/shell.md","ref":"docs/shell.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/ssh.md","mtime":"2024-04-24T05:42:16.395Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-04-24T05:42:44.434Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
