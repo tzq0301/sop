@@ -21,7 +21,7 @@ EOF
 所有交互都直接按回车的话，会生成（1）公钥文件 ~/.ssh/id_rsa.pub（2）私钥文件 ~/.ssh/id_rsa
 
 ```bash
-ssh-keygen
+ssh-keygen -t rsa -N "" -C "user=$USER hostname=$HOSTNAME" -f "$HOME/.ssh/id_rsa"
 ```
 
 生成密钥以后，建议修改它们的权限，防止其他人读取：
