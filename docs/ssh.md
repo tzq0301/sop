@@ -5,12 +5,12 @@
 ## ssh 执行脚本
 
 ```bash
-ssh $Username@$IP 'bash' < $SHELL_FILEPATH
+ssh $UserName@$IP 'bash' < $SHELL_FILEPATH
 
 # -s 后面可以跟 Shell 文件所需要的参数
-ssh $Username@$IP 'bash -s 1 2 abc' < $SHELL_FILEPATH
+ssh $UserName@$IP 'bash -s 1 2 abc' < $SHELL_FILEPATH
 
-ssh $Username@$IP 'bash' <<EOF
+ssh $UserName@$IP 'bash' <<EOF
 echo 1
 echo 2
 EOF
@@ -34,8 +34,8 @@ chmod 600 ~/.ssh/id_rsa.pub
 ## ssh 连接远程服务器
 
 ```bash
-Username= && Password= && IP=
-sshpass -p $Password ssh $Username@$IP
+UserName= && Password= && IP=
+sshpass -p $Password ssh $UserName@$IP
 ```
 
 ## 实现免密登录 - 将自己的 ssh 公钥 copy 到服务器上
@@ -43,8 +43,14 @@ sshpass -p $Password ssh $Username@$IP
 将本机的 ~/.ssh/id_rsa.pub 公钥追加到远程服务器的 ~/.ssh/authorized_keys
 
 ```bash
-Username= && Password= && IP=
-sshpass -p $Password ssh-copy-id $Username@$IP
+UserName= && Password= && IP=
+sshpass -p $Password ssh-copy-id $UserName@$IP
+```
+
+## 测试是否能 ssh 到服务器
+
+```bash
+ssh $UserName@$IP -o BatchMode=yes true &> /dev/null || echo "fail"
 ```
 
 ## ssh 连接流程
