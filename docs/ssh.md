@@ -34,8 +34,8 @@ chmod 600 ~/.ssh/id_rsa.pub
 ## ssh 连接远程服务器
 
 ```bash
-UserName= && Password= && IP=
-sshpass -p $Password ssh $UserName@$IP
+UserName= && UserPwd= && IP=
+sshpass -p $UserPwd ssh $UserName@$IP
 ```
 
 ## 实现免密登录 - 将自己的 ssh 公钥 copy 到服务器上
@@ -43,8 +43,8 @@ sshpass -p $Password ssh $UserName@$IP
 将本机的 ~/.ssh/id_rsa.pub 公钥追加到远程服务器的 ~/.ssh/authorized_keys
 
 ```bash
-UserName= && Password= && IP=
-sshpass -p $Password ssh-copy-id $UserName@$IP
+UserName= && UserPwd= && IP=
+sshpass -p $UserPwd ssh-copy-id $UserName@$IP
 ```
 
 ## 测试是否能 ssh 到服务器
