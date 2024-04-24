@@ -231,6 +231,8 @@ dd if=/dev/null of=$FILE
 
 ## 使用 EOF 写入多行文本
 
+NOTE: 若文本中包含 `$` 则会直接执行，因此需要加上反斜杠进行转义，例如 `\$UserName` 而不是 `$UserName`
+
 ```bash
 cat <<EOF > hello.txt
 foo
