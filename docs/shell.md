@@ -172,6 +172,12 @@ mkdir -p
 tar xvf /mnt/gentoo/portage-latest.tar.gz -C /mnt/gentoo/usr
 ```
 
+## 展示当前时间
+
+```bash
+date '+%Y-%m-%d %H:%M:%S'
+```
+
 ## 查看 Linux 发行版
 
 ```bash
