@@ -18,7 +18,7 @@ EOF
 
 ## 生成 ssh 密钥
 
-所有交互都直接按回车的话，会生成（1）公钥文件 ~/.ssh/id_rsa.pub（2）私钥文件 ~/.ssh/id_rsa
+默认会生成（1）公钥文件 ~/.ssh/id_rsa.pub（2）私钥文件 ~/.ssh/id_rsa
 
 ```bash
 ssh-keygen -t rsa -N "" -C "user=$USER hostname=$HOSTNAME" -f "$HOME/.ssh/id_rsa"
