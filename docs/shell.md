@@ -307,7 +307,7 @@ echo "Our temp file is $TMPFILE"
 ```bash
 RED='\033[0;31m'
 NC='\033[0m' # No Color
-echo "I ${RED}love${NC} Stack Overflow\n"
+printf "I ${RED}love${NC} Stack Overflow\n"
 ```
 
 ## Shell 要求 root 或 sudo 运行脚本
