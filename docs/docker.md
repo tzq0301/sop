@@ -64,7 +64,7 @@ docker image prune
 dive <your-image-tag>
 ```
 
-## docker-compose.yaml 示例 - Go 语言
+## 示例：docker-compose.yaml - Go 语言
 
 ```yaml
 # syntax=docker/dockerfile:1
