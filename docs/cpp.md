@@ -1,6 +1,6 @@
 # C++
 
-## CMake 使用 FetchContent
+## 示例：CMake 使用 FetchContent
 
 ```cmake
 cmake_minimum_required(VERSION 3.26)

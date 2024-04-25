@@ -26,7 +26,7 @@ git commit --amend --no-edit
 git log --online
 ```
 
-## .gitignore 示例
+## 示例：.gitignore
 
 ```text
 .idea/

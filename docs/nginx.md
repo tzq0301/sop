@@ -12,7 +12,7 @@ nginx -t
 nginx -s reload
 ```
 
-## 配置文件 nginx.conf 示例
+## 示例：配置文件 nginx.conf
 
 ```nginx
 # 帮助限制 Nginx 进程的权限，从而减少系统遭受恶意攻击的风险
@@ -80,7 +80,7 @@ http {
 }
 ```
 
-## docker-compose.yaml 示例
+## 示例：docker-compose.yaml
 
 ```yaml
 version: "3"
