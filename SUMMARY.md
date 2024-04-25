@@ -10,4 +10,5 @@
 * [ssh](docs/ssh.md)
 * [systemd](docs/systemd.md)
 * [Vim](docs/vim.md)
-* [正则表达式](docs/regexp.md)
+* [正则表达式](docs/正则表达式.md)
+* [其他](docs/其他.md)
