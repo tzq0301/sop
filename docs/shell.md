@@ -303,8 +303,8 @@ echo "Our temp file is $TMPFILE"
 
 ```bash
 #!/bin/bash
-TMPDIR=$(mktemp -d) || exit 1  # 确保临时文件创建成功
-trap 'rm -rf $TMPDIR' EXIT     # 保证脚本退出时临时文件被删除
+TMPDIR=$(mktemp -d) || exit 1  # 确保临时文件夹创建成功
+trap 'rm -rf $TMPDIR' EXIT     # 保证脚本退出时临时文件夹被删除
 
 echo "Our temp dir is $TMPDIR"
 ```
