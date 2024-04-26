@@ -532,12 +532,18 @@ EOF
 <span class="hljs-keyword">fi</span>
 </code></pre>
 <h2 id="mktemp-&#x521B;&#x5EFA;&#x4E34;&#x65F6;&#x6587;&#x4EF6;">mktemp &#x521B;&#x5EFA;&#x4E34;&#x65F6;&#x6587;&#x4EF6;</h2>
-<pre><code class="lang-bash"><span class="hljs-meta">#!/bin/bash
-</span>
-<span class="hljs-built_in">trap</span> <span class="hljs-string">&apos;rm -f &quot;$TMPFILE&quot;&apos;</span> EXIT  <span class="hljs-comment"># &#x4FDD;&#x8BC1;&#x811A;&#x672C;&#x9000;&#x51FA;&#x65F6;&#x4E34;&#x65F6;&#x6587;&#x4EF6;&#x88AB;&#x5220;&#x9664;</span>
+<pre><code class="lang-bash"><span class="hljs-meta">#!/bin/bash</span>
+TMPFILE=$(mktemp) || <span class="hljs-built_in">exit</span> 1  <span class="hljs-comment"># &#x786E;&#x4FDD;&#x4E34;&#x65F6;&#x6587;&#x4EF6;&#x521B;&#x5EFA;&#x6210;&#x529F;</span>
+<span class="hljs-built_in">trap</span> <span class="hljs-string">&apos;rm -rf $TMPFILE&apos;</span> EXIT  <span class="hljs-comment"># &#x4FDD;&#x8BC1;&#x811A;&#x672C;&#x9000;&#x51FA;&#x65F6;&#x4E34;&#x65F6;&#x6587;&#x4EF6;&#x88AB;&#x5220;&#x9664;</span>
 
-TMPFILE=$(mktemp) || <span class="hljs-built_in">exit</span> 1   <span class="hljs-comment"># &#x786E;&#x4FDD;&#x4E34;&#x65F6;&#x6587;&#x4EF6;&#x521B;&#x5EFA;&#x6210;&#x529F;</span>
 <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;Our temp file is <span class="hljs-variable">$TMPFILE</span>&quot;</span>
+</code></pre>
+<h2 id="mktemp-&#x521B;&#x5EFA;&#x4E34;&#x65F6;&#x6587;&#x4EF6;&#x5939;">mktemp &#x521B;&#x5EFA;&#x4E34;&#x65F6;&#x6587;&#x4EF6;&#x5939;</h2>
+<pre><code class="lang-bash"><span class="hljs-meta">#!/bin/bash</span>
+TMPDIR=$(mktemp <span class="hljs-_">-d</span>) || <span class="hljs-built_in">exit</span> 1  <span class="hljs-comment"># &#x786E;&#x4FDD;&#x4E34;&#x65F6;&#x6587;&#x4EF6;&#x521B;&#x5EFA;&#x6210;&#x529F;</span>
+<span class="hljs-built_in">trap</span> <span class="hljs-string">&apos;rm -rf $TMPDIR&apos;</span> EXIT     <span class="hljs-comment"># &#x4FDD;&#x8BC1;&#x811A;&#x672C;&#x9000;&#x51FA;&#x65F6;&#x4E34;&#x65F6;&#x6587;&#x4EF6;&#x88AB;&#x5220;&#x9664;</span>
+
+<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;Our temp dir is <span class="hljs-variable">$TMPDIR</span>&quot;</span>
 </code></pre>
 <h2 id="&#x7EC8;&#x7AEF;&#x6587;&#x672C;&#x989C;&#x8272;">&#x7EC8;&#x7AEF;&#x6587;&#x672C;&#x989C;&#x8272;</h2>
 <p>&#x53C2;&#x8003; <a href="https://stackoverflow.com/questions/5947742/how-to-change-the-output-color-of-echo-in-linux" target="_blank">How to change the output color of echo in Linux</a></p>
@@ -632,7 +638,7 @@ id <span class="hljs-variable">$UserName</span>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Shell","level":"1.9","depth":1,"next":{"title":"ssh","level":"1.10","depth":1,"path":"docs/ssh.md","ref":"docs/ssh.md","articles":[]},"previous":{"title":"Nginx","level":"1.8","depth":1,"path":"docs/nginx.md","ref":"docs/nginx.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/shell.md","mtime":"2024-04-25T15:33:30.350Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-04-25T15:33:59.079Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Shell","level":"1.9","depth":1,"next":{"title":"ssh","level":"1.10","depth":1,"path":"docs/ssh.md","ref":"docs/ssh.md","articles":[]},"previous":{"title":"Nginx","level":"1.8","depth":1,"path":"docs/nginx.md","ref":"docs/nginx.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/shell.md","mtime":"2024-04-26T06:08:17.381Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-04-26T06:08:46.176Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
