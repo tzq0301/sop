@@ -333,7 +333,16 @@ NC='\033[0m' # No Color
 printf "I ${RED}love${NC} Stack Overflow\n"
 ```
 
-## Shell 要求 root 或 sudo 运行脚本
+## Shell Script 查看文件是否存在
+
+```bash
+if [ ! -f /tmp/foo.txt ]; then
+  echo "file not found!"
+  exit 1
+fi
+```
+
+## Shell Script 要求 root 或 sudo 运行脚本
 
 ```bash
 if [ `id -u` -ne 0 ]
@@ -349,7 +358,7 @@ UserName=
 echo "$UserName ALL=(ALL) NOPASSWD:ALL" | sudo tee -a /etc/sudoers > /dev/null
 ```
 
-## 示例：创建用户（同名用户组、配置密码、免密提权）
+## 示例：Shell Script 创建用户（同名用户组、配置密码、免密提权）
 
 ```bash
 #!/usr/bin/env bash
