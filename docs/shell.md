@@ -293,11 +293,20 @@ fi
 
 ```bash
 #!/bin/bash
+TMPFILE=$(mktemp) || exit 1  # 确保临时文件创建成功
+trap 'rm -rf $TMPFILE' EXIT  # 保证脚本退出时临时文件被删除
 
-trap 'rm -f "$TMPFILE"' EXIT  # 保证脚本退出时临时文件被删除
-
-TMPFILE=$(mktemp) || exit 1   # 确保临时文件创建成功
 echo "Our temp file is $TMPFILE"
+```
+
+## mktemp 创建临时文件夹
+
+```bash
+#!/bin/bash
+TMPDIR=$(mktemp -d) || exit 1  # 确保临时文件创建成功
+trap 'rm -rf $TMPDIR' EXIT     # 保证脚本退出时临时文件被删除
+
+echo "Our temp dir is $TMPDIR"
 ```
 
 ## 终端文本颜色
