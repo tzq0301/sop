@@ -108,6 +108,8 @@ sed -r pattern
 # * NR (Number of Record) 该行在 awk 输出的所有行中的行号
 # * NF（Number of Field）每行有多少列，因此 $NF 可以表示最后一列
 # * $0 表示“整行”
+# * FS（Field Splitter）列分隔符（可以在 BEGIN 时进行修改）
+# * RS（Row   Splitter）行分隔符（可以在 BEGIN 时进行修改）
 
 awk 'NR==1'               # 取第一行
 awk 'NR==1{print $0}'     # 取第一行
