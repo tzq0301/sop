@@ -100,8 +100,12 @@ sed -r pattern
 ## awk
 
 ```bash
-# awk 选项 '条件{动作}'
-# * NR (Number of Record) 行号
+# awk 选项 '条件1 {动作1} 条件2 {动作2} 条件3 {动作3} ...'
+# 
+# 内置变量：
+# * FILENAME 文件名
+# * FNR 该行在某个文件中的行号
+# * NR (Number of Record) 该行在 awk 输出的所有行中的行号
 # * NF（Number of Field）每行有多少列，因此 $NF 可以表示最后一列
 # * $0 表示“整行”
 
@@ -121,8 +125,10 @@ awk -F ':' '{print $1}'  # 指定分隔符
 free | awk '/Swap/ && $3 == 0{print "异常系统开始占用 swap"}'      # 如果 Swap 行的第三列的值大于 0，则打印信息
 cat /etc/passwd | awk -F ':' '$4 ~ /^[01]/ {print $1, $3, $4}'  # 过滤出 /etc/passwd 第 4 列以 0 或 1 开头的所有行，并输出第 1、3、4 列
 
-seq 10 | awk -F ':' '{i=i+1}; END{print i}'   # 统计行数，并在最后打印
-seq 10 | awk -F ':' '{i=i+$1}; END{print i}'  # 计算第一列的总和
+seq 10 | awk '{print} BEGIN{print "开始"} END{print "结束"}'  # 特殊 pattern BEGIN 和 END
+
+seq 10 | awk '{i=i+1}; END{print i}'   # 统计行数，并在最后打印
+seq 10 | awk '{i=i+$1}; END{print i}'  # 计算第一列的总和
 ```
 
 ## column 对齐每一列
