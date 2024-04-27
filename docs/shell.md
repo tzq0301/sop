@@ -127,7 +127,7 @@ awk -F ':' '{print $1}'  # 指定分隔符
 free | awk '/Swap/ && $3 == 0{print "异常系统开始占用 swap"}'      # 如果 Swap 行的第三列的值大于 0，则打印信息
 cat /etc/passwd | awk -F ':' '$4 ~ /^[01]/ {print $1, $3, $4}'  # 过滤出 /etc/passwd 第 4 列以 0 或 1 开头的所有行，并输出第 1、3、4 列
 
-seq 10 | awk '{print} BEGIN{print "开始"} END{print "结束"}'  # 特殊 pattern BEGIN 和 END
+awk '{print} BEGIN{print "开始"} END{print "结束"}'  # 特殊 pattern BEGIN 和 END
 
 seq 10 | awk '{i=i+1}; END{print i}'   # 统计行数，并在最后打印
 seq 10 | awk '{i=i+$1}; END{print i}'  # 计算第一列的总和
