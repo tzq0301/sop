@@ -14,16 +14,27 @@ git config --global user.email  "johndoe@example.com"
 git config --list
 ```
 
-## git commit --amend 不修改 commit message
+## git commit
 
 ```bash
-git commit --amend --no-edit
+git commit --amend --no-edit  # --amend 不修改 commit message
 ```
 
-## git log 一个 commit 在一行内显示
+## git log
 
 ```bash
-git log --online
+git log --online  # 一行显示一个 commit 信息
+```
+
+## git rev-parse
+
+```bash
+git rev-parse         HEAD  #         commit id
+git rev-parse --short HEAD  # shorter commit id
+
+git rev-parse --abbrev-ref HEAD  # 当前 branch
+
+git rev-parse --show-toplevel  # 当前 git 根目录
 ```
 
 ## 示例：.gitignore
