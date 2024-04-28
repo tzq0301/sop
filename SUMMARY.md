@@ -6,6 +6,7 @@
 * [JavaScript](docs/javascript.md)
 * [MySQL](docs/mysql.md)
 * [Nginx](docs/nginx.md)
+* [Redis](docs/redis.md)
 * [Shell](docs/shell.md)
 * [ssh](docs/ssh.md)
 * [systemd](docs/systemd.md)
