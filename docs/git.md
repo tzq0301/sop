@@ -1,6 +1,6 @@
 # Git
 
-## git config 配置
+## git config
 
 ```bash
 git config --global core.editor "vim"
