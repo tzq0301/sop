@@ -330,6 +330,20 @@ MYSQL_PWD=<span class="hljs-variable">$Password</span> mysql -h<span class="hljs
 <h2 id="&#x547D;&#x4EE4;&#x884C;-cli-&#x6267;&#x884C;-mysql-&#x547D;&#x4EE4;&#xFF08;&#x4E0D;&#x8FDB;&#x5165;&#x4EA4;&#x4E92;&#x6A21;&#x5F0F;&#xFF09;">&#x547D;&#x4EE4;&#x884C; cli &#x6267;&#x884C; MySQL &#x547D;&#x4EE4;&#xFF08;&#x4E0D;&#x8FDB;&#x5165;&#x4EA4;&#x4E92;&#x6A21;&#x5F0F;&#xFF09;</h2>
 <pre><code class="lang-bash">mysql <span class="hljs-_">-e</span> <span class="hljs-string">&quot;SELECT VERSION();&quot;</span>
 </code></pre>
+<h2 id="&#x67E5;&#x770B;&#x67D0;&#x5E93;&#x4E2D;&#x67D0;&#x8868;&#x7684;&#x81EA;&#x589E;-id-&#x8BA1;&#x6570;&#x5668;">&#x67E5;&#x770B;&#x67D0;&#x5E93;&#x4E2D;&#x67D0;&#x8868;&#x7684;&#x81EA;&#x589E; ID &#x8BA1;&#x6570;&#x5668;</h2>
+<pre><code class="lang-sql"><span class="hljs-keyword">SELECT</span> <span class="hljs-string">`AUTO_INCREMENT`</span> 
+<span class="hljs-keyword">FROM</span>  INFORMATION_SCHEMA.<span class="hljs-keyword">TABLES</span> 
+<span class="hljs-keyword">WHERE</span> TABLE_SCHEMA = <span class="hljs-string">&apos;YOUR_DATABASE&apos;</span> <span class="hljs-keyword">AND</span> TABLE_NAME = <span class="hljs-string">&apos;YOUR_TABLE&apos;</span>;
+<span class="hljs-comment">-- WHERE TABLE_SCHEMA = DATABASE() AND TABLE_NAME = &apos;YOUR_TABLE&apos;;</span>
+</code></pre>
+<h2 id="&#x6839;&#x636E;&#x65E7;&#x8868;&#x5EFA;&#x65B0;&#x8868;">&#x6839;&#x636E;&#x65E7;&#x8868;&#x5EFA;&#x65B0;&#x8868;</h2>
+<pre><code class="lang-sql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> new_table
+<span class="hljs-keyword">LIKE</span> old_table;            <span class="hljs-comment">-- LIKE &#x4F1A;&#x5305;&#x542B;&#x5217;&#x4FE1;&#x606F;&#x548C;&#x7D22;&#x5F15;&#x4FE1;&#x606F;</span>
+
+<span class="hljs-comment">-- CREATE TABLE new_table</span>
+<span class="hljs-comment">-- SELECT *                -- SELECT &#x53EA;&#x4F1A;&#x590D;&#x5236;&#x5217;&#x4FE1;&#x606F;&#xFF0C;&#x4E0D;&#x4F1A;&#x590D;&#x5236;&#x7D22;&#x5F15;&#x4FE1;&#x606F;</span>
+<span class="hljs-comment">-- FROM old_table;</span>
+</code></pre>
 <h2 id="&#x67E5;&#x770B;-server-id">&#x67E5;&#x770B; server id</h2>
 <pre><code class="lang-sql"><span class="hljs-keyword">SELECT</span> @@server_id;
 </code></pre>
@@ -481,7 +495,7 @@ Query OK, 0 rows affected (0.01 sec)
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"MySQL","level":"1.7","depth":1,"next":{"title":"Nginx","level":"1.8","depth":1,"path":"docs/nginx.md","ref":"docs/nginx.md","articles":[]},"previous":{"title":"JavaScript","level":"1.6","depth":1,"path":"docs/javascript.md","ref":"docs/javascript.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/mysql.md","mtime":"2024-04-28T03:59:28.084Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-04-28T03:59:57.038Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"MySQL","level":"1.7","depth":1,"next":{"title":"Nginx","level":"1.8","depth":1,"path":"docs/nginx.md","ref":"docs/nginx.md","articles":[]},"previous":{"title":"JavaScript","level":"1.6","depth":1,"path":"docs/javascript.md","ref":"docs/javascript.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/mysql.md","mtime":"2024-04-28T05:37:56.299Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-04-28T05:38:23.954Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
