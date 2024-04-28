@@ -5,6 +5,7 @@
 * [Git](docs/git.md)
 * [Go](docs/go.md)
 * [JavaScript](docs/javascript.md)
+* [Kubernetes](docs/kubernetes.md)
 * [MySQL](docs/mysql.md)
 * [Nginx](docs/nginx.md)
 * [Redis](docs/redis.md)
