@@ -122,6 +122,8 @@ awk '{print $5, $(NF-1), $NF}'  # 打印第 5 列、倒数第二列、倒数第�
 awk '$1 ~ /system/'   # 输出第一列包含 system 的所有行
 awk '$1 !~ /system/'  # 输出第一列不包含 system 的所有行
 
+awk '{print "my-prefix: "$0}'  # 为每一行加上前缀
+
 awk -F ':' '{print $1}'  # 指定分隔符
 
 free | awk '/Swap/ && $3 == 0{print "异常系统开始占用 swap"}'      # 如果 Swap 行的第三列的值大于 0，则打印信息
