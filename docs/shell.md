@@ -185,7 +185,8 @@ tar xvf /mnt/gentoo/portage-latest.tar.gz -C /mnt/gentoo/usr
 ## 展示当前时间
 
 ```bash
-date '+%Y-%m-%d %H:%M:%S'
+date '+%Y-%m-%d %H:%M:%S'  # 2024-04-28 08:04:14
+date '+%Y%m%d%H%M%S'       # 20240428080414
 ```
 
 ## 查看 Linux 发行版
