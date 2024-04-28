@@ -19,6 +19,26 @@ MYSQL_PWD=$Password mysql -h$Host -u$Username  # 正确的方式是将 MYSQL_PWD
 mysql -e "SELECT VERSION();"
 ```
 
+## 查看某库中某表的自增 ID 计数器
+
+```sql
+SELECT `AUTO_INCREMENT` 
+FROM  INFORMATION_SCHEMA.TABLES 
+WHERE TABLE_SCHEMA = 'YOUR_DATABASE' AND TABLE_NAME = 'YOUR_TABLE';
+-- WHERE TABLE_SCHEMA = DATABASE() AND TABLE_NAME = 'YOUR_TABLE';
+```
+
+## 根据旧表建新表
+
+```sql
+CREATE TABLE new_table
+LIKE old_table;            -- LIKE 会包含列信息和索引信息
+
+-- CREATE TABLE new_table
+-- SELECT *                -- SELECT 只会复制列信息，不会复制索引信息
+-- FROM old_table;      
+```
+
 ## 查看 server id
 
 ```sql
