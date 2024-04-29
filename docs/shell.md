@@ -219,6 +219,13 @@ df --total -h | grep -e total -e Filesystem
 * `wa` - Time spent on waiting on IO peripherals (eg. disk)
   * 例如：若 MySQL 服务器上 top 的 `wa` 值较高，说明 I/O 压力比较大，排查慢查询等
 
+## 查看机器重启的历史记录
+
+```bash
+last reboot -n 5  # Displays the last 5 system reboots
+last reboot -F    # Displays the full date and time in the output
+```
+
 ## 强制 apt install 不下载其“推荐”的软件包，以减少软件包的下载与安装
 
 ```bash
