@@ -3,7 +3,7 @@
 * [C++](docs/cpp.md)
 * [Docker](docs/docker.md)
 * [Git](docs/git.md)
-* [Go](docs/go.md)
+* [Go Library](docs/go-lib.md)
 * [JavaScript](docs/javascript.md)
 * [Kubernetes](docs/kubernetes.md)
 * [MySQL](docs/mysql.md)
