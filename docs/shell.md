@@ -119,6 +119,10 @@ awk '/mysql/,/shell/'     # 取从“包含 mysql 的第一行”到“包含 sh
 
 awk '{print $5, $(NF-1), $NF}'  # 打印第 5 列、倒数第二列、倒数第一列
 
+awk '{$1=""; $2=""; print }'  # 去掉第一列和第二列
+
+awk '{$1=$1; print}'  # 去掉每行开头的空格
+
 awk '$1 ~ /system/'   # 输出第一列包含 system 的所有行
 awk '$1 !~ /system/'  # 输出第一列不包含 system 的所有行
 
