@@ -1,6 +1,17 @@
 {
     "plugins": [
         "copy-code-button",
-        "expandable-chapters-small"
-    ]
+
+        "expandable-chapters-small",
+
+        "-lunr", "-search", "search-pro",
+
+        "github"
+    ],
+
+    "pluginsConfig": {
+        "github": {
+            "url": "https://github.com/tzq0301"
+        }
+    }
 }
