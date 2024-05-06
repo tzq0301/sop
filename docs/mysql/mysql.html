@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>查看机器信息 · GitBook</title>
+        <title>MySQL · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -69,10 +69,10 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="vim.html" />
+    <link rel="next" href="mysql-commands.html" />
     
     
-    <link rel="prev" href="正则表达式.html" />
+    <link rel="prev" href="../kubernetes.html" />
     
 
     </head>
@@ -205,9 +205,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9" data-path="../mysql/mysql.html">
+        <li class="chapter active" data-level="1.9" data-path="mysql.html">
             
-                <a href="../mysql/mysql.html">
+                <a href="mysql.html">
             
                     
                     MySQL
@@ -219,9 +219,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.9.1" data-path="../mysql/mysql-commands.html">
+        <li class="chapter " data-level="1.9.1" data-path="mysql-commands.html">
             
-                <a href="../mysql/mysql-commands.html">
+                <a href="mysql-commands.html">
             
                     
                     MySQL 命令
@@ -232,9 +232,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9.2" data-path="../mysql/mysql-cluster.html">
+        <li class="chapter " data-level="1.9.2" data-path="mysql-cluster.html">
             
-                <a href="../mysql/mysql-cluster.html">
+                <a href="mysql-cluster.html">
             
                     
                     MySQL Cluster
@@ -276,9 +276,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.12" data-path="shell.html">
+        <li class="chapter " data-level="1.12" data-path="../shell/shell.html">
             
-                <a href="shell.html">
+                <a href="../shell/shell.html">
             
                     
                     Shell
@@ -290,9 +290,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.12.1" data-path="shell-commands.html">
+        <li class="chapter " data-level="1.12.1" data-path="../shell/shell-commands.html">
             
-                <a href="shell-commands.html">
+                <a href="../shell/shell-commands.html">
             
                     
                     Shell 命令
@@ -303,9 +303,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.12.2" data-path="shell-scripts.html">
+        <li class="chapter " data-level="1.12.2" data-path="../shell/shell-scripts.html">
             
-                <a href="shell-scripts.html">
+                <a href="../shell/shell-scripts.html">
             
                     
                     Shell 脚本
@@ -316,9 +316,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.12.3" data-path="ssh.html">
+        <li class="chapter " data-level="1.12.3" data-path="../shell/ssh.html">
             
-                <a href="ssh.html">
+                <a href="../shell/ssh.html">
             
                     
                     ssh
@@ -329,9 +329,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.12.4" data-path="systemd.html">
+        <li class="chapter " data-level="1.12.4" data-path="../shell/systemd.html">
             
-                <a href="systemd.html">
+                <a href="../shell/systemd.html">
             
                     
                     systemd
@@ -342,9 +342,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.12.5" data-path="正则表达式.html">
+        <li class="chapter " data-level="1.12.5" data-path="../shell/正则表达式.html">
             
-                <a href="正则表达式.html">
+                <a href="../shell/正则表达式.html">
             
                     
                     正则表达式
@@ -355,9 +355,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.12.6" data-path="查看机器信息.html">
+        <li class="chapter " data-level="1.12.6" data-path="../shell/查看机器信息.html">
             
-                <a href="查看机器信息.html">
+                <a href="../shell/查看机器信息.html">
             
                     
                     查看机器信息
@@ -368,9 +368,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.12.7" data-path="vim.html">
+        <li class="chapter " data-level="1.12.7" data-path="../shell/vim.html">
             
-                <a href="vim.html">
+                <a href="../shell/vim.html">
             
                     
                     Vim
@@ -429,7 +429,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >查看机器信息</a>
+        <a href="../.." >MySQL</a>
     </h1>
 </div>
 
@@ -444,31 +444,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#x67E5;&#x770B;&#x673A;&#x5668;&#x4FE1;&#x606F;">&#x67E5;&#x770B;&#x673A;&#x5668;&#x4FE1;&#x606F;</h1>
-<h2 id="&#x67E5;&#x770B;-linux-&#x53D1;&#x884C;&#x7248;">&#x67E5;&#x770B; Linux &#x53D1;&#x884C;&#x7248;</h2>
-<pre><code class="lang-bash">hostnamectl
-</code></pre>
-<h2 id="&#x67E5;&#x770B;-cpu-&#x6838;&#x6570;">&#x67E5;&#x770B; CPU &#x6838;&#x6570;</h2>
-<pre><code class="lang-bash">lscpu | grep <span class="hljs-string">&apos;^CPU(s)&apos;</span> | awk <span class="hljs-string">&apos;{print $2}&apos;</span>
-</code></pre>
-<h2 id="&#x67E5;&#x770B;&#x5185;&#x5B58;&#x5927;&#x5C0F;">&#x67E5;&#x770B;&#x5185;&#x5B58;&#x5927;&#x5C0F;</h2>
-<pre><code class="lang-bash">cat /proc/meminfo | grep MemTotal | awk <span class="hljs-string">&apos;{print $2}&apos;</span>  <span class="hljs-comment"># 16152104 &#x5373;&#x4E3A; 16G</span>
-</code></pre>
-<h2 id="&#x67E5;&#x770B;&#x786C;&#x76D8;&#x7A7A;&#x95F4;">&#x67E5;&#x770B;&#x786C;&#x76D8;&#x7A7A;&#x95F4;</h2>
-<pre><code class="lang-bash">df --total -h | grep <span class="hljs-_">-e</span> total <span class="hljs-_">-e</span> Filesystem
-</code></pre>
-<h2 id="top">top</h2>
-<ul>
-<li><code>id</code> - Time spent in idle operations</li>
-<li><code>wa</code> - Time spent on waiting on IO peripherals (eg. disk)<ul>
-<li>&#x4F8B;&#x5982;&#xFF1A;&#x82E5; MySQL &#x670D;&#x52A1;&#x5668;&#x4E0A; top &#x7684; <code>wa</code> &#x503C;&#x8F83;&#x9AD8;&#xFF0C;&#x8BF4;&#x660E; I/O &#x538B;&#x529B;&#x6BD4;&#x8F83;&#x5927;&#xFF0C;&#x6392;&#x67E5;&#x6162;&#x67E5;&#x8BE2;&#x7B49;</li>
-</ul>
-</li>
-</ul>
-<h2 id="&#x67E5;&#x770B;&#x673A;&#x5668;&#x91CD;&#x542F;&#x7684;&#x5386;&#x53F2;&#x8BB0;&#x5F55;">&#x67E5;&#x770B;&#x673A;&#x5668;&#x91CD;&#x542F;&#x7684;&#x5386;&#x53F2;&#x8BB0;&#x5F55;</h2>
-<pre><code class="lang-bash">last reboot -n 5  <span class="hljs-comment"># Displays the last 5 system reboots</span>
-last reboot -F    <span class="hljs-comment"># Displays the full date and time in the output</span>
-</code></pre>
+                                <h1 id="mysql">MySQL</h1>
 
                                 
                                 </section>
@@ -496,12 +472,12 @@ last reboot -F    <span class="hljs-comment"># Displays the full date and time i
 
             
                 
-                <a href="正则表达式.html" class="navigation navigation-prev " aria-label="Previous page: 正则表达式">
+                <a href="../kubernetes.html" class="navigation navigation-prev " aria-label="Previous page: Kubernetes">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="vim.html" class="navigation navigation-next " aria-label="Next page: Vim">
+                <a href="mysql-commands.html" class="navigation navigation-next " aria-label="Next page: MySQL 命令">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -512,7 +488,7 @@ last reboot -F    <span class="hljs-comment"># Displays the full date and time i
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"查看机器信息","level":"1.12.6","depth":2,"next":{"title":"Vim","level":"1.12.7","depth":2,"path":"docs/shell/vim.md","ref":"docs/shell/vim.md","articles":[]},"previous":{"title":"正则表达式","level":"1.12.5","depth":2,"path":"docs/shell/正则表达式.md","ref":"docs/shell/正则表达式.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["code","-lunr","-search","search-pro","github","hide-element","back-to-top-button","chapter-fold","-expandable-chapters-small","-expandable-chapters"],"pluginsConfig":{"chapter-fold":{},"github":{"url":"https://github.com/tzq0301"},"search-pro":{},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/shell/查看机器信息.md","mtime":"2024-05-06T11:06:23.336Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-05-06T11:06:56.129Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"MySQL","level":"1.9","depth":1,"next":{"title":"MySQL 命令","level":"1.9.1","depth":2,"path":"docs/mysql/mysql-commands.md","ref":"docs/mysql/mysql-commands.md","articles":[]},"previous":{"title":"Kubernetes","level":"1.8","depth":1,"path":"docs/kubernetes.md","ref":"docs/kubernetes.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["code","-lunr","-search","search-pro","github","hide-element","back-to-top-button","chapter-fold","-expandable-chapters-small","-expandable-chapters"],"pluginsConfig":{"chapter-fold":{},"github":{"url":"https://github.com/tzq0301"},"search-pro":{},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/mysql/mysql.md","mtime":"2024-05-06T11:06:23.336Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-05-06T11:06:56.129Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
