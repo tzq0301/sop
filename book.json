@@ -4,7 +4,8 @@
         "-lunr", "-search", "search-pro",
         "github",
         "hide-element",
-        "back-to-top-button"
+        "back-to-top-button",
+        "expandable-chapters-small"
     ],
 
     "pluginsConfig": {
