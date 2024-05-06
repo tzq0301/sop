@@ -65,6 +65,13 @@ if [ "$input" != "yes" ]; then
 fi
 ```
 
+## Shell 脚本中让用户输入（但不关注内容）
+
+```bash
+echo "请按回车键继续"
+read -p ""
+```
+
 ## mktemp 创建临时文件
 
 ```bash
