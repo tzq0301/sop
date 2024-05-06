@@ -329,9 +329,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.12.5" data-path="../正则表达式.md">
+        <li class="chapter " data-level="1.12.5" data-path="正则表达式.html">
             
-                <span>
+                <a href="正则表达式.html">
             
                     
                     正则表达式
@@ -342,9 +342,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.12.6" data-path="../查看机器信息.md">
+        <li class="chapter " data-level="1.12.6" data-path="查看机器信息.html">
             
-                <span>
+                <a href="查看机器信息.html">
             
                     
                     查看机器信息
@@ -455,26 +455,26 @@ total 52K
 -rw-rw-rw- 1 codespace codespace  201 Apr 18 05:00 javascript.md
 -rw-rw-rw- 1 codespace codespace  166 Apr 18 02:56 vim.md
 </code></pre>
-<h2 id="grep-&#x6B63;&#x5219;&#x5339;&#x914D;">grep &#x6B63;&#x5219;&#x5339;&#x914D;</h2>
-<pre><code class="lang-bash">grep <span class="hljs-_">-e</span> pattern
+<h2 id="grep">grep</h2>
+<pre><code class="lang-bash"><span class="hljs-comment"># &#x6B63;&#x5219;&#x5339;&#x914D;</span>
+grep <span class="hljs-_">-e</span> pattern
 grep -E pattern  <span class="hljs-comment"># -E &#x8868;&#x793A;&#x201C;&#x6269;&#x5C55;&#x6B63;&#x5219;&#x201D;</span>
 grep -P pattern  <span class="hljs-comment"># -P &#x8868;&#x793A;&#x201C;Perl &#x6B63;&#x5219;&#x201D;</span>
 
-<span class="hljs-comment"># &#x4F8B;&#x5982; OR &#x6216;&#x5339;&#x914D;</span>
-grep -E <span class="hljs-string">&apos;a|w&apos;</span>
-</code></pre>
-<h2 id="grep-&#x6392;&#x9664;&#x5339;&#x914D;&#x6A21;&#x5F0F;">grep &#x201C;&#x6392;&#x9664;&#x201D;&#x5339;&#x914D;&#x6A21;&#x5F0F;</h2>
-<pre><code class="lang-bash">grep -v <span class="hljs-string">&apos;#&apos;</span>  <span class="hljs-comment"># &#x53BB;&#x6389;&#x5305;&#x542B; # &#x7684;&#x884C;&#xFF08;&#x53EF;&#x4EE5;&#x7528;&#x4E8E;&#x8FC7;&#x6EE4;&#x201C;&#x6CE8;&#x91CA;&#x884C;&#x201D;&#x7B49;&#xFF09;</span>
-</code></pre>
-<h2 id="grep-&#x67E5;&#x770B;&#x6307;&#x5B9A;&#x5185;&#x5BB9;&#x4E0A;&#x4E0B;&#x51E0;&#x884C;">grep &#x67E5;&#x770B;&#x6307;&#x5B9A;&#x5185;&#x5BB9;&#x4E0A;&#x4E0B;&#x51E0;&#x884C;</h2>
-<pre><code class="lang-bash">grep -10         <span class="hljs-string">&apos;123&apos;</span> app.log <span class="hljs-comment"># &#x524D;&#x540E; 10 &#x884C;</span>
+grep -E <span class="hljs-string">&apos;a|w&apos;</span>  <span class="hljs-comment"># OR &#x6216;&#x5339;&#x914D;</span>
+
+<span class="hljs-comment"># &#x201C;&#x6392;&#x9664;&#x201D;&#x5339;&#x914D;&#x6A21;&#x5F0F;</span>
+grep -v <span class="hljs-string">&apos;#&apos;</span>  <span class="hljs-comment"># &#x53BB;&#x6389;&#x5305;&#x542B; # &#x7684;&#x884C;&#xFF08;&#x53EF;&#x4EE5;&#x7528;&#x4E8E;&#x8FC7;&#x6EE4;&#x201C;&#x6CE8;&#x91CA;&#x884C;&#x201D;&#x7B49;&#xFF09;</span>
+
+<span class="hljs-comment"># &#x67E5;&#x770B;&#x6307;&#x5B9A;&#x5185;&#x5BB9;&#x4E0A;&#x4E0B;&#x51E0;&#x884C;</span>
+grep -10         <span class="hljs-string">&apos;123&apos;</span> app.log <span class="hljs-comment"># &#x524D;&#x540E; 10 &#x884C;</span>
 grep -C 10       <span class="hljs-string">&apos;123&apos;</span> app.log <span class="hljs-comment"># &#x524D;&#x540E; 10 &#x884C;</span>
 grep -A 10 -B 10 <span class="hljs-string">&apos;123&apos;</span> app.log <span class="hljs-comment"># &#x524D;&#x540E; 10 &#x884C;</span>
 grep -A 10       <span class="hljs-string">&apos;123&apos;</span> app.log <span class="hljs-comment"># &#x540E; 10 &#x884C;&#xFF08;After&#xFF09;</span>
 grep -B 10       <span class="hljs-string">&apos;123&apos;</span> app.log <span class="hljs-comment"># &#x524D; 10 &#x884C;&#xFF08;Before&#xFF09;</span>
-</code></pre>
-<h2 id="grep-&#x663E;&#x793A;&#x884C;&#x53F7;">grep &#x663E;&#x793A;&#x884C;&#x53F7;</h2>
-<pre><code class="lang-bash">grep -n
+
+<span class="hljs-comment"># &#x663E;&#x793A;&#x884C;&#x53F7;</span>
+grep -n
 </code></pre>
 <h2 id="sed-&#x83B7;&#x53D6;&#x6307;&#x5B9A;&#x884C;">sed &#x83B7;&#x53D6;&#x6307;&#x5B9A;&#x884C;</h2>
 <pre><code class="lang-bash"><span class="hljs-comment"># -n &#x9759;&#x9ED8;&#x6A21;&#x5F0F;&#xFF0C;&#x9632;&#x6B62;&#x8F93;&#x51FA;&#x6587;&#x4EF6;&#x5168;&#x90E8;&#x5185;&#x5BB9;</span>
@@ -636,7 +636,7 @@ dd <span class="hljs-keyword">if</span>=/dev/null of=<span class="hljs-variable"
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Shell 命令","level":"1.12.1","depth":2,"next":{"title":"Shell 脚本","level":"1.12.2","depth":2,"path":"docs/shell/shell-scripts.md","ref":"docs/shell/shell-scripts.md","articles":[]},"previous":{"title":"Shell","level":"1.12","depth":1,"path":"docs/shell/shell.md","ref":"docs/shell/shell.md","articles":[{"title":"Shell 命令","level":"1.12.1","depth":2,"path":"docs/shell/shell-commands.md","ref":"docs/shell/shell-commands.md","articles":[]},{"title":"Shell 脚本","level":"1.12.2","depth":2,"path":"docs/shell/shell-scripts.md","ref":"docs/shell/shell-scripts.md","articles":[]},{"title":"ssh","level":"1.12.3","depth":2,"path":"docs/shell/ssh.md","ref":"docs/shell/ssh.md","articles":[]},{"title":"systemd","level":"1.12.4","depth":2,"path":"docs/shell/systemd.md","ref":"docs/shell/systemd.md","articles":[]},{"title":"正则表达式","level":"1.12.5","depth":2,"path":"docs/正则表达式.md","ref":"docs/正则表达式.md","articles":[]},{"title":"查看机器信息","level":"1.12.6","depth":2,"path":"docs/查看机器信息.md","ref":"docs/查看机器信息.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["code","-lunr","-search","search-pro","github","hide-element","back-to-top-button","chapter-fold","-expandable-chapters-small","-expandable-chapters"],"pluginsConfig":{"chapter-fold":{},"github":{"url":"https://github.com/tzq0301"},"search-pro":{},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/shell/shell-commands.md","mtime":"2024-05-06T11:01:28.613Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-05-06T11:01:58.262Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Shell 命令","level":"1.12.1","depth":2,"next":{"title":"Shell 脚本","level":"1.12.2","depth":2,"path":"docs/shell/shell-scripts.md","ref":"docs/shell/shell-scripts.md","articles":[]},"previous":{"title":"Shell","level":"1.12","depth":1,"path":"docs/shell/shell.md","ref":"docs/shell/shell.md","articles":[{"title":"Shell 命令","level":"1.12.1","depth":2,"path":"docs/shell/shell-commands.md","ref":"docs/shell/shell-commands.md","articles":[]},{"title":"Shell 脚本","level":"1.12.2","depth":2,"path":"docs/shell/shell-scripts.md","ref":"docs/shell/shell-scripts.md","articles":[]},{"title":"ssh","level":"1.12.3","depth":2,"path":"docs/shell/ssh.md","ref":"docs/shell/ssh.md","articles":[]},{"title":"systemd","level":"1.12.4","depth":2,"path":"docs/shell/systemd.md","ref":"docs/shell/systemd.md","articles":[]},{"title":"正则表达式","level":"1.12.5","depth":2,"path":"docs/shell/正则表达式.md","ref":"docs/shell/正则表达式.md","articles":[]},{"title":"查看机器信息","level":"1.12.6","depth":2,"path":"docs/shell/查看机器信息.md","ref":"docs/shell/查看机器信息.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["code","-lunr","-search","search-pro","github","hide-element","back-to-top-button","chapter-fold","-expandable-chapters-small","-expandable-chapters"],"pluginsConfig":{"chapter-fold":{},"github":{"url":"https://github.com/tzq0301"},"search-pro":{},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/shell/shell-commands.md","mtime":"2024-05-06T11:03:59.737Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-05-06T11:04:29.954Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

@@ -25,36 +25,27 @@ total 52K
 -rw-rw-rw- 1 codespace codespace  166 Apr 18 02:56 vim.md
 ```
 
-## grep 正则匹配
+## grep
 
 ```bash
+# 正则匹配
 grep -e pattern
 grep -E pattern  # -E 表示“扩展正则”
 grep -P pattern  # -P 表示“Perl 正则”
 
-# 例如 OR 或匹配
-grep -E 'a|w' 
-```
+grep -E 'a|w'  # OR 或匹配
 
-## grep “排除”匹配模式
-
-```bash
+# “排除”匹配模式
 grep -v '#'  # 去掉包含 # 的行（可以用于过滤“注释行”等）
-```
 
-## grep 查看指定内容上下几行
-
-```bash
+# 查看指定内容上下几行
 grep -10         '123' app.log # 前后 10 行
 grep -C 10       '123' app.log # 前后 10 行
 grep -A 10 -B 10 '123' app.log # 前后 10 行
 grep -A 10       '123' app.log # 后 10 行（After）
 grep -B 10       '123' app.log # 前 10 行（Before）
-```
 
-## grep 显示行号
-
-```bash
+# 显示行号
 grep -n
 ```
 
