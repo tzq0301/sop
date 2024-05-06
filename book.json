@@ -1,17 +1,18 @@
 {
     "plugins": [
-        "copy-code-button",
-
         "code",
-
         "-lunr", "-search", "search-pro",
-
-        "github"
+        "github",
+        "hide-element",
+        "back-to-top-button"
     ],
 
     "pluginsConfig": {
         "github": {
             "url": "https://github.com/tzq0301"
+        },
+        "hide-element": {
+            "elements": [".gitbook-link"]
         }
     }
 }
