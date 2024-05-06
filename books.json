@@ -1,5 +1,6 @@
 {
     "plugins": [
-        "expandable-chapters-small"
+        "-copy-code-button",
+        "-expandable-chapters-small"
     ]
 }
