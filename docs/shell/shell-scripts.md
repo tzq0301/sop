@@ -1,16 +1,5 @@
 # Shell Scripts
 
-## 使用 EOF 写入多行文本
-
-NOTE: 若文本中包含 `$` 则会直接执行，因此需要加上反斜杠进行转义，例如 `\$UserName` 而不是 `$UserName`
-
-```bash
-cat <<EOF > hello.txt
-foo
-bar
-EOF
-```
-
 ## Shell 脚本设置执行模式
 
 ```bash
@@ -53,9 +42,20 @@ echo $((2#110))  # 6
 echo $((16#2a))  # 42
 ```
 
-## Shell 脚本中让用户输入 yes
+## 使用 EOF 写入多行文本
 
-场景：让用户输入 yes 再执行下一步
+NOTE: 若文本中包含 `$` 则会直接执行，因此需要加上反斜杠进行转义，例如 `\$UserName` 而不是 `$UserName`
+
+```bash
+cat <<EOF > hello.txt
+foo
+bar
+EOF
+```
+
+## 用户输入 read
+
+让用户输入 yes 再执行下一步：
 
 ```bash
 read -p "Please type 'yes' to continue: " input 
@@ -65,14 +65,16 @@ if [ "$input" != "yes" ]; then
 fi
 ```
 
-## Shell 脚本中让用户输入（但不关注内容）
+让用户输入（但不关注内容）：
 
 ```bash
 echo "请按回车键继续"
 read -p ""
 ```
 
-## mktemp 创建临时文件
+## mktemp
+
+创建临时文件：
 
 ```bash
 #!/bin/bash
@@ -82,7 +84,7 @@ trap 'rm -rf $TMPFILE' EXIT  # 保证脚本退出时临时文件被删除
 echo "Our temp file is $TMPFILE"
 ```
 
-## mktemp 创建临时文件夹
+创建临时文件夹：
 
 ```bash
 #!/bin/bash
@@ -107,7 +109,66 @@ echo -e "I ${RED}love${NC} Stack Overflow"
 # printf "I ${RED}love${NC} Stack Overflow\n"
 ```
 
-## Shell Script 查看文件是否存在
+## 参数解析
+
+[How do I parse command line arguments in Bash?](https://stackoverflow.com/a/14203146/16189360)
+
+```bash
+#!/bin/bash
+
+POSITIONAL_ARGS=()
+
+while [[ $# -gt 0 ]]; do
+  case $1 in
+    -e|--extension)
+      EXTENSION="$2"
+      shift # past argument
+      shift # past value
+      ;;
+    -s|--searchpath)
+      SEARCHPATH="$2"
+      shift # past argument
+      shift # past value
+      ;;
+    --default)
+      DEFAULT=YES
+      shift # past argument
+      ;;
+    -*)
+      echo "Unknown option $1"
+      exit 1
+      ;;
+    *)
+      POSITIONAL_ARGS+=("$1") # save positional arg
+      shift # past argument
+      ;;
+  esac
+done
+
+set -- "${POSITIONAL_ARGS[@]}" # restore positional parameters
+
+echo "FILE EXTENSION  = ${EXTENSION}"
+echo "SEARCH PATH     = ${SEARCHPATH}"
+echo "DEFAULT         = ${DEFAULT}"
+echo "Number files in SEARCH PATH with EXTENSION:" $(ls -1 "${SEARCHPATH}"/*."${EXTENSION}" | wc -l)
+
+if [[ -n $1 ]]; then
+    echo "Last line of file specified as non-opt/last argument:"
+    tail -1 "$1"
+fi
+```
+
+## 前置检查：某工具是否存在
+
+```bash
+RED='\033[0;31m'
+NC='\033[0m' # No Color
+
+jq --version >& /dev/null || (echo -e "${RED}jq${NC} not found" && exit 1)
+ansible-playbook --version >& /dev/null || (echo -e "${RED}ansible-playbook${NC} not found" && exit 1)
+```
+
+## 查看文件是否存在
 
 ```bash
 if [ ! -f /tmp/foo.txt ]; then
@@ -116,7 +177,7 @@ if [ ! -f /tmp/foo.txt ]; then
 fi
 ```
 
-## Shell Script 要求 root 或 sudo 运行脚本
+## 要求 root 或 sudo 运行脚本
 
 ```bash
 if [ `id -u` -ne 0 ]
@@ -132,7 +193,7 @@ UserName=
 echo "$UserName ALL=(ALL) NOPASSWD:ALL" | sudo tee -a /etc/sudoers > /dev/null
 ```
 
-## 示例：Shell Script 创建用户（同名用户组、配置密码、免密提权）
+## 示例：创建用户（并创建同名用户组、配置密码、免密提权）
 
 ```bash
 #!/usr/bin/env bash
