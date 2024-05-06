@@ -274,6 +274,51 @@
             
 
             
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="shell-script.html">
+            
+                <a href="shell-script.html">
+            
+                    
+                    Shell Scripts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="shell-正则表达式.html">
+            
+                <a href="shell-正则表达式.html">
+            
+                    
+                    正则表达式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3" data-path="shell-查看机器信息.html">
+            
+                <a href="shell-查看机器信息.html">
+            
+                    
+                    查看机器信息
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
         </li>
     
         <li class="chapter " data-level="1.13" data-path="ssh.html">
@@ -315,20 +360,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.16" data-path="正则表达式.html">
-            
-                <a href="正则表达式.html">
-            
-                    
-                    正则表达式
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.17" data-path="其他.html">
+        <li class="chapter " data-level="1.16" data-path="其他.html">
             
                 <a href="其他.html">
             
@@ -442,67 +474,6 @@ MYSQL_PWD=<span class="hljs-variable">$Password</span> mysql -h<span class="hljs
 <h2 id="&#x5728;&#x7EBF;&#x67E5;&#x770B;-binlog-&#x5185;&#x5BB9;">&#x5728;&#x7EBF;&#x67E5;&#x770B; binlog &#x5185;&#x5BB9;</h2>
 <pre><code class="lang-sql"><span class="hljs-keyword">SHOW</span> <span class="hljs-keyword">BINLOG</span> <span class="hljs-keyword">EVENTS</span> [<span class="hljs-keyword">IN</span> <span class="hljs-string">&apos;log_name&apos;</span>] [<span class="hljs-keyword">FROM</span> pos] [<span class="hljs-keyword">LIMIT</span> [<span class="hljs-keyword">offset</span>,], <span class="hljs-keyword">row_count</span>];
 </code></pre>
-<h2 id="&#x642D;&#x5EFA;&#x4E3B;&#x4ECE;&#x8FDE;&#x63A5;">&#x642D;&#x5EFA;&#x4E3B;&#x4ECE;&#x8FDE;&#x63A5;</h2>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>IP</th>
-<th>server-id</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>&#x4E3B;&#x5E93; source</td>
-<td>192.168.244.10</td>
-<td>1</td>
-</tr>
-<tr>
-<td>&#x4ECE;&#x5E93; replica</td>
-<td>192.168.244.20</td>
-<td>2</td>
-</tr>
-</tbody>
-</table>
-<p>&#x5728; source &#x7AEF;&#xFF08;&#x4E3B;&#x5E93;&#xFF09;&#xFF0C;&#x521B;&#x5EFA;&#x590D;&#x5236;&#x7528;&#x6237;&#xFF1A;</p>
-<pre><code class="lang-sql">mysql&gt; CREATE USER &apos;repl&apos;@&apos;192.168.244.20&apos; IDENTIFIED BY &apos;repl123&apos;;
-Query OK, 0 rows affected (0.01 sec)
-
-mysql&gt; GRANT REPLICATION SLAVE ON *.* TO &apos;repl&apos;@&apos;192.168.244.20&apos;;
-Query OK, 0 rows affected (0.01 sec)
-</code></pre>
-<p>&#x5728; replica &#x7AEF;&#xFF08;&#x4ECE;&#x5E93;&#xFF09;&#xFF0C;&#x6D4B;&#x8BD5;&#x662F;&#x5426;&#x80FD;&#x8FDE;&#x63A5;&#x5230;&#x4E3B;&#x5E93;&#xFF1A;</p>
-<pre><code class="lang-bash">mysql -h 192.168.244.10 -urepl -prepl123
-</code></pre>
-<p>&#x5728; replica &#x7AEF;&#xFF08;&#x4ECE;&#x5E93;&#xFF09;&#xFF0C;&#x6267;&#x884C; <code>CHANGE MASTER TO</code> &#x547D;&#x4EE4;&#xFF1A;</p>
-<blockquote>
-<p>&#x5728;&#x4E3B;&#x5E93;&#x4E2D;&#x6267;&#x884C; <code>SHOW MASTER STATUS</code> &#x6216; <code>SHOW BINARY LOG STATUS</code>&#xFF0C;&#x7ED3;&#x679C;&#x4E2D;&#x7684; File &#x4E0E; Position &#x7684;&#x503C;&#xFF0C;&#x5C31;&#x662F; master_log_file &#x4E0E; master_log_pos &#x7684;&#x503C;</p>
-</blockquote>
-<pre><code class="lang-sql"><span class="hljs-keyword">CHANGE</span> <span class="hljs-keyword">MASTER</span> <span class="hljs-keyword">TO</span> 
-    master_host=<span class="hljs-string">&apos;192.168.244.10&apos;</span>, 
-    master_user=<span class="hljs-string">&apos;repl&apos;</span>, 
-    master_password=<span class="hljs-string">&apos;repl123&apos;</span>, 
-    master_log_file=<span class="hljs-string">&apos;binlog.000002&apos;</span>, 
-    master_log_pos=<span class="hljs-number">1988</span>;
-</code></pre>
-<p>&#x5728; replica &#x7AEF;&#xFF08;&#x4ECE;&#x5E93;&#xFF09;&#xFF0C;&#x6267;&#x884C; <code>START SLAVE</code> &#x6216; <code>START REPLICA</code> &#x547D;&#x4EE4;&#xFF0C;&#x5F00;&#x542F;&#x4E3B;&#x4ECE;&#x590D;&#x5236;&#xFF0C;&#x5E76;&#x4F7F;&#x7528; <code>SHOW SLAVE STATUS\G</code> &#x6216; <code>SHOW REPLICA STATUS\G</code> &#x8FDB;&#x884C;&#x68C0;&#x67E5;&#xFF1A;&#x82E5; <code>Slave_IO_Running</code> &#x4E0E; <code>Slave_SQL_Running</code> &#x7684;&#x503C;&#x5747;&#x4E3A; <code>Yes</code>&#xFF0C;&#x6216; <code>Replica_IO_Running</code> &#x4E0E; <code>Replica_SQL_Running</code> &#x7684;&#x503C;&#x5747;&#x4E3A; <code>Yes</code>&#xFF0C;&#x90A3;&#x4E48;&#x8BF4;&#x660E;&#x4E3B;&#x4ECE;&#x590D;&#x5236;&#x642D;&#x5EFA;&#x6210;&#x529F;</p>
-<p>&#xFF08;&#x53EF;&#x9009;&#xFF09;&#x6700;&#x540E;&#xFF0C;&#x5728; source &#x968F;&#x610F;&#x6267;&#x884C;&#x4E00;&#x4E9B; SQL&#xFF0C;&#x7136;&#x540E;&#x5230; replica &#x67E5;&#x770B;&#x6570;&#x636E;&#x662F;&#x5426;&#x5DF2;&#x590D;&#x5236;&#x8FC7;&#x6765;&#x4E86;</p>
-<h2 id="&#x4ECE;&#x5E93;&#x5F00;&#x542F;&#x4E3B;&#x4ECE;&#x590D;&#x5236;">&#x4ECE;&#x5E93;&#x5F00;&#x542F;&#x4E3B;&#x4ECE;&#x590D;&#x5236;</h2>
-<pre><code class="lang-sql"><span class="hljs-keyword">START</span> <span class="hljs-keyword">SLAVE</span>;
-<span class="hljs-comment">-- or</span>
-<span class="hljs-keyword">START</span> REPLICA;
-</code></pre>
-<h2 id="&#x4ECE;&#x5E93;&#x505C;&#x6B62;&#x4E3B;&#x4ECE;&#x590D;&#x5236;">&#x4ECE;&#x5E93;&#x505C;&#x6B62;&#x4E3B;&#x4ECE;&#x590D;&#x5236;</h2>
-<p>&#x4F1A;&#x540C;&#x65F6;&#x505C;&#x6B62; IO Thread &#x548C; SQL Thread</p>
-<pre><code class="lang-sql"><span class="hljs-keyword">STOP</span> <span class="hljs-keyword">SLAVE</span>; 
-<span class="hljs-comment">-- or</span>
-<span class="hljs-keyword">STOP</span> REPLICA;
-</code></pre>
-<h2 id="&#x5728;&#x4E3B;&#x5E93;&#x67E5;&#x770B;&#x4ECE;&#x5E93;-ip-&#x548C;&#x7AEF;&#x53E3;">&#x5728;&#x4E3B;&#x5E93;&#x67E5;&#x770B;&#x4ECE;&#x5E93; IP &#x548C;&#x7AEF;&#x53E3;</h2>
-<pre><code class="lang-sql"><span class="hljs-keyword">SHOW</span> <span class="hljs-keyword">SLAVE</span> <span class="hljs-keyword">HOSTS</span>;
-<span class="hljs-comment">-- or</span>
-<span class="hljs-keyword">SHOW</span> REPLICAS;
-</code></pre>
 <h2 id="&#x65F6;&#x95F4;&#x7C7B;&#x578B;&#x4E0E;-int&#x3001;varchar-&#x7B49;&#x7C7B;&#x578B;&#x76F8;&#x4E92;&#x8F6C;&#x6362;">&#x65F6;&#x95F4;&#x7C7B;&#x578B;&#x4E0E; INT&#x3001;VARCHAR &#x7B49;&#x7C7B;&#x578B;&#x76F8;&#x4E92;&#x8F6C;&#x6362;</h2>
 <pre><code class="lang-sql"><span class="hljs-comment">-- NOW() -&gt; VARCHAR</span>
 <span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">DATE_FORMAT</span>(<span class="hljs-keyword">NOW</span>(<span class="hljs-number">6</span>), <span class="hljs-string">&apos;%Y-%m-%d %H:%m:%s.%f&apos;</span>);
@@ -565,7 +536,7 @@ Query OK, 0 rows affected (0.01 sec)
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"MySQL","level":"1.9","depth":1,"next":{"title":"MySQL Cluster","level":"1.9.1","depth":2,"path":"docs/mysql-cluster.md","ref":"docs/mysql-cluster.md","articles":[]},"previous":{"title":"Kubernetes","level":"1.8","depth":1,"path":"docs/kubernetes.md","ref":"docs/kubernetes.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["code","-lunr","-search","search-pro","github","hide-element","back-to-top-button","chapter-fold","-expandable-chapters-small","-expandable-chapters"],"pluginsConfig":{"chapter-fold":{},"github":{"url":"https://github.com/tzq0301"},"search-pro":{},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/mysql.md","mtime":"2024-05-06T10:49:20.507Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-05-06T10:49:50.874Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"MySQL","level":"1.9","depth":1,"next":{"title":"MySQL Cluster","level":"1.9.1","depth":2,"path":"docs/mysql-cluster.md","ref":"docs/mysql-cluster.md","articles":[]},"previous":{"title":"Kubernetes","level":"1.8","depth":1,"path":"docs/kubernetes.md","ref":"docs/kubernetes.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["code","-lunr","-search","search-pro","github","hide-element","back-to-top-button","chapter-fold","-expandable-chapters-small","-expandable-chapters"],"pluginsConfig":{"chapter-fold":{},"github":{"url":"https://github.com/tzq0301"},"search-pro":{},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/mysql.md","mtime":"2024-05-06T10:55:08.311Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-05-06T10:55:40.146Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
