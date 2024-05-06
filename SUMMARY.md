@@ -7,6 +7,7 @@
 * [JavaScript](docs/javascript.md)
 * [Kubernetes](docs/kubernetes.md)
 * [MySQL](docs/mysql.md)
+  * [MySQL Cluster](docs/mysql-cluster.md)
 * [Nginx](docs/nginx.md)
 * [Redis](docs/redis.md)
 * [Shell](docs/shell.md)

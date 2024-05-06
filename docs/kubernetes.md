@@ -10,6 +10,8 @@ alias k='kubectl'
 # deploy <=> deployments
 # svc    <=> services
 # rs     <=> replicasets
+# ns     <=> namespace
+# cm     <=> configmap
 
 # get 列出资源
 kubectl get pods
