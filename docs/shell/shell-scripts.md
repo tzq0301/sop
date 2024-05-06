@@ -102,7 +102,9 @@ YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
 GREEN='\033[0;32m'
 NC='\033[0m' # No Color
-printf "I ${RED}love${NC} Stack Overflow\n"
+
+echo -e "I ${RED}love${NC} Stack Overflow"
+# printf "I ${RED}love${NC} Stack Overflow\n"
 ```
 
 ## Shell Script 查看文件是否存在
