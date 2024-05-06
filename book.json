@@ -5,7 +5,7 @@
         "github",
         "hide-element",
         "back-to-top-button",
-        "expandable-chapters-small"
+        "chapter-fold", "-expandable-chapters-small", "-expandable-chapters"
     ],
 
     "pluginsConfig": {
