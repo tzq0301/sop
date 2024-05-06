@@ -8,6 +8,9 @@
 * [Kubernetes](docs/kubernetes.md)
 * [MySQL](docs/mysql.md)
   * [MySQL Cluster](docs/mysql-cluster.md)
+* MySQL
+  * [MySQL](docs/mysql.md)
+  * [MySQL Cluster](docs/mysql-cluster.md)
 * [Nginx](docs/nginx.md)
 * [Redis](docs/redis.md)
 * [Shell](docs/shell.md)
@@ -16,12 +19,3 @@
 * [Vim](docs/vim.md)
 * [正则表达式](docs/正则表达式.md)
 * [其他](docs/其他.md)
-
-* [父目录]()
-  * [子目录]()
-
-* [父目录]
-  * [子目录]()
-
-* 父目录
-  * [子目录]()
