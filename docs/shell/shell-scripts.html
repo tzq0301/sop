@@ -445,13 +445,6 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="shell-scripts">Shell Scripts</h1>
-<h2 id="&#x4F7F;&#x7528;-eof-&#x5199;&#x5165;&#x591A;&#x884C;&#x6587;&#x672C;">&#x4F7F;&#x7528; EOF &#x5199;&#x5165;&#x591A;&#x884C;&#x6587;&#x672C;</h2>
-<p>NOTE: &#x82E5;&#x6587;&#x672C;&#x4E2D;&#x5305;&#x542B; <code>$</code> &#x5219;&#x4F1A;&#x76F4;&#x63A5;&#x6267;&#x884C;&#xFF0C;&#x56E0;&#x6B64;&#x9700;&#x8981;&#x52A0;&#x4E0A;&#x53CD;&#x659C;&#x6760;&#x8FDB;&#x884C;&#x8F6C;&#x4E49;&#xFF0C;&#x4F8B;&#x5982; <code>\$UserName</code> &#x800C;&#x4E0D;&#x662F; <code>$UserName</code></p>
-<pre><code class="lang-bash">cat &lt;&lt;EOF &gt; hello.txt
-foo
-bar
-EOF
-</code></pre>
 <h2 id="shell-&#x811A;&#x672C;&#x8BBE;&#x7F6E;&#x6267;&#x884C;&#x6A21;&#x5F0F;">Shell &#x811A;&#x672C;&#x8BBE;&#x7F6E;&#x6267;&#x884C;&#x6A21;&#x5F0F;</h2>
 <pre><code class="lang-bash"><span class="hljs-built_in">set</span> -x           <span class="hljs-comment"># &#x542F;&#x7528;&#x8DDF;&#x8E2A;&#x6A21;&#x5F0F;&#xFF0C;&#x5373; shell &#x4F1A;&#x5728;&#x6267;&#x884C;&#x6BCF;&#x4E2A;&#x547D;&#x4EE4;&#x4E4B;&#x524D;&#x5C06;&#x8BE5;&#x547D;&#x4EE4;&#x6253;&#x5370;&#x51FA;&#x6765;&#xFF0C;&#x7136;&#x540E;&#x518D;&#x6267;&#x884C;&#x5B83;</span>
 <span class="hljs-built_in">set</span> <span class="hljs-_">-e</span>           <span class="hljs-comment"># &#x8BBE;&#x7F6E;&#x9519;&#x8BEF;&#x9000;&#x51FA;&#x6A21;&#x5F0F;&#xFF0C;&#x5F53;&#x4EFB;&#x4F55;&#x547D;&#x4EE4;&#x8FD4;&#x56DE;&#x975E;&#x96F6;&#x9000;&#x51FA;&#x72B6;&#x6001;&#x7801;&#x65F6;&#xFF0C;shell &#x5C06;&#x4F1A;&#x7ACB;&#x5373;&#x7EC8;&#x6B62;&#x6267;&#x884C;&#xFF0C;&#x5E76;&#x9000;&#x51FA;&#x811A;&#x672C;</span>
@@ -490,26 +483,34 @@ EOF
 <span class="hljs-built_in">echo</span> $((2<span class="hljs-comment">#110))  # 6</span>
 <span class="hljs-built_in">echo</span> $((16<span class="hljs-comment">#2a))  # 42</span>
 </code></pre>
-<h2 id="shell-&#x811A;&#x672C;&#x4E2D;&#x8BA9;&#x7528;&#x6237;&#x8F93;&#x5165;-yes">Shell &#x811A;&#x672C;&#x4E2D;&#x8BA9;&#x7528;&#x6237;&#x8F93;&#x5165; yes</h2>
-<p>&#x573A;&#x666F;&#xFF1A;&#x8BA9;&#x7528;&#x6237;&#x8F93;&#x5165; yes &#x518D;&#x6267;&#x884C;&#x4E0B;&#x4E00;&#x6B65;</p>
+<h2 id="&#x4F7F;&#x7528;-eof-&#x5199;&#x5165;&#x591A;&#x884C;&#x6587;&#x672C;">&#x4F7F;&#x7528; EOF &#x5199;&#x5165;&#x591A;&#x884C;&#x6587;&#x672C;</h2>
+<p>NOTE: &#x82E5;&#x6587;&#x672C;&#x4E2D;&#x5305;&#x542B; <code>$</code> &#x5219;&#x4F1A;&#x76F4;&#x63A5;&#x6267;&#x884C;&#xFF0C;&#x56E0;&#x6B64;&#x9700;&#x8981;&#x52A0;&#x4E0A;&#x53CD;&#x659C;&#x6760;&#x8FDB;&#x884C;&#x8F6C;&#x4E49;&#xFF0C;&#x4F8B;&#x5982; <code>\$UserName</code> &#x800C;&#x4E0D;&#x662F; <code>$UserName</code></p>
+<pre><code class="lang-bash">cat &lt;&lt;EOF &gt; hello.txt
+foo
+bar
+EOF
+</code></pre>
+<h2 id="&#x7528;&#x6237;&#x8F93;&#x5165;-read">&#x7528;&#x6237;&#x8F93;&#x5165; read</h2>
+<p>&#x8BA9;&#x7528;&#x6237;&#x8F93;&#x5165; yes &#x518D;&#x6267;&#x884C;&#x4E0B;&#x4E00;&#x6B65;&#xFF1A;</p>
 <pre><code class="lang-bash"><span class="hljs-built_in">read</span> -p <span class="hljs-string">&quot;Please type &apos;yes&apos; to continue: &quot;</span> input 
 <span class="hljs-keyword">if</span> [ <span class="hljs-string">&quot;<span class="hljs-variable">$input</span>&quot;</span> != <span class="hljs-string">&quot;yes&quot;</span> ]; <span class="hljs-keyword">then</span> 
     <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;You did not enter &apos;yes&apos;. Exit...&quot;</span>
     <span class="hljs-built_in">exit</span> 1
 <span class="hljs-keyword">fi</span>
 </code></pre>
-<h2 id="shell-&#x811A;&#x672C;&#x4E2D;&#x8BA9;&#x7528;&#x6237;&#x8F93;&#x5165;&#xFF08;&#x4F46;&#x4E0D;&#x5173;&#x6CE8;&#x5185;&#x5BB9;&#xFF09;">Shell &#x811A;&#x672C;&#x4E2D;&#x8BA9;&#x7528;&#x6237;&#x8F93;&#x5165;&#xFF08;&#x4F46;&#x4E0D;&#x5173;&#x6CE8;&#x5185;&#x5BB9;&#xFF09;</h2>
+<p>&#x8BA9;&#x7528;&#x6237;&#x8F93;&#x5165;&#xFF08;&#x4F46;&#x4E0D;&#x5173;&#x6CE8;&#x5185;&#x5BB9;&#xFF09;&#xFF1A;</p>
 <pre><code class="lang-bash"><span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;&#x8BF7;&#x6309;&#x56DE;&#x8F66;&#x952E;&#x7EE7;&#x7EED;&quot;</span>
 <span class="hljs-built_in">read</span> -p <span class="hljs-string">&quot;&quot;</span>
 </code></pre>
-<h2 id="mktemp-&#x521B;&#x5EFA;&#x4E34;&#x65F6;&#x6587;&#x4EF6;">mktemp &#x521B;&#x5EFA;&#x4E34;&#x65F6;&#x6587;&#x4EF6;</h2>
+<h2 id="mktemp">mktemp</h2>
+<p>&#x521B;&#x5EFA;&#x4E34;&#x65F6;&#x6587;&#x4EF6;&#xFF1A;</p>
 <pre><code class="lang-bash"><span class="hljs-meta">#!/bin/bash</span>
 TMPFILE=$(mktemp) || <span class="hljs-built_in">exit</span> 1  <span class="hljs-comment"># &#x786E;&#x4FDD;&#x4E34;&#x65F6;&#x6587;&#x4EF6;&#x521B;&#x5EFA;&#x6210;&#x529F;</span>
 <span class="hljs-built_in">trap</span> <span class="hljs-string">&apos;rm -rf $TMPFILE&apos;</span> EXIT  <span class="hljs-comment"># &#x4FDD;&#x8BC1;&#x811A;&#x672C;&#x9000;&#x51FA;&#x65F6;&#x4E34;&#x65F6;&#x6587;&#x4EF6;&#x88AB;&#x5220;&#x9664;</span>
 
 <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;Our temp file is <span class="hljs-variable">$TMPFILE</span>&quot;</span>
 </code></pre>
-<h2 id="mktemp-&#x521B;&#x5EFA;&#x4E34;&#x65F6;&#x6587;&#x4EF6;&#x5939;">mktemp &#x521B;&#x5EFA;&#x4E34;&#x65F6;&#x6587;&#x4EF6;&#x5939;</h2>
+<p>&#x521B;&#x5EFA;&#x4E34;&#x65F6;&#x6587;&#x4EF6;&#x5939;&#xFF1A;</p>
 <pre><code class="lang-bash"><span class="hljs-meta">#!/bin/bash</span>
 TMPDIR=$(mktemp <span class="hljs-_">-d</span>) || <span class="hljs-built_in">exit</span> 1  <span class="hljs-comment"># &#x786E;&#x4FDD;&#x4E34;&#x65F6;&#x6587;&#x4EF6;&#x5939;&#x521B;&#x5EFA;&#x6210;&#x529F;</span>
 <span class="hljs-built_in">trap</span> <span class="hljs-string">&apos;rm -rf $TMPDIR&apos;</span> EXIT     <span class="hljs-comment"># &#x4FDD;&#x8BC1;&#x811A;&#x672C;&#x9000;&#x51FA;&#x65F6;&#x4E34;&#x65F6;&#x6587;&#x4EF6;&#x5939;&#x88AB;&#x5220;&#x9664;</span>
@@ -527,13 +528,65 @@ NC=<span class="hljs-string">&apos;\033[0m&apos;</span> <span class="hljs-commen
 <span class="hljs-built_in">echo</span> <span class="hljs-_">-e</span> <span class="hljs-string">&quot;I <span class="hljs-variable">${RED}</span>love<span class="hljs-variable">${NC}</span> Stack Overflow&quot;</span>
 <span class="hljs-comment"># printf &quot;I ${RED}love${NC} Stack Overflow\n&quot;</span>
 </code></pre>
-<h2 id="shell-script-&#x67E5;&#x770B;&#x6587;&#x4EF6;&#x662F;&#x5426;&#x5B58;&#x5728;">Shell Script &#x67E5;&#x770B;&#x6587;&#x4EF6;&#x662F;&#x5426;&#x5B58;&#x5728;</h2>
+<h2 id="&#x53C2;&#x6570;&#x89E3;&#x6790;">&#x53C2;&#x6570;&#x89E3;&#x6790;</h2>
+<p><a href="https://stackoverflow.com/a/14203146/16189360" target="_blank">How do I parse command line arguments in Bash?</a></p>
+<pre><code class="lang-bash"><span class="hljs-meta">#!/bin/bash
+</span>
+POSITIONAL_ARGS=()
+
+<span class="hljs-keyword">while</span> [[ <span class="hljs-variable">$#</span> <span class="hljs-_">-gt</span> 0 ]]; <span class="hljs-keyword">do</span>
+  <span class="hljs-keyword">case</span> <span class="hljs-variable">$1</span> <span class="hljs-keyword">in</span>
+    <span class="hljs-_">-e</span>|--extension)
+      EXTENSION=<span class="hljs-string">&quot;<span class="hljs-variable">$2</span>&quot;</span>
+      <span class="hljs-built_in">shift</span> <span class="hljs-comment"># past argument</span>
+      <span class="hljs-built_in">shift</span> <span class="hljs-comment"># past value</span>
+      ;;
+    <span class="hljs-_">-s</span>|--searchpath)
+      SEARCHPATH=<span class="hljs-string">&quot;<span class="hljs-variable">$2</span>&quot;</span>
+      <span class="hljs-built_in">shift</span> <span class="hljs-comment"># past argument</span>
+      <span class="hljs-built_in">shift</span> <span class="hljs-comment"># past value</span>
+      ;;
+    --default)
+      DEFAULT=YES
+      <span class="hljs-built_in">shift</span> <span class="hljs-comment"># past argument</span>
+      ;;
+    -*)
+      <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;Unknown option <span class="hljs-variable">$1</span>&quot;</span>
+      <span class="hljs-built_in">exit</span> 1
+      ;;
+    *)
+      POSITIONAL_ARGS+=(<span class="hljs-string">&quot;<span class="hljs-variable">$1</span>&quot;</span>) <span class="hljs-comment"># save positional arg</span>
+      <span class="hljs-built_in">shift</span> <span class="hljs-comment"># past argument</span>
+      ;;
+  <span class="hljs-keyword">esac</span>
+<span class="hljs-keyword">done</span>
+
+<span class="hljs-built_in">set</span> -- <span class="hljs-string">&quot;<span class="hljs-variable">${POSITIONAL_ARGS[@]}</span>&quot;</span> <span class="hljs-comment"># restore positional parameters</span>
+
+<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;FILE EXTENSION  = <span class="hljs-variable">${EXTENSION}</span>&quot;</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;SEARCH PATH     = <span class="hljs-variable">${SEARCHPATH}</span>&quot;</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;DEFAULT         = <span class="hljs-variable">${DEFAULT}</span>&quot;</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;Number files in SEARCH PATH with EXTENSION:&quot;</span> $(ls -1 <span class="hljs-string">&quot;<span class="hljs-variable">${SEARCHPATH}</span>&quot;</span>/*.<span class="hljs-string">&quot;<span class="hljs-variable">${EXTENSION}</span>&quot;</span> | wc <span class="hljs-_">-l</span>)
+
+<span class="hljs-keyword">if</span> [[ -n <span class="hljs-variable">$1</span> ]]; <span class="hljs-keyword">then</span>
+    <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;Last line of file specified as non-opt/last argument:&quot;</span>
+    tail -1 <span class="hljs-string">&quot;<span class="hljs-variable">$1</span>&quot;</span>
+<span class="hljs-keyword">fi</span>
+</code></pre>
+<h2 id="&#x524D;&#x7F6E;&#x68C0;&#x67E5;&#xFF1A;&#x67D0;&#x5DE5;&#x5177;&#x662F;&#x5426;&#x5B58;&#x5728;">&#x524D;&#x7F6E;&#x68C0;&#x67E5;&#xFF1A;&#x67D0;&#x5DE5;&#x5177;&#x662F;&#x5426;&#x5B58;&#x5728;</h2>
+<pre><code class="lang-bash">RED=<span class="hljs-string">&apos;\033[0;31m&apos;</span>
+NC=<span class="hljs-string">&apos;\033[0m&apos;</span> <span class="hljs-comment"># No Color</span>
+
+jq --version &gt;&amp; /dev/null || (<span class="hljs-built_in">echo</span> <span class="hljs-_">-e</span> <span class="hljs-string">&quot;<span class="hljs-variable">${RED}</span>jq<span class="hljs-variable">${NC}</span> not found&quot;</span> &amp;&amp; <span class="hljs-built_in">exit</span> 1)
+ansible-playbook --version &gt;&amp; /dev/null || (<span class="hljs-built_in">echo</span> <span class="hljs-_">-e</span> <span class="hljs-string">&quot;<span class="hljs-variable">${RED}</span>ansible-playbook<span class="hljs-variable">${NC}</span> not found&quot;</span> &amp;&amp; <span class="hljs-built_in">exit</span> 1)
+</code></pre>
+<h2 id="&#x67E5;&#x770B;&#x6587;&#x4EF6;&#x662F;&#x5426;&#x5B58;&#x5728;">&#x67E5;&#x770B;&#x6587;&#x4EF6;&#x662F;&#x5426;&#x5B58;&#x5728;</h2>
 <pre><code class="lang-bash"><span class="hljs-keyword">if</span> [ ! <span class="hljs-_">-f</span> /tmp/foo.txt ]; <span class="hljs-keyword">then</span>
   <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;file not found!&quot;</span>
   <span class="hljs-built_in">exit</span> 1
 <span class="hljs-keyword">fi</span>
 </code></pre>
-<h2 id="shell-script-&#x8981;&#x6C42;-root-&#x6216;-sudo-&#x8FD0;&#x884C;&#x811A;&#x672C;">Shell Script &#x8981;&#x6C42; root &#x6216; sudo &#x8FD0;&#x884C;&#x811A;&#x672C;</h2>
+<h2 id="&#x8981;&#x6C42;-root-&#x6216;-sudo-&#x8FD0;&#x884C;&#x811A;&#x672C;">&#x8981;&#x6C42; root &#x6216; sudo &#x8FD0;&#x884C;&#x811A;&#x672C;</h2>
 <pre><code class="lang-bash"><span class="hljs-keyword">if</span> [ `id -u` <span class="hljs-_">-ne</span> 0 ]
   <span class="hljs-keyword">then</span> <span class="hljs-built_in">echo</span> Please run this script as root or using sudo!
   <span class="hljs-built_in">exit</span>
@@ -543,7 +596,7 @@ NC=<span class="hljs-string">&apos;\033[0m&apos;</span> <span class="hljs-commen
 <pre><code class="lang-bash">UserName=
 <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$UserName</span> ALL=(ALL) NOPASSWD:ALL&quot;</span> | sudo tee <span class="hljs-_">-a</span> /etc/sudoers &gt; /dev/null
 </code></pre>
-<h2 id="&#x793A;&#x4F8B;&#xFF1A;shell-script-&#x521B;&#x5EFA;&#x7528;&#x6237;&#xFF08;&#x540C;&#x540D;&#x7528;&#x6237;&#x7EC4;&#x3001;&#x914D;&#x7F6E;&#x5BC6;&#x7801;&#x3001;&#x514D;&#x5BC6;&#x63D0;&#x6743;&#xFF09;">&#x793A;&#x4F8B;&#xFF1A;Shell Script &#x521B;&#x5EFA;&#x7528;&#x6237;&#xFF08;&#x540C;&#x540D;&#x7528;&#x6237;&#x7EC4;&#x3001;&#x914D;&#x7F6E;&#x5BC6;&#x7801;&#x3001;&#x514D;&#x5BC6;&#x63D0;&#x6743;&#xFF09;</h2>
+<h2 id="&#x793A;&#x4F8B;&#xFF1A;&#x521B;&#x5EFA;&#x7528;&#x6237;&#xFF08;&#x5E76;&#x521B;&#x5EFA;&#x540C;&#x540D;&#x7528;&#x6237;&#x7EC4;&#x3001;&#x914D;&#x7F6E;&#x5BC6;&#x7801;&#x3001;&#x514D;&#x5BC6;&#x63D0;&#x6743;&#xFF09;">&#x793A;&#x4F8B;&#xFF1A;&#x521B;&#x5EFA;&#x7528;&#x6237;&#xFF08;&#x5E76;&#x521B;&#x5EFA;&#x540C;&#x540D;&#x7528;&#x6237;&#x7EC4;&#x3001;&#x914D;&#x7F6E;&#x5BC6;&#x7801;&#x3001;&#x514D;&#x5BC6;&#x63D0;&#x6743;&#xFF09;</h2>
 <pre><code class="lang-bash"><span class="hljs-meta">#!/usr/bin/env bash
 </span>
 <span class="hljs-built_in">set</span> -xeuo pipefail
@@ -620,7 +673,7 @@ id <span class="hljs-variable">$UserName</span>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Shell 脚本","level":"1.12.2","depth":2,"next":{"title":"ssh","level":"1.12.3","depth":2,"path":"docs/shell/ssh.md","ref":"docs/shell/ssh.md","articles":[]},"previous":{"title":"Shell 命令","level":"1.12.1","depth":2,"path":"docs/shell/shell-commands.md","ref":"docs/shell/shell-commands.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["code","-lunr","-search","search-pro","github","hide-element","back-to-top-button","chapter-fold","-expandable-chapters-small","-expandable-chapters"],"pluginsConfig":{"chapter-fold":{},"github":{"url":"https://github.com/tzq0301"},"search-pro":{},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/shell/shell-scripts.md","mtime":"2024-05-06T11:15:22.812Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-05-06T11:15:54.602Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Shell 脚本","level":"1.12.2","depth":2,"next":{"title":"ssh","level":"1.12.3","depth":2,"path":"docs/shell/ssh.md","ref":"docs/shell/ssh.md","articles":[]},"previous":{"title":"Shell 命令","level":"1.12.1","depth":2,"path":"docs/shell/shell-commands.md","ref":"docs/shell/shell-commands.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["code","-lunr","-search","search-pro","github","hide-element","back-to-top-button","chapter-fold","-expandable-chapters-small","-expandable-chapters"],"pluginsConfig":{"chapter-fold":{},"github":{"url":"https://github.com/tzq0301"},"search-pro":{},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/shell/shell-scripts.md","mtime":"2024-05-06T11:30:09.119Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-05-06T11:30:41.598Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
