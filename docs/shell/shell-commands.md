@@ -177,6 +177,10 @@ mkdir -p t/{a,b,c}
 # f  -> 指定文件
 # -C -> 解压到目标文件夹，并 cd 到目标文件夹
 tar xvf /mnt/gentoo/portage-latest.tar.gz -C /mnt/gentoo/usr
+
+# z -> 使用 gzip 进行压缩（不加 -z 即为“仅归档、不压缩”）
+tar zcf $Folder.tar.gz $Folder/
+tar  cf $Folder.tar    $Folder/
 ```
 
 ## basename & dirname
