@@ -74,9 +74,9 @@ docker pull busybox
 docker run -p 3306:3306 --name mysql -e MYSQL_ALLOW_EMPTY_PASSWORD=yes -d mysql
 ```
 
-## 示例：docker-compose.yaml - Go 语言
+## 示例：Dockerfile - Go 语言
 
-```yaml
+```dockerfile
 # syntax=docker/dockerfile:1
 
 # Build the application from source
