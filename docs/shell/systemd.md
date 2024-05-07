@@ -13,7 +13,8 @@ systemctl is-active nginx.service --quiet || systemctl restart nginx.service
 systemctl show httpd.service               # 显示某个 Unit 的所有底层参数
 systemctl show httpd.service -p CPUShares  # 显示某个 Unit 的指定属性的值
 
-systemctl cat nginx.service  # 查看指定服务的配置文件的内容
+systemctl cat  nginx.service  # 查看指定服务的配置文件的内容
+systemctl edit nginx.service  # 修改指定服务的配置文件的内容
 
 sudo journalctl -u nginx.service  # 查看某个 Unit 的日志
 sudo journalctl -u nginx.service --since today
