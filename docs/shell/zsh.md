@@ -1,7 +1,8 @@
 # zsh
 
 ```bash
-sudo apt install zsh -y
+sudo apt install zsh -y  # Debian
+brew install zsh         # macOS
 ```
 
 ## Oh My Zsh
