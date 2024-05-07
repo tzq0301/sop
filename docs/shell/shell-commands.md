@@ -126,6 +126,8 @@ awk '{print} BEGIN{print "开始"} END{print "结束"}'  # 特殊 pattern BEGIN 
 
 seq 10 | awk '{i=i+1}; END{print i}'   # 统计行数，并在最后打印
 seq 10 | awk '{i=i+$1}; END{print i}'  # 计算第一列的总和
+
+awk '/PATTERN/{print; for(i=1;i<=3;++i) { getline; print; } }'  # 打印所有匹配 PATTERN 的行，并打印其后 3 行
 ```
 
 ## column 对齐每一列
