@@ -1,5 +1,17 @@
 # Ansible
 
+## Install
+
+[Installing Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
+
+```bash
+python3 -m pip -V                      # 查看 pip 是否可用（使用 pip 安装 Ansible）
+python3 -m pip install --user ansible  # 安装 Ansible
+
+ansible --version
+ansible-playbook --version
+```
+
 ## Ansible Ad-hoc Commands
 
 ```bash
