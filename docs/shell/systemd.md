@@ -14,7 +14,7 @@ systemctl show httpd.service               # 显示某个 Unit 的所有底层�
 systemctl show httpd.service -p CPUShares  # 显示某个 Unit 的指定属性的值
 
 systemctl cat  nginx.service  # 查看指定服务的配置文件的内容
-systemctl edit nginx.service  # 修改指定服务的配置文件的内容
+systemctl edit nginx.service  # 修改指定服务的配置文件的内容（sudo update-alternatives --config editor 可以手动选择 editor，例如使用 vim）
 
 sudo journalctl -u nginx.service  # 查看某个 Unit 的日志
 sudo journalctl -u nginx.service --since today
