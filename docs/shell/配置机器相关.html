@@ -541,6 +541,25 @@ EOF
 
 sudo apt update
 </code></pre>
+<h2 id="debian-12-&#x914D;&#x7F6E;-static-ip">Debian 12 &#x914D;&#x7F6E; static IP</h2>
+<p>&#x901A;&#x8FC7;&#x4EE5;&#x4E0B;&#x547D;&#x4EE4;&#xFF0C;&#x627E;&#x5230;&#x4E00;&#x4E2A;&#x7F51;&#x5361;&#x540D;&#x79F0;&#xFF08;&#x4F8B;&#x5982; <code>enp0s1</code>&#xFF0C;<code>inet 192.168.64.3 ... dynamic ...</code>&#xFF09;</p>
+<pre><code class="lang-bash">ip addr
+</code></pre>
+<p>&#x7136;&#x540E;&#xFF0C;&#x7F16;&#x8F91; <code>/etc/network/interfaces</code> &#x6587;&#x4EF6;&#xFF1A;</p>
+<pre><code class="lang-bash">sudo vim /etc/network/interfaces
+</code></pre>
+<p>&#x52A0;&#x5165;&#x4EE5;&#x4E0B;&#x5185;&#x5BB9;&#xFF1A;</p>
+<pre><code class="lang-bash">auto enp0s1               <span class="hljs-comment"># enp0s1 &#x4ECE; ip addr &#x67E5;&#x51FA;&#x6765;</span>
+iface enp0s1 inet static  <span class="hljs-comment"># enp0s1 &#x4ECE; ip addr &#x67E5;&#x51FA;&#x6765;</span>
+address 192.168.64.100    <span class="hljs-comment"># &#x81EA;&#x5DF1;&#x9009;&#x7684;&#x9759;&#x6001; IP</span>
+netmask 255.255.255.0
+gateway 192.168.64.1
+dns-nameservers 8.8.8.8   <span class="hljs-comment"># &#x4E00;&#x5B9A;&#x8981;&#x914D;&#x8FD9;&#x4E2A;&#xFF0C;&#x4E0D;&#x8981;&#x5FFD;&#x7565;</span>
+</code></pre>
+<p>&#x91CD;&#x542F; networking &#x670D;&#x52A1;&#x5373;&#x53EF;&#xFF1A;</p>
+<pre><code class="lang-bash">sudo systemctl restart networking.server
+</code></pre>
+<p>&#x518D;&#x6B21; <code>ip addr</code> &#x67E5;&#x770B;&#x662F;&#x5426;&#x914D;&#x7F6E;&#x751F;&#x6548;</p>
 
                                 
                                 </section>
@@ -584,7 +603,7 @@ sudo apt update
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"配置机器相关","level":"1.13.6","depth":2,"next":{"title":"Vim","level":"1.13.7","depth":2,"path":"docs/shell/vim.md","ref":"docs/shell/vim.md","articles":[]},"previous":{"title":"正则表达式","level":"1.13.5","depth":2,"path":"docs/shell/正则表达式.md","ref":"docs/shell/正则表达式.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["code","-lunr","-search","search-pro","github","hide-element","back-to-top-button","chapter-fold","-expandable-chapters-small","-expandable-chapters"],"pluginsConfig":{"chapter-fold":{},"github":{"url":"https://github.com/tzq0301"},"search-pro":{},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/shell/配置机器相关.md","mtime":"2024-05-07T14:01:39.964Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-05-07T14:02:10.719Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"配置机器相关","level":"1.13.6","depth":2,"next":{"title":"Vim","level":"1.13.7","depth":2,"path":"docs/shell/vim.md","ref":"docs/shell/vim.md","articles":[]},"previous":{"title":"正则表达式","level":"1.13.5","depth":2,"path":"docs/shell/正则表达式.md","ref":"docs/shell/正则表达式.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["code","-lunr","-search","search-pro","github","hide-element","back-to-top-button","chapter-fold","-expandable-chapters-small","-expandable-chapters"],"pluginsConfig":{"chapter-fold":{},"github":{"url":"https://github.com/tzq0301"},"search-pro":{},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/shell/配置机器相关.md","mtime":"2024-05-07T17:14:41.339Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-05-07T17:15:12.357Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
