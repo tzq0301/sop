@@ -179,8 +179,8 @@ mkdir -p t/{a,b,c}
 tar xvf /mnt/gentoo/portage-latest.tar.gz -C /mnt/gentoo/usr
 
 # z -> 使用 gzip 进行压缩（不加 -z 即为“仅归档、不压缩”）
-tar zcf $Folder.tar.gz $Folder/
-tar  cf $Folder.tar    $Folder/
+tar zcf $Folder.tar.gz $Folder/  # .tar.gz 是经过 gzip 命令压缩过的 .tar 文件
+tar  cf $Folder.tar    $Folder/  # .tar 文件：tar 是 Tape Archive 的缩写，表示归档
 ```
 
 ## basename & dirname
