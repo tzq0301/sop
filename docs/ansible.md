@@ -8,8 +8,9 @@
 python3 -m pip -V                      # 查看 pip 是否可用（使用 pip 安装 Ansible）
 python3 -m pip install --user ansible  # 安装 Ansible（若出问题，可参考 Python 配置国内镜像源）
 
-# pip3 -V                      # 查看 pip 是否可用（使用 pip 安装 Ansible）
-# pip3 install --user ansible  # 安装 Ansible（若出问题，可参考 Python 配置国内镜像源）
+# 安装完可能会有黄色的 WARNING，提示 /home/用户名/.local/bin 不在 PATH 中
+# 此时，我们需要进行一下配置，否则无法直接使用 ansible
+echo "export PATH=/home/$(whoami)/.local/bin:\$PATH" >> ~/.bashrc && echo source ~/.bashrc && echo "OK"
 
 ansible --version
 ansible-playbook --version
