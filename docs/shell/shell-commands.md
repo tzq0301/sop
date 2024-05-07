@@ -77,6 +77,10 @@ sed 's|C++|CPP|g'
    
 sed -i 's/C++/CPP/g'  # 原地更新，将文件中的 C++ 替换为 CPP，-i <=> --in-place
 
+# 给文件的每一行加上一个井号
+sed 's/^/#/' 文件名 > 新文件名
+sed -i 's/^/#/' 文件名  # 原地修改
+
 sed -i.bak 's/C++/CPP/g' $FILENAME  # 将文件 $FILENAME 拷贝一份为 $FILENAME.bak，再对文件 $FILENAME 进行原地更新
 ```
 
