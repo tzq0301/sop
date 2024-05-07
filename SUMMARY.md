@@ -20,4 +20,5 @@
   * [正则表达式](docs/shell/正则表达式.md)
   * [查看机器信息](docs/shell/查看机器信息.md)
   * [Vim](docs/shell/vim.md)
+  * [zsh](docs/shell/zsh.md)
 * [其他](docs/其他.md)
