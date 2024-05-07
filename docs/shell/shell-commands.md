@@ -135,10 +135,10 @@ column -t         # 制表
 column -t -s ','  # 指定分隔符来制表
 ```
 
-## tr 替换 space 为换行符
+## tr
 
 ```bash
-tr ' ' '\n'
+tr ' ' '\n'  # 替换 space 为换行符
 ```
 
 ## tee 在终端输出时，同时输出到文件
@@ -147,16 +147,19 @@ tr ' ' '\n'
 ls -a | tee output
 ```
 
-## tail 去掉第一行
+## tail
 
 ```bash
-tail -n +2 "$FILE"
+tail -n +2 "$FILE"  # 去掉第一行
+
+tail -10   "$FILE"  # 文件最后 10 行
+tail -n 10 "$FILE"  # 文件最后 10 行
 ```
 
-## wc 统计行数
+## wc
 
 ```bash
-wc -l
+wc -l  # 统计行数
 ```
 
 ## mkdir
@@ -169,7 +172,7 @@ mkdir -p
 mkdir -p t/{a,b,c}
 ```
 
-## tar 解压
+## tar
 
 ```bash
 # x  -> 解压
