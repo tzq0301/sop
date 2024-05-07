@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Shell · GitBook</title>
+        <title>zsh · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -69,10 +69,10 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="shell-commands.html" />
+    <link rel="next" href="../其他.html" />
     
     
-    <link rel="prev" href="../redis.html" />
+    <link rel="prev" href="vim.html" />
     
 
     </head>
@@ -289,7 +289,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.13" data-path="shell.html">
+        <li class="chapter " data-level="1.13" data-path="shell.html">
             
                 <a href="shell.html">
             
@@ -394,7 +394,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.13.8" data-path="zsh.html">
+        <li class="chapter active" data-level="1.13.8" data-path="zsh.html">
             
                 <a href="zsh.html">
             
@@ -455,7 +455,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >Shell</a>
+        <a href="../.." >zsh</a>
     </h1>
 </div>
 
@@ -470,10 +470,25 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="shell">Shell</h1>
-<ul>
-<li><a href="https://wangdoc.com/bash/" target="_blank">Bash &#x811A;&#x672C;&#x6559;&#x7A0B; - WangDoc</a></li>
-</ul>
+                                <h1 id="zsh">zsh</h1>
+<pre><code class="lang-bash">sudo apt install zsh -y
+</code></pre>
+<h2 id="oh-my-zsh">Oh My Zsh</h2>
+<pre><code class="lang-bash"><span class="hljs-comment"># sh -c &quot;$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;</span>
+sh -c <span class="hljs-string">&quot;<span class="hljs-variable">$(curl -fsSL https://gitee.com/mirrors/oh-my-zsh/raw/master/tools/install.sh)</span>&quot;</span>
+<span class="hljs-comment"># sh -c &quot;$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)&quot;</span>
+<span class="hljs-comment"># sh -c &quot;$(wget -O- https://gitee.com/pocmon/mirrors/raw/master/tools/install.sh)&quot;</span>
+</code></pre>
+<h2 id="zsh-syntax-highlighting-&#x8BED;&#x6CD5;&#x9AD8;&#x4EAE;">zsh-syntax-highlighting &#x8BED;&#x6CD5;&#x9AD8;&#x4EAE;</h2>
+<p><a href="https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md" target="_blank">zsh-syntax-highlighting/blob/master/INSTALL.md</a></p>
+<h3 id="debian">Debian</h3>
+<pre><code class="lang-bash">sudo apt install zsh-syntax-highlighting -y
+<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh&quot;</span> &gt;&gt; <span class="hljs-variable">${ZDOTDIR:-$HOME}</span>/.zshrc
+</code></pre>
+<h3 id="macos">macOS</h3>
+<pre><code class="lang-bash">brew install zsh-syntax-highlighting
+<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;source <span class="hljs-variable">$(brew --prefix)</span>/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh&quot;</span> &gt;&gt; <span class="hljs-variable">${ZDOTDIR:-$HOME}</span>/.zshrc
+</code></pre>
 
                                 
                                 </section>
@@ -501,12 +516,12 @@
 
             
                 
-                <a href="../redis.html" class="navigation navigation-prev " aria-label="Previous page: Redis">
+                <a href="vim.html" class="navigation navigation-prev " aria-label="Previous page: Vim">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="shell-commands.html" class="navigation navigation-next " aria-label="Next page: Shell 命令">
+                <a href="../其他.html" class="navigation navigation-next " aria-label="Next page: 其他">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -517,7 +532,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Shell","level":"1.13","depth":1,"next":{"title":"Shell 命令","level":"1.13.1","depth":2,"path":"docs/shell/shell-commands.md","ref":"docs/shell/shell-commands.md","articles":[]},"previous":{"title":"Redis","level":"1.12","depth":1,"path":"docs/redis.md","ref":"docs/redis.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["code","-lunr","-search","search-pro","github","hide-element","back-to-top-button","chapter-fold","-expandable-chapters-small","-expandable-chapters"],"pluginsConfig":{"chapter-fold":{},"github":{"url":"https://github.com/tzq0301"},"search-pro":{},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/shell/shell.md","mtime":"2024-05-07T03:53:52.978Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-05-07T03:54:24.525Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"zsh","level":"1.13.8","depth":2,"next":{"title":"其他","level":"1.14","depth":1,"path":"docs/其他.md","ref":"docs/其他.md","articles":[]},"previous":{"title":"Vim","level":"1.13.7","depth":2,"path":"docs/shell/vim.md","ref":"docs/shell/vim.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["code","-lunr","-search","search-pro","github","hide-element","back-to-top-button","chapter-fold","-expandable-chapters-small","-expandable-chapters"],"pluginsConfig":{"chapter-fold":{},"github":{"url":"https://github.com/tzq0301"},"search-pro":{},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/shell/zsh.md","mtime":"2024-05-07T03:53:52.978Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-05-07T03:54:24.525Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
