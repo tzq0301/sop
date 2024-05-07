@@ -6,7 +6,10 @@
 
 ```bash
 python3 -m pip -V                      # 查看 pip 是否可用（使用 pip 安装 Ansible）
-python3 -m pip install --user ansible  # 安装 Ansible
+python3 -m pip install --user ansible  # 安装 Ansible（若出问题，可参考 Python 配置国内镜像源）
+
+# pip3 -V                      # 查看 pip 是否可用（使用 pip 安装 Ansible）
+# pip3 install --user ansible  # 安装 Ansible（若出问题，可参考 Python 配置国内镜像源）
 
 ansible --version
 ansible-playbook --version
