@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Git · GitBook</title>
+        <title>Python · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -69,10 +69,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="go-lib.html" />
+    <link rel="next" href="redis.html" />
     
     
-    <link rel="prev" href="docker.html" />
+    <link rel="prev" href="nginx.html" />
     
 
     </head>
@@ -153,7 +153,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.5" data-path="git.html">
+        <li class="chapter " data-level="1.5" data-path="git.html">
             
                 <a href="git.html">
             
@@ -263,7 +263,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.11" data-path="python.html">
+        <li class="chapter active" data-level="1.11" data-path="python.html">
             
                 <a href="python.html">
             
@@ -442,7 +442,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Git</a>
+        <a href=".." >Python</a>
     </h1>
 </div>
 
@@ -457,85 +457,99 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="git">Git</h1>
-<h2 id="git-config">git config</h2>
-<pre><code class="lang-bash">git config --global core.editor <span class="hljs-string">&quot;vim&quot;</span>
-git config --global user.name   <span class="hljs-string">&quot;John Doe&quot;</span>
-git config --global user.email  <span class="hljs-string">&quot;johndoe@example.com&quot;</span>
+                                <h1 id="python">Python</h1>
+<h2 id="&#x5B89;&#x88C5;-python-3&#xFF0C;&#x5E76;&#x914D;&#x7F6E;&#x4E3A;&#x9ED8;&#x8BA4;-python-interpreter">&#x5B89;&#x88C5; Python 3&#xFF0C;&#x5E76;&#x914D;&#x7F6E;&#x4E3A;&#x9ED8;&#x8BA4; Python Interpreter</h2>
+<blockquote>
+<p>&#x81EA;&#x52A8;&#x7248;&#xFF1A;<code>sudo apt update &amp;&amp; sudo apt upgrade python3</code></p>
+</blockquote>
+<p>&#x5B89;&#x88C5;&#x7F16;&#x8BD1; Python &#x6E90;&#x7801;&#x6240;&#x9700;&#x8981;&#x7684;&#x7EC4;&#x4EF6;</p>
+<pre><code class="lang-bash">apt-get install wget build-essential libreadline-gplv2-dev libncursesw5-dev libssl-dev libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev libffi-dev zlib1g-dev liblzma-dev -y
 </code></pre>
-<p>&#x68C0;&#x67E5;&#x914D;&#x7F6E;&#xFF1A;</p>
-<pre><code class="lang-bash">git config --list
+<p>&#x5728; <a href="https://www.python.org/downloads/source/" target="_blank">Python &#x5B98;&#x65B9;&#x4E0B;&#x8F7D;&#x9875;&#x9762;</a> &#x4E2D;&#xFF0C;&#x627E;&#x4E00;&#x4E2A; Gzipped source tarball &#x7684; Python &#x53D1;&#x884C;&#x7248;&#xFF0C;&#x5E76;&#x201C;&#x590D;&#x5236;&#x94FE;&#x63A5;&#x5730;&#x5740;&#x201D;&#xFF08;&#x6216;&#x8005;&#x5728; <a href="https://mirrors.huaweicloud.com/python/" target="_blank">&#x534E;&#x4E3A;&#x4E91;&#x955C;&#x50CF;&#x7AD9;</a> &#x627E;&#x4E00;&#x4E2A;&#xFF09;&#xFF0C;&#x8FDB;&#x884C;&#x4E0B;&#x8F7D;</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># &#x4E0B;&#x8F7D; Python &#x6E90;&#x7801;&#xFF08;&#x627E; .tgz &#x540E;&#x7F00;&#x7684;&#xFF09;</span>
+URL=&#x4F60;&#x7684;&#x94FE;&#x63A5;  <span class="hljs-comment"># URL=https://mirrors.huaweicloud.com/python/3.12.3/Python-3.12.3.tgz</span>
+wget <span class="hljs-variable">$URL</span>
+
+<span class="hljs-comment"># &#x89E3;&#x538B;&#x4E0B;&#x8F7D;&#x7684;&#x538B;&#x7F29;&#x5305;</span>
+tar zxvf $(basename <span class="hljs-string">&quot;<span class="hljs-variable">$URL</span>&quot;</span>)
+
+<span class="hljs-comment"># &#x8FDB;&#x5165;&#x76EE;&#x5F55;</span>
+<span class="hljs-built_in">cd</span> $(basename <span class="hljs-string">&quot;<span class="hljs-variable">$URL</span>&quot;</span> .tgz)
+
+<span class="hljs-comment"># &#x7F16;&#x8BD1;&#x6E90;&#x7801;&#xFF0C;&#x5E76;&#x8FDB;&#x884C;&#x5B89;&#x88C5;</span>
+./configure --enable-optimizations
+sudo make altinstall  <span class="hljs-comment"># &#x9ED8;&#x8BA4;&#x5B89;&#x88C5;&#x5728; /usr/bin&#xFF1B;&#x5982;&#x679C;&#x4E0D;&#x60F3;&#x8986;&#x76D6;&#x9ED8;&#x8BA4;&#x7684; Python&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; altinstall &#x5C06; Python &#x5B89;&#x88C5;&#x5728; /usr/local/bin</span>
 </code></pre>
-<h2 id="git-commit">git commit</h2>
-<pre><code class="lang-bash">git commit --amend --no-edit  <span class="hljs-comment"># --amend &#x4E0D;&#x4FEE;&#x6539; commit message</span>
+<p>&#x67E5;&#x770B; <code>/usr/local/bin</code> &#x76EE;&#x5F55;&#x4E0B;&#x7684; Python &#x89E3;&#x91CA;&#x5668;&#xFF0C;&#x9009;&#x62E9;&#x4E00;&#x4E2A;&#xFF0C;&#x5C06;&#x5176;&#x8BBE;&#x7F6E;&#x4E3A;&#x9ED8;&#x8BA4;&#x7684; Python &#x89E3;&#x91CA;&#x5668;</p>
+<pre><code class="lang-bash">ls /usr/<span class="hljs-built_in">local</span>/bin/python*  <span class="hljs-comment"># &#x67E5;&#x770B;&#x53EF;&#x9009;&#x7684; Python &#x89E3;&#x91CA;&#x5668;</span>
+PY=                        <span class="hljs-comment"># &#x4ECE;&#x4E0A;&#x4E00;&#x6B65;&#x663E;&#x793A;&#x7684;&#x82E5;&#x5E72;&#x4E2A; Python &#x89E3;&#x91CA;&#x5668;&#x4E2D;&#xFF0C;&#x9009;&#x62E9;&#x4E00;&#x4E2A;&#xFF0C;&#x8BBE;&#x7F6E;&#x4E3A; PY &#x4E34;&#x65F6;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#xFF0C;&#x4F8B;&#x5982; PY=/usr/local/bin/python3.12</span>
+
+sudo update-alternatives --install /usr/bin/python  python  <span class="hljs-variable">$PY</span> 1  <span class="hljs-comment"># &#x8BBE;&#x7F6E;&#x4E3A;&#x9ED8;&#x8BA4;&#x7684; Python &#x89E3;&#x91CA;&#x5668;</span>
+sudo update-alternatives --install /usr/bin/python3 python3 <span class="hljs-variable">$PY</span> 1  <span class="hljs-comment"># &#x8BBE;&#x7F6E;&#x4E3A;&#x9ED8;&#x8BA4;&#x7684; Python 3 &#x89E3;&#x91CA;&#x5668;</span>
+
+<span class="hljs-comment"># &#x6821;&#x9A8C;&#x662F;&#x5426;&#x914D;&#x7F6E;&#x6210;&#x529F;</span>
+python -V
+python3 -V
+python3 -m pip -V  <span class="hljs-comment"># pip3 -V</span>
 </code></pre>
-<h2 id="git-log">git log</h2>
-<pre><code class="lang-bash">git <span class="hljs-built_in">log</span> --online  <span class="hljs-comment"># &#x4E00;&#x884C;&#x663E;&#x793A;&#x4E00;&#x4E2A; commit &#x4FE1;&#x606F;</span>
+<h2 id="pip-&#x914D;&#x7F6E;&#x56FD;&#x5185;&#x955C;&#x50CF;&#x6E90;">pip &#x914D;&#x7F6E;&#x56FD;&#x5185;&#x955C;&#x50CF;&#x6E90;</h2>
+<pre><code class="lang-bash">mkdir ~/.pip
+
+cat &lt;&lt;EOF &gt;~/.pip/pip.conf
+[global]
+index-url = https://pypi.tuna.tsinghua.edu.cn/simple
+[install]
+trusted-host = https://pypi.tuna.tsinghua.edu.cn
+EOF
+
+pip3 config list  <span class="hljs-comment"># &#x67E5;&#x770B;&#x955C;&#x50CF;&#x5730;&#x5740;&#xFF0C;&#x9A8C;&#x8BC1;&#x662F;&#x5426;&#x5DF2;&#x7ECF;&#x6210;&#x529F;&#x4FEE;&#x6539;&#x955C;&#x50CF;</span>
 </code></pre>
-<h2 id="git-rev-parse">git rev-parse</h2>
-<pre><code class="lang-bash">git rev-parse         HEAD  <span class="hljs-comment">#         commit id</span>
-git rev-parse --short HEAD  <span class="hljs-comment"># shorter commit id</span>
-
-git rev-parse --abbrev-ref HEAD  <span class="hljs-comment"># &#x5F53;&#x524D; branch</span>
-
-git rev-parse --show-toplevel  <span class="hljs-comment"># &#x5F53;&#x524D; git &#x6839;&#x76EE;&#x5F55;</span>
-</code></pre>
-<h2 id="&#x793A;&#x4F8B;&#xFF1A;gitignore">&#x793A;&#x4F8B;&#xFF1A;.gitignore</h2>
-<pre><code class="lang-text">.idea/
-.fleat/
-.vscode/
-.settings/
-
-.DS_Store
-.AppleDouble
-.LSOverride
-Icon
-.Spotlight-V100
-.Trashes
-
-Thumbs.db
-ehthumbs.db
-Desktop.ini
-
-*.log
-
-*.sqlite
-*.db
-
-*.war
-*.jar
-*.class
-*.exe
-*.exe~
-*.out
-*.o
-*.so
-*.ddl
-*.dylib
-
-*.7z
-*.dmg
-*.gz
-*.iso
-*.jar
-*.rar
-*.tar
-*.zip
-
-target/
-out/
-build/
-
-go.work
-*.test
-*.prof
-vendor/
-*.out
-</code></pre>
-<p>&#x6DFB;&#x52A0;&#x540E;&#xFF0C;gitignore &#x53EF;&#x80FD;&#x4E0D;&#x4F1A;&#x751F;&#x6548;&#xFF0C;&#x6B64;&#x65F6;&#x8FD0;&#x884C;&#x4EE5;&#x4E0B;&#x547D;&#x4EE4;&#xFF1A;</p>
-<pre><code class="lang-bash">git rm -rf --cached .
-git add .
-</code></pre>
+<table>
+<thead>
+<tr>
+<th>&#x955C;&#x50CF;&#x7AD9;</th>
+<th>&#x94FE;&#x63A5;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&#x534E;&#x4E3A;&#x955C;&#x50CF;&#x6E90;</td>
+<td><a href="https://mirrors.huaweicloud.com/" target="_blank">https://mirrors.huaweicloud.com/</a></td>
+</tr>
+<tr>
+<td>&#x963F;&#x91CC;&#x4E91;</td>
+<td><a href="http://mirrors.aliyun.com/pypi/simple/" target="_blank">http://mirrors.aliyun.com/pypi/simple/</a></td>
+</tr>
+<tr>
+<td>&#x4E2D;&#x56FD;&#x79D1;&#x5B66;&#x6280;&#x672F;&#x5927;&#x5B66;</td>
+<td><a href="http://pypi.mirrors.ustc.edu.cn/simple/" target="_blank">http://pypi.mirrors.ustc.edu.cn/simple/</a></td>
+</tr>
+<tr>
+<td>&#x6E05;&#x534E;&#x5927;&#x5B66;</td>
+<td><a href="https://pypi.tuna.tsinghua.edu.cn/simple/" target="_blank">https://pypi.tuna.tsinghua.edu.cn/simple/</a></td>
+</tr>
+<tr>
+<td>&#x6D59;&#x6C5F;&#x5927;&#x5B66;&#x5F00;&#x6E90;&#x955C;&#x50CF;&#x7AD9;</td>
+<td><a href="http://mirrors.zju.edu.cn/" target="_blank">http://mirrors.zju.edu.cn/</a></td>
+</tr>
+<tr>
+<td>&#x817E;&#x8BAF;&#x5F00;&#x6E90;&#x955C;&#x50CF;&#x7AD9;</td>
+<td><a href="http://mirrors.cloud.tencent.com/pypi/simple" target="_blank">http://mirrors.cloud.tencent.com/pypi/simple</a></td>
+</tr>
+<tr>
+<td>&#x8C46;&#x74E3;</td>
+<td><a href="http://pypi.douban.com/simple/" target="_blank">http://pypi.douban.com/simple/</a></td>
+</tr>
+<tr>
+<td>&#x7F51;&#x6613;&#x5F00;&#x6E90;&#x955C;&#x50CF;&#x7AD9;</td>
+<td><a href="http://mirrors.163.com/" target="_blank">http://mirrors.163.com/</a></td>
+</tr>
+<tr>
+<td>&#x641C;&#x72D0;&#x5F00;&#x6E90;&#x955C;&#x50CF;</td>
+<td><a href="http://mirrors.sohu.com/" target="_blank">http://mirrors.sohu.com/</a></td>
+</tr>
+</tbody>
+</table>
 
                                 
                                 </section>
@@ -563,12 +577,12 @@ git add .
 
             
                 
-                <a href="docker.html" class="navigation navigation-prev " aria-label="Previous page: Docker">
+                <a href="nginx.html" class="navigation navigation-prev " aria-label="Previous page: Nginx">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="go-lib.html" class="navigation navigation-next " aria-label="Next page: Go Library">
+                <a href="redis.html" class="navigation navigation-next " aria-label="Next page: Redis">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -579,7 +593,7 @@ git add .
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Git","level":"1.5","depth":1,"next":{"title":"Go Library","level":"1.6","depth":1,"path":"docs/go-lib.md","ref":"docs/go-lib.md","articles":[]},"previous":{"title":"Docker","level":"1.4","depth":1,"path":"docs/docker.md","ref":"docs/docker.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["code","-lunr","-search","search-pro","github","hide-element","back-to-top-button","chapter-fold","-expandable-chapters-small","-expandable-chapters"],"pluginsConfig":{"chapter-fold":{},"github":{"url":"https://github.com/tzq0301"},"search-pro":{},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/git.md","mtime":"2024-05-07T03:30:41.350Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-05-07T03:31:13.800Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Python","level":"1.11","depth":1,"next":{"title":"Redis","level":"1.12","depth":1,"path":"docs/redis.md","ref":"docs/redis.md","articles":[]},"previous":{"title":"Nginx","level":"1.10","depth":1,"path":"docs/nginx.md","ref":"docs/nginx.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["code","-lunr","-search","search-pro","github","hide-element","back-to-top-button","chapter-fold","-expandable-chapters-small","-expandable-chapters"],"pluginsConfig":{"chapter-fold":{},"github":{"url":"https://github.com/tzq0301"},"search-pro":{},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/python.md","mtime":"2024-05-07T03:30:41.350Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-05-07T03:31:13.800Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

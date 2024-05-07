@@ -10,6 +10,7 @@
   * [MySQL 命令](docs/mysql/mysql-commands.md)
   * [MySQL Cluster](docs/mysql/mysql-cluster.md)
 * [Nginx](docs/nginx.md)
+* [Python](docs/python.md)
 * [Redis](docs/redis.md)
 * [Shell](docs/shell/shell.md)
   * [Shell 命令](docs/shell/shell-commands.md)
