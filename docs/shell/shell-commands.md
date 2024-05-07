@@ -159,16 +159,20 @@ tail -n +2 "$FILE"
 wc -l
 ```
 
-## mkdir 父目录不存在就自动创建
+## mkdir
 
 ```bash
+# -p 父目录不存在就自动创建
 mkdir -p
+
+# 在某个目录下，创建多个子目录
+mkdir -p t/{a,b,c}
 ```
 
 ## tar 解压
 
 ```bash
-# x -> 解压
+# x  -> 解压
 # v  -> verbose 输出日志
 # f  -> 指定文件
 # -C -> 解压到目标文件夹，并 cd 到目标文件夹
