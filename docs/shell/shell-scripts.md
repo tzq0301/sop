@@ -51,6 +51,11 @@ cat <<EOF > hello.txt
 foo
 bar
 EOF
+
+sudo tee -a hello.txt <<EOF
+foo
+bar
+EOF
 ```
 
 ## 用户输入 read
