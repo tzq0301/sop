@@ -179,6 +179,17 @@ mkdir -p t/{a,b,c}
 tar xvf /mnt/gentoo/portage-latest.tar.gz -C /mnt/gentoo/usr
 ```
 
+## basename & dirname
+
+```bash
+basename a/b/ccc.gz      # ccc.gz
+basename a/b/ccc.gz .gz  # ccc
+
+basename -s .gz a/b/ccc.gz  # ccc
+
+dirname a/b/ccc.gz  # a/b
+```
+
 ## 展示当前时间
 
 ```bash
@@ -211,4 +222,19 @@ truncate -s 0 $FILE  # "-s 0" to specify the size
 cat /dev/null > $FILE
 # or
 dd if=/dev/null of=$FILE
+```
+
+## 传输文件
+
+scp 对每个文件使用一个进程进行传输，而 rsync 只使用一个进程，因此一般 rsync 性能更高
+
+rsync 只会传输修改的部分而不是整个文件，这使得 rsync 在需要更新或备份的情况下效率更高
+
+```bash
+# 将 source_folder 目录下的内容，copy 到 dest_folder 目录下
+rsync -r source_folder/ dest_folder/ 
+
+# 将 source_folder 目录，copy 到 dest_folder 目录下（以下若干种等价）
+rsync -r source_folder  dest_folder/
+rsync -r source_folder/ dest_folder/source_folder
 ```
