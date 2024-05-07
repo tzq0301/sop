@@ -558,7 +558,12 @@ NC=<span class="hljs-string">&apos;\033[0m&apos;</span> <span class="hljs-commen
 <p><a href="https://stackoverflow.com/a/14203146/16189360" target="_blank">How do I parse command line arguments in Bash?</a></p>
 <pre><code class="lang-bash"><span class="hljs-meta">#!/bin/bash
 </span>
-POSITIONAL_ARGS=()
+<span class="hljs-keyword">function</span> <span class="hljs-function"><span class="hljs-title">usage</span></span>() {
+  <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;Usage: &quot;</span>
+  <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;  -e|--extension &lt;extension&gt;:   File extension to search for&quot;</span>
+  <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;  -s|--searchpath &lt;searchpath&gt;: Path to search for files&quot;</span>
+  <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;  --default:                    Use default values&quot;</span>
+}
 
 <span class="hljs-keyword">while</span> [[ <span class="hljs-variable">$#</span> <span class="hljs-_">-gt</span> 0 ]]; <span class="hljs-keyword">do</span>
   <span class="hljs-keyword">case</span> <span class="hljs-variable">$1</span> <span class="hljs-keyword">in</span>
@@ -576,23 +581,18 @@ POSITIONAL_ARGS=()
       DEFAULT=YES
       <span class="hljs-built_in">shift</span> <span class="hljs-comment"># past argument</span>
       ;;
-    -*)
-      <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;Unknown option <span class="hljs-variable">$1</span>&quot;</span>
-      <span class="hljs-built_in">exit</span> 1
-      ;;
     *)
-      POSITIONAL_ARGS+=(<span class="hljs-string">&quot;<span class="hljs-variable">$1</span>&quot;</span>) <span class="hljs-comment"># save positional arg</span>
-      <span class="hljs-built_in">shift</span> <span class="hljs-comment"># past argument</span>
+      <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;Unknown option <span class="hljs-variable">$1</span>&quot;</span>
+      usage
+      <span class="hljs-built_in">exit</span> 1
       ;;
   <span class="hljs-keyword">esac</span>
 <span class="hljs-keyword">done</span>
 
-<span class="hljs-built_in">set</span> -- <span class="hljs-string">&quot;<span class="hljs-variable">${POSITIONAL_ARGS[@]}</span>&quot;</span> <span class="hljs-comment"># restore positional parameters</span>
-
 <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;FILE EXTENSION  = <span class="hljs-variable">${EXTENSION}</span>&quot;</span>
 <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;SEARCH PATH     = <span class="hljs-variable">${SEARCHPATH}</span>&quot;</span>
 <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;DEFAULT         = <span class="hljs-variable">${DEFAULT}</span>&quot;</span>
-<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;Number files in SEARCH PATH with EXTENSION:&quot;</span> $(ls -1 <span class="hljs-string">&quot;<span class="hljs-variable">${SEARCHPATH}</span>&quot;</span>/*.<span class="hljs-string">&quot;<span class="hljs-variable">${EXTENSION}</span>&quot;</span> | wc <span class="hljs-_">-l</span>)
+<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;Number files in SEARCH PATH with EXTENSION:&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$(ls -1 &quot;${SEARCHPATH}&quot;/*.&quot;${EXTENSION}&quot; | wc -l)</span>&quot;</span>
 
 <span class="hljs-keyword">if</span> [[ -n <span class="hljs-variable">$1</span> ]]; <span class="hljs-keyword">then</span>
     <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;Last line of file specified as non-opt/last argument:&quot;</span>
@@ -699,7 +699,7 @@ id <span class="hljs-variable">$UserName</span>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Shell 脚本","level":"1.13.2","depth":2,"next":{"title":"ssh","level":"1.13.3","depth":2,"path":"docs/shell/ssh.md","ref":"docs/shell/ssh.md","articles":[]},"previous":{"title":"Shell 命令","level":"1.13.1","depth":2,"path":"docs/shell/shell-commands.md","ref":"docs/shell/shell-commands.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["code","-lunr","-search","search-pro","github","hide-element","back-to-top-button","chapter-fold","-expandable-chapters-small","-expandable-chapters"],"pluginsConfig":{"chapter-fold":{},"github":{"url":"https://github.com/tzq0301"},"search-pro":{},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/shell/shell-scripts.md","mtime":"2024-05-07T04:03:45.879Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-05-07T04:04:15.523Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Shell 脚本","level":"1.13.2","depth":2,"next":{"title":"ssh","level":"1.13.3","depth":2,"path":"docs/shell/ssh.md","ref":"docs/shell/ssh.md","articles":[]},"previous":{"title":"Shell 命令","level":"1.13.1","depth":2,"path":"docs/shell/shell-commands.md","ref":"docs/shell/shell-commands.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["code","-lunr","-search","search-pro","github","hide-element","back-to-top-button","chapter-fold","-expandable-chapters-small","-expandable-chapters"],"pluginsConfig":{"chapter-fold":{},"github":{"url":"https://github.com/tzq0301"},"search-pro":{},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/shell/shell-scripts.md","mtime":"2024-05-07T04:28:35.655Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-05-07T04:29:06.991Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

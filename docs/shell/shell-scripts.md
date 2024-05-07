@@ -116,7 +116,12 @@ echo -e "I ${RED}love${NC} Stack Overflow"
 ```bash
 #!/bin/bash
 
-POSITIONAL_ARGS=()
+function usage() {
+  echo "Usage: "
+  echo "  -e|--extension <extension>:   File extension to search for"
+  echo "  -s|--searchpath <searchpath>: Path to search for files"
+  echo "  --default:                    Use default values"
+}
 
 while [[ $# -gt 0 ]]; do
   case $1 in
@@ -134,23 +139,18 @@ while [[ $# -gt 0 ]]; do
       DEFAULT=YES
       shift # past argument
       ;;
-    -*)
-      echo "Unknown option $1"
-      exit 1
-      ;;
     *)
-      POSITIONAL_ARGS+=("$1") # save positional arg
-      shift # past argument
+      echo "Unknown option $1"
+      usage
+      exit 1
       ;;
   esac
 done
 
-set -- "${POSITIONAL_ARGS[@]}" # restore positional parameters
-
 echo "FILE EXTENSION  = ${EXTENSION}"
 echo "SEARCH PATH     = ${SEARCHPATH}"
 echo "DEFAULT         = ${DEFAULT}"
-echo "Number files in SEARCH PATH with EXTENSION:" $(ls -1 "${SEARCHPATH}"/*."${EXTENSION}" | wc -l)
+echo "Number files in SEARCH PATH with EXTENSION:" "$(ls -1 "${SEARCHPATH}"/*."${EXTENSION}" | wc -l)"
 
 if [[ -n $1 ]]; then
     echo "Last line of file specified as non-opt/last argument:"
