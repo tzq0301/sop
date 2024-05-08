@@ -257,4 +257,9 @@ rsync -r source_folder/ dest_folder/
 # 将 source_folder 目录，copy 到 dest_folder 目录下（以下若干种等价）
 rsync -r source_folder  dest_folder/
 rsync -r source_folder/ dest_folder/source_folder
+
+# -r 递归
+# -v 输出更多信息
+# -e "ssh -i ~/.ssh/id_rsa" 指定密钥
+rsync -r -v -e "ssh -i ~/.ssh/id_rsa" tmp/ hello@192.168.1.1:/tmp/abc
 ```
