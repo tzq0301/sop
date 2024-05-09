@@ -272,3 +272,14 @@ rsync -r source_folder/ dest_folder/source_folder
 # -e "ssh -i ~/.ssh/id_rsa" 指定密钥
 rsync -r -v -e "ssh -i ~/.ssh/id_rsa" tmp/ hello@192.168.1.1:/tmp/abc
 ```
+
+## 下载文件 wget
+
+```bash
+wget -O 新名字    URL
+wget -P 目标文件夹 URL
+
+# -q    不打印信息
+# -O -  输出到标准输出
+wget -q -O - URL
+```
