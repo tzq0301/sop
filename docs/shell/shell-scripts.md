@@ -63,7 +63,7 @@ EOF
 让用户输入 yes 再执行下一步：
 
 ```bash
-read -p "Please type 'yes' to continue: " input 
+read -r -p "Please type 'yes' to continue: " input 
 if [ "$input" != "yes" ]; then 
     echo "You did not enter 'yes'. Exit..."
     exit 1
@@ -194,6 +194,7 @@ fi
 ## 实现 sudo 免密提权
 
 ```bash
+# UserName=$USER
 UserName=
 echo "$UserName ALL=(ALL) NOPASSWD:ALL" | sudo tee -a /etc/sudoers > /dev/null
 ```
