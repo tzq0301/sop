@@ -50,7 +50,9 @@ sshpass -p $UserPwd ssh-copy-id $UserName@$IP
 ## 测试是否能 ssh 到服务器
 
 ```bash
-ssh $UserName@$IP -o BatchMode=yes true &> /dev/null || echo "fail"
+host=
+username=
+(ssh "$username@$host" -o StrictHostKeyChecking=accept-new true &> /dev/null && echo "ssh connection ok for host: $host") || (echo "fail for host: $host" && exit 1)
 ```
 
 ## ssh 连接流程
@@ -98,7 +100,7 @@ ssh-keygen -R $HOSTNAME
 
 ```bash
 # ssh 加上参数
--o StrictHostKeyChecking=no
+-o StrictHostKeyChecking=accept-new
 ```
 
 ## sshd 查看当前生效的 ciphers
