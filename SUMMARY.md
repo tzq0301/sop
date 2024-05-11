@@ -21,5 +21,6 @@
   * [配置机器相关](docs/shell/配置机器相关.md)
   * [Vim](docs/shell/vim.md)
   * [zsh](docs/shell/zsh.md)
+* [Visual Studio Code](docs/vscode.md)
 * [其他](docs/其他/其他.md)
   * [网络](docs/其他/其他-网络.md)
