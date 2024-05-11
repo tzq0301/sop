@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Ansible · GitBook</title>
+        <title>Visual Studio Code · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -69,10 +69,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="cpp.html" />
+    <link rel="next" href="其他/其他.html" />
     
     
-    <link rel="prev" href="../" />
+    <link rel="prev" href="shell/zsh.html" />
     
 
     </head>
@@ -114,7 +114,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2" data-path="ansible.html">
+        <li class="chapter " data-level="1.2" data-path="ansible.html">
             
                 <a href="ansible.html">
             
@@ -412,7 +412,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.14" data-path="vscode.html">
+        <li class="chapter active" data-level="1.14" data-path="vscode.html">
             
                 <a href="vscode.html">
             
@@ -487,7 +487,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Ansible</a>
+        <a href=".." >Visual Studio Code</a>
     </h1>
 </div>
 
@@ -502,35 +502,23 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="ansible">Ansible</h1>
-<h2 id="install">Install</h2>
-<p><a href="https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html" target="_blank">Installing Ansible</a></p>
-<pre><code class="lang-bash">python3 -m pip -V                      <span class="hljs-comment"># &#x67E5;&#x770B; pip &#x662F;&#x5426;&#x53EF;&#x7528;&#xFF08;&#x4F7F;&#x7528; pip &#x5B89;&#x88C5; Ansible&#xFF09;</span>
-python3 -m pip install --user ansible  <span class="hljs-comment"># &#x5B89;&#x88C5; Ansible&#xFF08;&#x82E5;&#x51FA;&#x95EE;&#x9898;&#xFF0C;&#x53EF;&#x53C2;&#x8003; Python &#x914D;&#x7F6E;&#x56FD;&#x5185;&#x955C;&#x50CF;&#x6E90;&#xFF09;</span>
-
-<span class="hljs-comment"># &#x5B89;&#x88C5;&#x5B8C;&#x53EF;&#x80FD;&#x4F1A;&#x6709;&#x9EC4;&#x8272;&#x7684; WARNING&#xFF0C;&#x63D0;&#x793A; /home/&#x7528;&#x6237;&#x540D;/.local/bin &#x4E0D;&#x5728; PATH &#x4E2D;</span>
-<span class="hljs-comment"># &#x6B64;&#x65F6;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x8FDB;&#x884C;&#x4E00;&#x4E0B;&#x914D;&#x7F6E;&#xFF0C;&#x5426;&#x5219;&#x65E0;&#x6CD5;&#x76F4;&#x63A5;&#x4F7F;&#x7528; ansible</span>
-<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;export PATH=/home/<span class="hljs-variable">$(whoami)</span>/.local/bin:\$PATH&quot;</span> &gt;&gt; ~/.bashrc &amp;&amp; <span class="hljs-built_in">echo</span> <span class="hljs-built_in">source</span> ~/.bashrc &amp;&amp; <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;OK&quot;</span>
-
-ansible --version
-ansible-playbook --version
-</code></pre>
-<h2 id="ansible-ad-hoc-commands">Ansible Ad-hoc Commands</h2>
-<pre><code class="lang-bash">ansible pattern -m [module] <span class="hljs-_">-a</span> <span class="hljs-string">&quot;[module options]&quot;</span>
-
-<span class="hljs-comment"># /etc/ansible/hosts        &#x9ED8;&#x8BA4;&#x7684; inventory &#x6587;&#x4EF6;</span>
-<span class="hljs-comment"># /etc/ansible/ansible.cfg  &#x9ED8;&#x8BA4;&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;</span>
-<span class="hljs-comment"># ~/.ansible.cfg            &#x5982;&#x679C;&#x5B58;&#x5728;&#xFF0C;&#x5C31; override &#x9ED8;&#x8BA4;&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;</span>
-</code></pre>
-<h2 id="&#x517C;&#x5BB9;-cpu-&#x67B6;&#x6784;">&#x517C;&#x5BB9; CPU &#x67B6;&#x6784;</h2>
-<pre><code class="lang-yaml"><span class="hljs-attr">  - name:</span> this is x86_64
-<span class="hljs-attr">    debug:</span>
-<span class="hljs-attr">      msg:</span> <span class="hljs-string">&quot;Hello <span class="hljs-template-variable">{{ ansible_architecture }}</span>&quot;</span>
-<span class="hljs-attr">    when:</span> ansible_architecture == <span class="hljs-string">&apos;x86_64&apos;</span>
-<span class="hljs-attr">  - name:</span> this is aarch64
-<span class="hljs-attr">    debug:</span>
-<span class="hljs-attr">      msg:</span> <span class="hljs-string">&quot;Hello <span class="hljs-template-variable">{{ ansible_architecture }}</span>&quot;</span>
-<span class="hljs-attr">    when:</span> ansible_architecture == <span class="hljs-string">&apos;aarch64&apos;</span>
+                                <h1 id="visual-studio-code">Visual Studio Code</h1>
+<h2 id="&#x914D;&#x7F6E;-task&#xFF1A;&#x6253;&#x5F00;&#x6587;&#x4EF6;&#x5939;&#x65F6;&#xFF0C;&#x81EA;&#x52A8;-git-pull">&#x914D;&#x7F6E; task&#xFF1A;&#x6253;&#x5F00;&#x6587;&#x4EF6;&#x5939;&#x65F6;&#xFF0C;&#x81EA;&#x52A8; git pull</h2>
+<p>&#x5728; <code>.vscode/tasks.json</code> &#x4E2D;&#x6DFB;&#x52A0;&#xFF1A;</p>
+<pre><code class="lang-json">{
+    <span class="hljs-string">&quot;version&quot;</span>: <span class="hljs-string">&quot;2.0.0&quot;</span>,
+    <span class="hljs-string">&quot;tasks&quot;</span>: [
+        {
+            <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;shell&quot;</span>,
+            <span class="hljs-string">&quot;problemMatcher&quot;</span>: [],
+            <span class="hljs-string">&quot;label&quot;</span>: <span class="hljs-string">&quot;git pull&quot;</span>,
+            <span class="hljs-string">&quot;command&quot;</span>: <span class="hljs-string">&quot;git pull&quot;</span>,
+            <span class="hljs-string">&quot;runOptions&quot;</span>: {
+                <span class="hljs-string">&quot;runOn&quot;</span>: <span class="hljs-string">&quot;folderOpen&quot;</span>
+            }
+        }
+    ]
+}
 </code></pre>
 
                                 
@@ -559,12 +547,12 @@ ansible-playbook --version
 
             
                 
-                <a href="../" class="navigation navigation-prev " aria-label="Previous page: Introduction">
+                <a href="shell/zsh.html" class="navigation navigation-prev " aria-label="Previous page: zsh">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="cpp.html" class="navigation navigation-next " aria-label="Next page: C++">
+                <a href="其他/其他.html" class="navigation navigation-next " aria-label="Next page: 其他">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -575,7 +563,7 @@ ansible-playbook --version
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Ansible","level":"1.2","depth":1,"next":{"title":"C++","level":"1.3","depth":1,"path":"docs/cpp.md","ref":"docs/cpp.md","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["code","-lunr","-search","search-pro","github","hide-element","back-to-top-button","chapter-fold","-expandable-chapters-small","-expandable-chapters"],"pluginsConfig":{"chapter-fold":{},"github":{"url":"https://github.com/tzq0301"},"search-pro":{},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/ansible.md","mtime":"2024-05-11T02:55:51.822Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-05-11T02:56:24.207Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Visual Studio Code","level":"1.14","depth":1,"next":{"title":"其他","level":"1.15","depth":1,"path":"docs/其他/其他.md","ref":"docs/其他/其他.md","articles":[{"title":"网络","level":"1.15.1","depth":2,"path":"docs/其他/其他-网络.md","ref":"docs/其他/其他-网络.md","articles":[]}]},"previous":{"title":"zsh","level":"1.13.8","depth":2,"path":"docs/shell/zsh.md","ref":"docs/shell/zsh.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["code","-lunr","-search","search-pro","github","hide-element","back-to-top-button","chapter-fold","-expandable-chapters-small","-expandable-chapters"],"pluginsConfig":{"chapter-fold":{},"github":{"url":"https://github.com/tzq0301"},"search-pro":{},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/vscode.md","mtime":"2024-05-11T02:55:51.826Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-05-11T02:56:24.207Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
