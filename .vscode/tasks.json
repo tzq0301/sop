@@ -3,12 +3,16 @@
     "tasks": [
         {
             "type": "shell",
-            "problemMatcher": [],
-            "label": "git pull origin main --rebase",
+            "label": "git pull",
             "command": "git pull",
             "runOptions": {
                 "runOn": "folderOpen"
             }
+        },
+        {
+            "type": "shell",
+            "label": "upload",
+            "command": "./upload.sh"
         }
     ]
 }
