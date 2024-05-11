@@ -196,6 +196,9 @@ mkdir -p t/{a,b,c}
 # -C -> 解压到目标文件夹，并 cd 到目标文件夹
 tar xvf /mnt/gentoo/portage-latest.tar.gz -C /mnt/gentoo/usr
 
+# --strip-components 1 -> 解压时，去掉一层目录
+mkdir PRETTY_NAME && tar xf UGLY_NAME.tar -C PRETTY_NAME --strip-components 1
+
 # z -> 使用 gzip 进行压缩（不加 -z 即为“仅归档、不压缩”）
 tar zcf $Folder.tar.gz $Folder/  # .tar.gz 是经过 gzip 命令压缩过的 .tar 文件
 tar  cf $Folder.tar    $Folder/  # .tar 文件：tar 是 Tape Archive 的缩写，表示归档
