@@ -229,9 +229,14 @@ ls -lSh
 du -h | sort -hr
 ```
 
-## 强制 apt install 不下载其“推荐”的软件包，以减少软件包的下载与安装
+## apt
 
 ```bash
+# 安静模式（q 从 1 到 3，数量越多越安静）
+sudo apt update  -qqq
+sudo apt install -qqq -y iptables
+
+# 强制 apt install 不下载其“推荐”的软件包，以减少软件包的下载与安装
 sudo apt install --no-install-recommends ...
 ```
 
