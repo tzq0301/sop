@@ -232,9 +232,10 @@ du -h | sort -hr
 ## apt
 
 ```bash
-# 安静模式（q 从 1 到 3，数量越多越安静）
-sudo apt update  -qqq
-sudo apt install -qqq -y iptables
+# 安静模式（q 从 1 到 2，数量越多越安静）
+# -qq 暗示了 -y
+sudo apt update  -qq
+sudo apt install -qq iptables
 
 # 强制 apt install 不下载其“推荐”的软件包，以减少软件包的下载与安装
 sudo apt install --no-install-recommends ...
