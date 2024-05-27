@@ -29,12 +29,12 @@ ansible pattern -m [module] -a "[module options]"
 ## 兼容 CPU 架构
 
 ```yaml
-  - name: this is x86_64
-    debug:
-      msg: "Hello {{ ansible_architecture }}"
-    when: ansible_architecture == 'x86_64'
-  - name: this is aarch64
-    debug:
-      msg: "Hello {{ ansible_architecture }}"
-    when: ansible_architecture == 'aarch64'
+- name: this is x86_64
+  debug:
+    msg: "Hello {{ ansible_architecture }}"
+  when: ansible_architecture == 'x86_64'
+- name: this is aarch64
+  debug:
+    msg: "Hello {{ ansible_architecture }}"
+  when: ansible_architecture == 'aarch64'
 ```

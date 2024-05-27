@@ -27,9 +27,11 @@ loginctl     # 查看当前登录的用户
 
 ## cron
 
-### 查看已生效的 cron jobs
-
 ```bash
+# 查看已生效的 cron jobs
+crontab -l
+
+# 编辑 cron jobs
 crontab -l
 ```
 
