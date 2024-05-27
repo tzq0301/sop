@@ -1,4 +1,4 @@
-# 配置机器相关
+# Debug
 
 ```bash
 cat <<EOF | bash
@@ -48,6 +48,15 @@ df --total -h | grep -e total -e Filesystem
 * `id` - Time spent in idle operations
 * `wa` - Time spent on waiting on IO peripherals (eg. disk)
   * 例如：若 MySQL 服务器上 top 的 `wa` 值较高，说明 I/O 压力比较大，排查慢查询等
+
+## tcpdump
+
+```shell
+# -i any       ->  在所有网络接口上捕获数据包
+# -n           ->  直接显示 IP 地址，不将其解析为主机名
+# 'port 5000'  ->  只捕获目标或源端口为 5000 的数据包
+sudo tcpdump -i any -n 'port 5000'
+```
 
 ## 查看机器重启的历史记录
 
