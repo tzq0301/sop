@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Shell Startup File · GitBook</title>
+        <title>Kubernetes · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -61,10 +61,10 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="regex.html" />
+    <link rel="next" href="../network/network.html" />
     
     
-    <link rel="prev" href="zsh.html" />
+    <link rel="prev" href="../javascript/javascript.html" />
     
 
     </head>
@@ -248,9 +248,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.7" data-path="../kubernetes/kubernetes.html">
+        <li class="chapter active" data-level="1.7" data-path="kubernetes.html">
             
-                <a href="../kubernetes/kubernetes.html">
+                <a href="kubernetes.html">
             
                     
                     Kubernetes
@@ -319,9 +319,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.11" data-path="shell.html">
+        <li class="chapter " data-level="1.11" data-path="../shell/shell.html">
             
-                <a href="shell.html">
+                <a href="../shell/shell.html">
             
                     
                     Shell
@@ -333,9 +333,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.11.1" data-path="ssh.html">
+        <li class="chapter " data-level="1.11.1" data-path="../shell/ssh.html">
             
-                <a href="ssh.html">
+                <a href="../shell/ssh.html">
             
                     
                     ssh
@@ -346,9 +346,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.11.2" data-path="vim.html">
+        <li class="chapter " data-level="1.11.2" data-path="../shell/vim.html">
             
-                <a href="vim.html">
+                <a href="../shell/vim.html">
             
                     
                     vim
@@ -359,9 +359,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.11.3" data-path="zsh.html">
+        <li class="chapter " data-level="1.11.3" data-path="../shell/zsh.html">
             
-                <a href="zsh.html">
+                <a href="../shell/zsh.html">
             
                     
                     zsh
@@ -372,9 +372,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.11.4" data-path="shell-startup-file.html">
+        <li class="chapter " data-level="1.11.4" data-path="../shell/shell-startup-file.html">
             
-                <a href="shell-startup-file.html">
+                <a href="../shell/shell-startup-file.html">
             
                     
                     Shell Startup File
@@ -385,9 +385,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.11.5" data-path="regex.html">
+        <li class="chapter " data-level="1.11.5" data-path="../shell/regex.html">
             
-                <a href="regex.html">
+                <a href="../shell/regex.html">
             
                     
                     正则表达式
@@ -398,9 +398,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.11.6" data-path="机器配置.html">
+        <li class="chapter " data-level="1.11.6" data-path="../shell/机器配置.html">
             
-                <a href="机器配置.html">
+                <a href="../shell/机器配置.html">
             
                     
                     机器配置
@@ -459,7 +459,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >Shell Startup File</a>
+        <a href="../.." >Kubernetes</a>
     </h1>
 </div>
 
@@ -474,11 +474,59 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="shell-startup-file">Shell Startup File</h1>
-<h2 id="&#x3010;&#x81EA;&#x5B9A;&#x4E49;&#x3011;bak-&#x5907;&#x4EFD;&#x6587;&#x4EF6;">&#x3010;&#x81EA;&#x5B9A;&#x4E49;&#x3011;bak &#x5907;&#x4EFD;&#x6587;&#x4EF6;</h2>
-<pre><code class="lang-shell">function bak() {
-  cp &quot;$1&quot; &quot;$1.bak&quot;
-}
+                                <h1 id="kubernetes">Kubernetes</h1>
+<pre><code class="lang-bash"><span class="hljs-built_in">alias</span> k=<span class="hljs-string">&apos;kubectl&apos;</span>
+</code></pre>
+<pre><code class="lang-bash"><span class="hljs-comment"># po     &lt;=&gt; pods</span>
+<span class="hljs-comment"># no     &lt;=&gt; nodes</span>
+<span class="hljs-comment"># deploy &lt;=&gt; deployments</span>
+<span class="hljs-comment"># svc    &lt;=&gt; services</span>
+<span class="hljs-comment"># rs     &lt;=&gt; replicasets</span>
+<span class="hljs-comment"># ns     &lt;=&gt; namespace</span>
+<span class="hljs-comment"># cm     &lt;=&gt; configmap</span>
+
+<span class="hljs-comment"># get &#x5217;&#x51FA;&#x8D44;&#x6E90;</span>
+kubectl get pods
+kubectl get nodes
+kubectl get deployments
+kubectl get services
+kubectl get replicasets
+
+kubectl get services    <span class="hljs-variable">$SERVICE_NAME</span>
+kubectl get deployments <span class="hljs-variable">$DEPLOYMENT_NAME</span>
+
+kubectl get pods -o wide  <span class="hljs-comment"># &#x66F4;&#x591A;&#x7684;&#x5217;&#xFF08;&#x66F4;&#x8BE6;&#x7EC6;&#x7684;&#x4FE1;&#x606F;&#xFF09;</span>
+
+<span class="hljs-comment"># describe &#x663E;&#x793A;&#x6709;&#x5173;&#x8D44;&#x6E90;&#x7684;&#x8BE6;&#x7EC6;&#x4FE1;&#x606F;</span>
+<span class="hljs-comment"># describe &#x7684;&#x8F93;&#x51FA;&#x8BBE;&#x8BA1;&#x4E3A;&#x4EBA;&#x7C7B;&#x53EF;&#x8BFB;&#x7684;&#x4FE1;&#x606F;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x811A;&#x672C;&#x5316;&#x7684;&#x4FE1;&#x606F;</span>
+kubectl describe pods
+kubectl describe nodes
+kubectl describe deployments
+
+<span class="hljs-comment"># logs &#x6253;&#x5370; Pod &#x4E2D;&#x5BB9;&#x5668;&#x7684;&#x65E5;&#x5FD7;</span>
+kubectl logs <span class="hljs-variable">$POD_NAME</span>
+
+<span class="hljs-comment"># exec &#x5728; Pod &#x4E2D;&#x7684;&#x5BB9;&#x5668;&#x4E0A;&#x6267;&#x884C;&#x547D;&#x4EE4;</span>
+kubectl <span class="hljs-built_in">exec</span>     <span class="hljs-variable">$POD_NAME</span>  -- env   <span class="hljs-comment"># &#x5217;&#x51FA; Pod &#x7684;&#x5BB9;&#x5668;&#x4E2D;&#x7684;&#x73AF;&#x5883;&#x53D8;&#x91CF;</span>
+kubectl <span class="hljs-built_in">exec</span> -it <span class="hljs-variable">$POD_NAME</span>  -- bash  <span class="hljs-comment"># &#x5728; Pod &#x7684;&#x5BB9;&#x5668;&#x4E2D;&#x542F;&#x52A8;&#x4E00;&#x4E2A; bash &#x4F1A;&#x8BDD;</span>
+
+<span class="hljs-comment"># Pod &#x8FD0;&#x884C;&#x5728;&#x9694;&#x79BB;&#x7684;&#x3001;&#x79C1;&#x6709;&#x7684;&#x7F51;&#x7EDC;&#x4E2D;&#xFF0C;&#x56E0;&#x6B64;&#x6211;&#x4EEC;&#x9700;&#x8981; proxy &#x8BBF;&#x95EE;&#x5B83;&#x4EEC;&#xFF0C;&#x8FD9;&#x6837;&#x624D;&#x80FD;&#x8FDB;&#x884C;&#x8C03;&#x8BD5;&#x548C;&#x4EA4;&#x4E92;</span>
+kubectl proxy
+
+kubectl label  pods     <span class="hljs-variable">$POD_NAME</span> <span class="hljs-variable">$LABEL</span>=<span class="hljs-variable">$LABEL_VALUE</span>
+kubectl get    pods     <span class="hljs-_">-l</span>        <span class="hljs-variable">$LABEL</span>=<span class="hljs-variable">$LABEL_VALUE</span>
+kubectl get    services <span class="hljs-_">-l</span>        <span class="hljs-variable">$LABEL</span>=<span class="hljs-variable">$LABEL_VALUE</span>
+kubectl delete service  <span class="hljs-_">-l</span>        <span class="hljs-variable">$LABEL</span>=<span class="hljs-variable">$LABEL_VALUE</span>
+
+<span class="hljs-comment"># &#x6269;&#x7F29;&#x5BB9;</span>
+kubectl scale deployments/<span class="hljs-variable">$DEPLOYMENT_NAME</span> --replicas=<span class="hljs-variable">$NUM</span>
+
+<span class="hljs-comment"># &#x66F4;&#x65B0;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684;&#x955C;&#x50CF;&#x7248;&#x672C;&#xFF0C;&#x5E76;&#x542F;&#x52A8;&#x6EDA;&#x52A8;&#x66F4;&#x65B0;</span>
+kubectl <span class="hljs-built_in">set</span> image deployments/<span class="hljs-variable">$DEPLOYMENT_NAME</span> <span class="hljs-variable">$DEPLOYMENT_NAME</span>=<span class="hljs-variable">$NEW_IMAGE</span>
+<span class="hljs-comment"># &#x901A;&#x8FC7;&#x8FD0;&#x884C; rollout status &#x6765;&#x786E;&#x8BA4;&#x6B64;&#x6B21;&#x66F4;&#x65B0;</span>
+kubectl rollout status deployments/<span class="hljs-variable">$DEPLOYMENT_NAME</span>
+<span class="hljs-comment"># &#x56DE;&#x6EDA; Deployment &#x5230;&#x4E0A;&#x4E00;&#x4E2A;&#x5DE5;&#x4F5C;&#x7684;&#x7248;&#x672C;</span>
+kubectl rollout undo   deployments/<span class="hljs-variable">$DEPLOYMENT_NAME</span>
 </code></pre>
 
                                 
@@ -507,12 +555,12 @@
 
             
                 
-                <a href="zsh.html" class="navigation navigation-prev " aria-label="Previous page: zsh">
+                <a href="../javascript/javascript.html" class="navigation navigation-prev " aria-label="Previous page: JavaScript">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="regex.html" class="navigation navigation-next " aria-label="Next page: 正则表达式">
+                <a href="../network/network.html" class="navigation navigation-next " aria-label="Next page: Network">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -523,7 +571,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Shell Startup File","level":"1.11.4","depth":2,"next":{"title":"正则表达式","level":"1.11.5","depth":2,"path":"docs/shell/regex.md","ref":"docs/shell/regex.md","articles":[]},"previous":{"title":"zsh","level":"1.11.3","depth":2,"path":"docs/shell/zsh.md","ref":"docs/shell/zsh.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["code","github"],"pluginsConfig":{"github":{"url":"https://github.com/tzq0301"},"code":{"copyButtons":true},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/shell/shell-startup-file.md","mtime":"2024-05-27T06:58:58.761Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-05-27T06:59:28.561Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Kubernetes","level":"1.7","depth":1,"next":{"title":"Network","level":"1.8","depth":1,"path":"docs/network/network.md","ref":"docs/network/network.md","articles":[]},"previous":{"title":"JavaScript","level":"1.6","depth":1,"path":"docs/javascript/javascript.md","ref":"docs/javascript/javascript.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["code","github"],"pluginsConfig":{"github":{"url":"https://github.com/tzq0301"},"code":{"copyButtons":true},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/kubernetes/kubernetes.md","mtime":"2024-05-27T06:58:58.761Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-05-27T06:59:28.561Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
