@@ -51,6 +51,48 @@ grep -B 10       '123' app.log # 前 10 行（Before）
 grep -n
 ```
 
+## pgrep
+
+根据用户给出的信息在当前运行进程中查找并列出符合条件的进程 ID（PID）
+
+```shell
+$ pgrep rsync
+294664
+
+$ pgrep rsync -a
+294664 ./bin/rsync-x86_64-linux-musl --daemon --config=/tmp/registry-test/rsyncd.conf
+```
+
+## [hgrep](https://github.com/rhysd/hgrep): Human-friendly GREP
+
+```shell
+# Use built-in subset of ripgrep (optional)
+hgrep pattern ./dir
+
+# Read results of grep command via stdin
+grep -nH pattern -R ./dir | hgrep
+rg -nH pattern ./dir | hgrep
+```
+
+## [ripgrep (rg)](https://github.com/BurntSushi/ripgrep)
+
+```shell
+rg pattern        # 搜索当前目录及其子目录（忽略 .gitignore 包含的文件/目录）
+rg pattern -i     # 忽略大小写
+rg pattern -t py  # 匹配文件类型（可用 rg --type-list 查看）
+                  # 例如：-t py 对应 *.py 和 *.pyi；-t yaml 对应 *.yaml 和 *.yml
+rg pattern -c     # 统计行数
+rg pattern -w     # 匹配单词
+```
+
+## [bat](https://github.com/sharkdp/bat): A cat(1) clone with syntax highlighting and Git integration.
+
+```shell
+bat README.md      # 查看单个文件
+bat src/*.rs       # 查看多个文件
+bat -A /etc/hosts  # 高亮 non-printable characters
+```
+
 ## sed 获取指定行
 
 ```bash
@@ -67,7 +109,7 @@ sed -n '/pattern/p'      # 获取与 pattern 相匹配的所有行
 sed -n '/2017/,/2024/p'  # 范围获取“最先的包含字符串 2017 的行”到“最后的包含字符串 2024 的行”
 ```
 
-## sed 替换内容
+## sed
 
 ```bash
 # s -> substitute
@@ -84,11 +126,8 @@ sed 's/^/#/' 文件名 > 新文件名
 sed -i 's/^/#/' 文件名  # 原地修改
 
 sed -i.bak 's/C++/CPP/g' $FILENAME  # 将文件 $FILENAME 拷贝一份为 $FILENAME.bak，再对文件 $FILENAME 进行原地更新
-```
 
-## sed “扩展正则”匹配
-
-```bash
+# 匹配“扩展正则”
 sed -r pattern
 ```
 
