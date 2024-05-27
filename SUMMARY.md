@@ -9,7 +9,7 @@
 * [Go](docs/go/go.md)
   * [Go Library](docs/go/go-lib.md)
 * [JavaScript](docs/javascript/javascript.md)
-* [Kubernetes](docs/kubernetes.md)
+* [Kubernetes](docs/kubernetes/kubernetes.md)
 * [Network](docs/network/network.md)
 * [Nginx](docs/nginx/nginx.md)
 * [Python](docs/python/python.md)
