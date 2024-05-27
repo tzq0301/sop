@@ -1,19 +1,12 @@
 {
     "plugins": [
         "code",
-        "-lunr", "-search", "search-pro",
-        "github",
-        "hide-element",
-        "back-to-top-button",
-        "chapter-fold", "-expandable-chapters-small", "-expandable-chapters"
+        "github"
     ],
 
     "pluginsConfig": {
         "github": {
             "url": "https://github.com/tzq0301"
-        },
-        "hide-element": {
-            "elements": [".gitbook-link"]
         }
     }
 }
