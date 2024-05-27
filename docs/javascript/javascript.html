@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>vim · GitBook</title>
+        <title>JavaScript · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -69,10 +69,10 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="zsh.html" />
+    <link rel="next" href="../kubernetes.md" />
     
     
-    <link rel="prev" href="ssh.html" />
+    <link rel="prev" href="../go/go-lib.html" />
     
 
     </head>
@@ -243,9 +243,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6" data-path="../javascript/javascript.html">
+        <li class="chapter active" data-level="1.6" data-path="javascript.html">
             
-                <a href="../javascript/javascript.html">
+                <a href="javascript.html">
             
                     
                     JavaScript
@@ -327,9 +327,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.11" data-path="shell.html">
+        <li class="chapter " data-level="1.11" data-path="../shell/shell.html">
             
-                <a href="shell.html">
+                <a href="../shell/shell.html">
             
                     
                     Shell
@@ -341,9 +341,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.11.1" data-path="ssh.html">
+        <li class="chapter " data-level="1.11.1" data-path="../shell/ssh.html">
             
-                <a href="ssh.html">
+                <a href="../shell/ssh.html">
             
                     
                     ssh
@@ -354,9 +354,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.11.2" data-path="vim.html">
+        <li class="chapter " data-level="1.11.2" data-path="../shell/vim.html">
             
-                <a href="vim.html">
+                <a href="../shell/vim.html">
             
                     
                     vim
@@ -367,9 +367,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.11.3" data-path="zsh.html">
+        <li class="chapter " data-level="1.11.3" data-path="../shell/zsh.html">
             
-                <a href="zsh.html">
+                <a href="../shell/zsh.html">
             
                     
                     zsh
@@ -380,9 +380,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.11.4" data-path="shell-startup-file.html">
+        <li class="chapter " data-level="1.11.4" data-path="../shell/shell-startup-file.html">
             
-                <a href="shell-startup-file.html">
+                <a href="../shell/shell-startup-file.html">
             
                     
                     Shell Startup File
@@ -393,9 +393,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.11.5" data-path="regex.html">
+        <li class="chapter " data-level="1.11.5" data-path="../shell/regex.html">
             
-                <a href="regex.html">
+                <a href="../shell/regex.html">
             
                     
                     正则表达式
@@ -406,9 +406,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.11.6" data-path="机器配置.html">
+        <li class="chapter " data-level="1.11.6" data-path="../shell/机器配置.html">
             
-                <a href="机器配置.html">
+                <a href="../shell/机器配置.html">
             
                     
                     机器配置
@@ -467,7 +467,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >vim</a>
+        <a href="../.." >JavaScript</a>
     </h1>
 </div>
 
@@ -482,23 +482,13 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="vim">Vim</h1>
-<h2 id="&#x6267;&#x884C;-unix-&#x547D;&#x4EE4;">&#x6267;&#x884C; Unix &#x547D;&#x4EE4;</h2>
-<p>&#x6309;&#x4E0B; <code>Esc</code> &#x8FD4;&#x56DE;&#x547D;&#x4EE4;&#x6A21;&#x5F0F;&#xFF0C;<code>:!unix_command</code> &#x5373;&#x53EF;</p>
-<h2 id="&#x4E2D;&#x6587;&#x4E71;&#x7801;">&#x4E2D;&#x6587;&#x4E71;&#x7801;</h2>
-<pre><code class="lang-bash">tee <span class="hljs-_">-a</span> ~/.vimrc &lt;&lt;EOF
-<span class="hljs-built_in">set</span> encoding=utf-8
-EOF
-</code></pre>
-<hr>
-<p>&#x5148;&#x67E5;&#x770B;&#x6587;&#x4EF6;&#x7684;&#x7F16;&#x7801;&#x662F;&#x5426;&#x662F; UTF-8&#xFF1A;</p>
-<pre><code class="lang-bash">file xxx.txt
-</code></pre>
-<p>&#x4FEE;&#x6539; ~/.vimrc</p>
-<pre><code class="lang-bash">vim ~/.vimrc
-</code></pre>
-<p>&#x52A0;&#x4E0A;&#x4E00;&#x4E0B;&#x5185;&#x5BB9;&#xFF1A;</p>
-<pre><code class="lang-text">set encoding=utf-8
+                                <h1 id="javascript">JavaScript</h1>
+<h2 id="&#x7834;&#x89E3;&#x7F51;&#x9875;&#x4E0D;&#x53EF;&#x7C98;&#x8D34;&#x5185;&#x5BB9;&#x7B49;&#x9650;&#x5236;">&#x7834;&#x89E3;&#x7F51;&#x9875;&#x4E0D;&#x53EF;&#x7C98;&#x8D34;&#x5185;&#x5BB9;&#x7B49;&#x9650;&#x5236;</h2>
+<pre><code class="lang-js"><span class="hljs-keyword">var</span> allowPaste = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">e</span>)</span>{
+  e.stopImmediatePropagation();
+  <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+};
+<span class="hljs-built_in">document</span>.addEventListener(<span class="hljs-string">&apos;paste&apos;</span>, allowPaste, <span class="hljs-literal">true</span>);
 </code></pre>
 
                                 
@@ -527,12 +517,12 @@ EOF
 
             
                 
-                <a href="ssh.html" class="navigation navigation-prev " aria-label="Previous page: ssh">
+                <a href="../go/go-lib.html" class="navigation navigation-prev " aria-label="Previous page: Go Library">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="zsh.html" class="navigation navigation-next " aria-label="Next page: zsh">
+                <a href="../kubernetes.md" class="navigation navigation-next " aria-label="Next page: Kubernetes">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -543,7 +533,7 @@ EOF
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"vim","level":"1.11.2","depth":2,"next":{"title":"zsh","level":"1.11.3","depth":2,"path":"docs/shell/zsh.md","ref":"docs/shell/zsh.md","articles":[]},"previous":{"title":"ssh","level":"1.11.1","depth":2,"path":"docs/shell/ssh.md","ref":"docs/shell/ssh.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["code","-lunr","-search","search-pro","github","hide-element","back-to-top-button","chapter-fold","-expandable-chapters-small","-expandable-chapters"],"pluginsConfig":{"chapter-fold":{},"github":{"url":"https://github.com/tzq0301"},"search-pro":{},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/shell/vim.md","mtime":"2024-05-27T06:05:17.205Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-05-27T06:05:49.181Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"JavaScript","level":"1.6","depth":1,"next":{"title":"Kubernetes","level":"1.7","depth":1,"path":"docs/kubernetes.md","ref":"docs/kubernetes.md","articles":[]},"previous":{"title":"Go Library","level":"1.5.1","depth":2,"path":"docs/go/go-lib.md","ref":"docs/go/go-lib.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["code","-lunr","-search","search-pro","github","hide-element","back-to-top-button","chapter-fold","-expandable-chapters-small","-expandable-chapters"],"pluginsConfig":{"chapter-fold":{},"github":{"url":"https://github.com/tzq0301"},"search-pro":{},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/javascript/javascript.md","mtime":"2024-05-27T06:05:17.205Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-05-27T06:05:49.181Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

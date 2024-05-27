@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>ssh · GitBook</title>
+        <title>正则表达式 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -69,10 +69,10 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="vim.html" />
+    <link rel="next" href="机器配置.html" />
     
     
-    <link rel="prev" href="shell.html" />
+    <link rel="prev" href="shell-startup-file.html" />
     
 
     </head>
@@ -341,7 +341,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="1.11.1" data-path="ssh.html">
+        <li class="chapter " data-level="1.11.1" data-path="ssh.html">
             
                 <a href="ssh.html">
             
@@ -393,7 +393,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.11.5" data-path="regex.html">
+        <li class="chapter active" data-level="1.11.5" data-path="regex.html">
             
                 <a href="regex.html">
             
@@ -467,7 +467,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >ssh</a>
+        <a href="../.." >正则表达式</a>
     </h1>
 </div>
 
@@ -482,79 +482,47 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="ssh">ssh</h1>
+                                <h1 id="&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;-regexp">&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F; regexp</h1>
+<p><a href="https://regexr.com/" target="_blank">RegExr: Learn, Build, &amp; Test RegEx</a></p>
+<p><a href="https://regex101.com/" target="_blank">regex101: build, test, and debug regex</a></p>
+<h2 id="&#x57FA;&#x7840;&#x6B63;&#x5219;">&#x57FA;&#x7840;&#x6B63;&#x5219;</h2>
 <ul>
-<li><a href="https://wangdoc.com/ssh/client" target="_blank">SSH &#x6559;&#x7A0B; - WangDoc</a></li>
+<li><code>^</code> &#x5F00;&#x5934;</li>
+<li><code>$</code> &#x7ED3;&#x5C3E;</li>
+<li><code>^$</code> &#x7A7A;&#x884C;</li>
+<li><code>.</code> &#x5355;&#x4E2A;&#x5B57;&#x7B26;</li>
+<li><code>*</code> &#x524D;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x8FDE;&#x7EED;&#x51FA;&#x73B0; 0 &#x6B21;&#x6216; 0 &#x6B21;&#x4EE5;&#x4E0A;</li>
+<li><code>.*</code> &#x4EFB;&#x610F;&#x5185;&#x5BB9;</li>
+<li><code>[abc]</code> &#x5339;&#x914D; a &#x6216; b &#x6216; c</li>
+<li><code>[^abc]</code> &#x6392;&#x9664; a&#x3001;&#x6392;&#x9664; b&#x3001;&#x6392;&#x9664; c</li>
+<li><code>[0-9]</code> &#x5339;&#x914D;&#x5355;&#x4E2A;&#x6570;&#x5B57;</li>
+<li><code>[a-z]</code> &#x5339;&#x914D;&#x5355;&#x4E2A;&#x5C0F;&#x5199;&#x5B57;&#x6BCD;</li>
+<li><code>[A-Z]</code> &#x5339;&#x914D;&#x5355;&#x4E2A;&#x5927;&#x5199;&#x5B57;&#x6BCD;</li>
+<li><code>[a-zA-Z]</code> &#x5339;&#x914D;&#x5355;&#x4E2A;&#x5B57;&#x6BCD;</li>
+<li><code>[a-zA-Z0-9]</code> &#x5339;&#x914D;&#x5355;&#x4E2A;&#x5B57;&#x6BCD;&#x6216;&#x6570;&#x5B57;</li>
+<li><code>[.! ]$</code> &#x5339;&#x914D;&#x4EE5; . &#x6216; ! &#x6216;&#x7A7A;&#x683C;&#x7ED3;&#x5C3E;&#x7684;&#x884C;&#xFF08;<code>[]</code> &#x4F1A;&#x53BB;&#x6389;&#x7B26;&#x53F7;&#x7684;&#x7279;&#x6B8A;&#x542B;&#x4E49;&#xFF09;</li>
 </ul>
-<h2 id="ssh-&#x6267;&#x884C;&#x811A;&#x672C;">ssh &#x6267;&#x884C;&#x811A;&#x672C;</h2>
-<pre><code class="lang-bash">ssh <span class="hljs-variable">$UserName</span>@<span class="hljs-variable">$IP</span> <span class="hljs-string">&apos;bash&apos;</span> &lt; <span class="hljs-variable">$SHELL_FILEPATH</span>
-
-<span class="hljs-comment"># -s &#x540E;&#x9762;&#x53EF;&#x4EE5;&#x8DDF; Shell &#x6587;&#x4EF6;&#x6240;&#x9700;&#x8981;&#x7684;&#x53C2;&#x6570;</span>
-ssh <span class="hljs-variable">$UserName</span>@<span class="hljs-variable">$IP</span> <span class="hljs-string">&apos;bash -s 1 2 abc&apos;</span> &lt; <span class="hljs-variable">$SHELL_FILEPATH</span>
-
-ssh <span class="hljs-variable">$UserName</span>@<span class="hljs-variable">$IP</span> <span class="hljs-string">&apos;bash&apos;</span> &lt;&lt;EOF
-<span class="hljs-built_in">echo</span> 1
-<span class="hljs-built_in">echo</span> 2
-EOF
-</code></pre>
-<h2 id="&#x751F;&#x6210;-ssh-&#x5BC6;&#x94A5;">&#x751F;&#x6210; ssh &#x5BC6;&#x94A5;</h2>
-<p>&#x9ED8;&#x8BA4;&#x4F1A;&#x751F;&#x6210;&#xFF08;1&#xFF09;&#x516C;&#x94A5;&#x6587;&#x4EF6; ~/.ssh/id_rsa.pub&#xFF08;2&#xFF09;&#x79C1;&#x94A5;&#x6587;&#x4EF6; ~/.ssh/id_rsa</p>
-<pre><code class="lang-bash">ssh-keygen -t rsa -N <span class="hljs-string">&quot;&quot;</span> -C <span class="hljs-string">&quot;user=<span class="hljs-variable">$USER</span> hostname=<span class="hljs-variable">$HOSTNAME</span>&quot;</span> <span class="hljs-_">-f</span> <span class="hljs-string">&quot;<span class="hljs-variable">$HOME</span>/.ssh/id_rsa&quot;</span>
-</code></pre>
-<p>&#x751F;&#x6210;&#x5BC6;&#x94A5;&#x4EE5;&#x540E;&#xFF0C;&#x5EFA;&#x8BAE;&#x4FEE;&#x6539;&#x5B83;&#x4EEC;&#x7684;&#x6743;&#x9650;&#xFF0C;&#x9632;&#x6B62;&#x5176;&#x4ED6;&#x4EBA;&#x8BFB;&#x53D6;&#xFF1A;</p>
-<pre><code class="lang-bash">chmod 600 ~/.ssh/id_rsa
-chmod 600 ~/.ssh/id_rsa.pub
-</code></pre>
-<h2 id="ssh-&#x8FDE;&#x63A5;&#x8FDC;&#x7A0B;&#x670D;&#x52A1;&#x5668;">ssh &#x8FDE;&#x63A5;&#x8FDC;&#x7A0B;&#x670D;&#x52A1;&#x5668;</h2>
-<pre><code class="lang-bash">UserName= &amp;&amp; UserPwd= &amp;&amp; IP=
-sshpass -p <span class="hljs-variable">$UserPwd</span> ssh <span class="hljs-variable">$UserName</span>@<span class="hljs-variable">$IP</span>
-</code></pre>
-<h2 id="&#x5B9E;&#x73B0;&#x514D;&#x5BC6;&#x767B;&#x5F55;---&#x5C06;&#x81EA;&#x5DF1;&#x7684;-ssh-&#x516C;&#x94A5;-copy-&#x5230;&#x670D;&#x52A1;&#x5668;&#x4E0A;">&#x5B9E;&#x73B0;&#x514D;&#x5BC6;&#x767B;&#x5F55; - &#x5C06;&#x81EA;&#x5DF1;&#x7684; ssh &#x516C;&#x94A5; copy &#x5230;&#x670D;&#x52A1;&#x5668;&#x4E0A;</h2>
-<p>&#x5C06;&#x672C;&#x673A;&#x7684; ~/.ssh/id_rsa.pub &#x516C;&#x94A5;&#x8FFD;&#x52A0;&#x5230;&#x8FDC;&#x7A0B;&#x670D;&#x52A1;&#x5668;&#x7684; ~/.ssh/authorized_keys</p>
-<pre><code class="lang-bash">UserName= &amp;&amp; UserPwd= &amp;&amp; IP=
-sshpass -p <span class="hljs-variable">$UserPwd</span> ssh-copy-id <span class="hljs-variable">$UserName</span>@<span class="hljs-variable">$IP</span>
-</code></pre>
-<h2 id="&#x6D4B;&#x8BD5;&#x662F;&#x5426;&#x80FD;-ssh-&#x5230;&#x670D;&#x52A1;&#x5668;">&#x6D4B;&#x8BD5;&#x662F;&#x5426;&#x80FD; ssh &#x5230;&#x670D;&#x52A1;&#x5668;</h2>
-<pre><code class="lang-bash">host=
-username=
-(ssh <span class="hljs-string">&quot;<span class="hljs-variable">$username</span>@<span class="hljs-variable">$host</span>&quot;</span> -o StrictHostKeyChecking=accept-new <span class="hljs-literal">true</span> &amp;&gt; /dev/null &amp;&amp; <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;ssh connection ok for host: <span class="hljs-variable">$host</span>&quot;</span>) || (<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;fail for host: <span class="hljs-variable">$host</span>&quot;</span> &amp;&amp; <span class="hljs-built_in">exit</span> 1)
-</code></pre>
-<h2 id="ssh-&#x8FDE;&#x63A5;&#x6D41;&#x7A0B;">ssh &#x8FDE;&#x63A5;&#x6D41;&#x7A0B;</h2>
-<p>ssh &#x8FDE;&#x63A5;&#x8FDC;&#x7A0B;&#x670D;&#x52A1;&#x5668;&#x540E;&#xFF0C;&#x9996;&#x5148;&#x6709;&#x4E00;&#x4E2A;&#x9A8C;&#x8BC1;&#x8FC7;&#x7A0B;&#xFF0C;&#x9A8C;&#x8BC1;&#x8FDC;&#x7A0B;&#x670D;&#x52A1;&#x5668;&#x662F;&#x5426;&#x4E3A;&#x964C;&#x751F;&#x5730;&#x5740;</p>
-<p>&#x5982;&#x679C;&#x662F;&#x7B2C;&#x4E00;&#x6B21;&#x8FDE;&#x63A5;&#x67D0;&#x4E00;&#x53F0;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x547D;&#x4EE4;&#x884C;&#x4F1A;&#x663E;&#x793A;&#x4E00;&#x6BB5;&#x6587;&#x5B57;&#xFF0C;&#x8868;&#x793A;&#x4E0D;&#x8BA4;&#x8BC6;&#x8FD9;&#x53F0;&#x673A;&#x5668;&#xFF0C;&#x63D0;&#x9192;&#x7528;&#x6237;&#x786E;&#x8BA4;&#x662F;&#x5426;&#x9700;&#x8981;&#x8FDE;&#x63A5;</p>
-<pre><code>The authenticity of host &apos;192.168.0.110 (192.168.0.110)&apos; can&apos;t be established.
-RSA key fingerprint is a3:ca:ad:95:a1:45:d2:57:3a:e9:e7:75:a8:4c:1f:9f.
-Are you sure you want to continue connecting (yes/no)?
-</code></pre><p>ssh &#x4F1A;&#x5C06;&#x672C;&#x673A;&#x8FDE;&#x63A5;&#x8FC7;&#x7684;&#x6240;&#x6709;&#x670D;&#x52A1;&#x5668;&#x516C;&#x94A5;&#x7684;&#x6307;&#x7EB9;&#xFF0C;&#x90FD;&#x50A8;&#x5B58;&#x5728;&#x672C;&#x673A;&#x7684; <code>~/.ssh/known_hosts</code> &#x6587;&#x4EF6;&#x4E2D;&#xFF0C;&#x6BCF;&#x6B21;&#x8FDE;&#x63A5;&#x670D;&#x52A1;&#x5668;&#x65F6;&#xFF0C;&#x901A;&#x8FC7;&#x8BE5;&#x6587;&#x4EF6;&#x5224;&#x65AD;&#x662F;&#x5426;&#x4E3A;&#x964C;&#x751F;&#x4E3B;&#x673A;&#xFF08;&#x964C;&#x751F;&#x516C;&#x94A5;&#xFF09;</p>
-<p>&#x5982;&#x679C;&#x670D;&#x52A1;&#x5668;&#x7684;&#x5BC6;&#x94A5;&#x53D1;&#x751F;&#x53D8;&#x66F4;&#xFF08;&#x6BD4;&#x5982;&#x91CD;&#x88C5;&#x4E86; SSH &#x670D;&#x52A1;&#x5668;&#x3001;&#x6709;&#x4EBA;&#x6076;&#x610F;&#x5192;&#x5145;&#x8FDC;&#x7A0B;&#x4E3B;&#x673A;&#xFF09;&#xFF0C;&#x5BA2;&#x6237;&#x7AEF;&#x518D;&#x6B21;&#x8FDE;&#x63A5;&#x65F6;&#xFF0C;&#x5C31;&#x4F1A;&#x53D1;&#x751F;&#x516C;&#x94A5;&#x6307;&#x7EB9;&#x4E0D;&#x543B;&#x5408;&#x7684;&#x60C5;&#x51B5;&#xFF0C;&#x8FD9;&#x65F6;&#xFF0C;&#x5BA2;&#x6237;&#x7AEF;&#x5C31;&#x4F1A;&#x4E2D;&#x65AD;&#x8FDE;&#x63A5;&#xFF0C;&#x5E76;&#x663E;&#x793A;&#x4E00;&#x6BB5;&#x8B66;&#x544A;&#x4FE1;&#x606F;&#xFF1A;</p>
-<pre><code>@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
-Someone could be eavesdropping on you right now (man-in-the-middle attack)!
-It is also possible that the RSA host key has just been changed.
-The fingerprint for the RSA key sent by the remote host is
-e9:0c:36:89:7f:3c:07:71:09:5a:9f:28:8c:44:e9:05.
-Please contact your system administrator.
-Add correct host key in /home/jiangxin/.ssh/known_hosts to get rid of this message.
-Offending key in /home/jiangxin/.ssh/known_hosts:81
-RSA host key for 192.168.0.110 has changed and you have requested strict checking.
-Host key verification failed.
-</code></pre><p>&#x89E3;&#x51B3;&#x65B9;&#x6848;&#xFF1A;</p>
-<p>&#x5982;&#x679C;&#x65B0;&#x7684;&#x516C;&#x94A5;&#x786E;&#x8BA4;&#x53EF;&#x4EE5;&#x4FE1;&#x4EFB;&#xFF0C;&#x9700;&#x8981;&#x7EE7;&#x7EED;&#x6267;&#x884C;&#x8FDE;&#x63A5;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x6267;&#x884C;&#x4E0B;&#x9762;&#x7684;&#x547D;&#x4EE4;&#xFF0C;&#x5C06;&#x539F;&#x6765;&#x7684;&#x516C;&#x94A5;&#x6307;&#x7EB9;&#x4ECE; <code>~/.ssh/known_hosts</code> &#x6587;&#x4EF6;&#x5220;&#x9664;</p>
-<pre><code class="lang-bash">HOSTNAME=&#x53D1;&#x751F;&#x516C;&#x94A5;&#x53D8;&#x66F4;&#x7684;&#x4E3B;&#x673A;&#x540D;
-ssh-keygen -R <span class="hljs-variable">$HOSTNAME</span>
-</code></pre>
-<p>&#x4E34;&#x65F6;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#xFF1A;</p>
-<pre><code class="lang-bash"><span class="hljs-comment"># ssh &#x52A0;&#x4E0A;&#x53C2;&#x6570;</span>
--o StrictHostKeyChecking=accept-new
-</code></pre>
-<h2 id="sshd-&#x67E5;&#x770B;&#x5F53;&#x524D;&#x751F;&#x6548;&#x7684;-ciphers">sshd &#x67E5;&#x770B;&#x5F53;&#x524D;&#x751F;&#x6548;&#x7684; ciphers</h2>
-<pre><code class="lang-bash">sudo sshd -T | grep cipher
-</code></pre>
-<h2 id="&#x67E5;&#x770B;-etcsshsshdconfig-&#x914D;&#x7F6E;&#x7684;-cipher">&#x67E5;&#x770B; /etc/ssh/sshd_config &#x914D;&#x7F6E;&#x7684; cipher</h2>
-<pre><code class="lang-bash">cat /etc/ssh/sshd_config | grep Ciphers
-</code></pre>
+<h2 id="&#x6269;&#x5C55;&#x6B63;&#x5219;">&#x6269;&#x5C55;&#x6B63;&#x5219;</h2>
+<ul>
+<li><code>?</code> &#x524D;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x51FA;&#x73B0; 0 &#x6B21;&#x6216; 1 &#x6B21;</li>
+<li><code>+</code> &#x524D;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x8FDE;&#x7EED;&#x51FA;&#x73B0; 1 &#x6B21;&#x6216; 1 &#x6B21;&#x4EE5;&#x4E0A;</li>
+<li><code>[a-zA-Z]+</code> &#x5339;&#x914D;&#x5355;&#x8BCD;</li>
+<li><code>|</code> &#x6216;&#x5339;&#x914D;&#xFF0C;&#x4F8B;&#x5982; <code>ubuntu|debian</code> &#x5339;&#x914D;&#x5305;&#x542B; ubuntu &#x6216; debian &#x7684;&#x884C;</li>
+<li><code>()</code> &#x8868;&#x793A;&#x4E00;&#x4E2A; Group&#xFF0C;&#x7528;&#x4E8E;&#x53CD;&#x5411;&#x5F15;&#x7528;</li>
+<li><code>{n,m}</code> &#x524D;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x81F3;&#x5C11;&#x51FA;&#x73B0; n &#x6B21;&#x3001;&#x81F3;&#x591A;&#x51FA;&#x73B0; m &#x6B21;</li>
+<li><code>{n}</code> &#x524D;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x521A;&#x597D;&#x51FA;&#x73B0; n &#x6B21;</li>
+<li><code>{n,}</code> &#x524D;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x81F3;&#x5C11;&#x51FA;&#x73B0; n &#x6B21;</li>
+<li><code>{,m}</code> &#x524D;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x81F3;&#x591A;&#x51FA;&#x73B0; m &#x6B21;</li>
+</ul>
+<h2 id="perl-&#x6B63;&#x5219;">Perl &#x6B63;&#x5219;</h2>
+<ul>
+<li><code>\d</code> &#x5339;&#x914D; <code>[0-9]</code></li>
+<li><code>\D</code> &#x4E0D;&#x5339;&#x914D; <code>[0-9]</code>&#xFF0C;&#x5373; <code>[^0-9]</code></li>
+<li><code>\s</code> &#x5339;&#x914D;&#x7A7A;&#x5B57;&#x7B26;&#x3001;&#x7A7A;&#x683C;&#x3001;tab&#x3001;&#x6362;&#x884C;&#x7B49;</li>
+<li><code>\S</code> &#x5339;&#x914D;&#x975E;&#x7A7A;&#x5B57;&#x7B26;</li>
+<li><code>\w</code> &#x5339;&#x914D; <code>[0-9a-zA-Z_]</code></li>
+<li><code>\W</code> &#x4E0D;&#x5339;&#x914D; <code>[0-9a-zA-Z_]</code></li>
+</ul>
 
                                 
                                 </section>
@@ -582,12 +550,12 @@ ssh-keygen -R <span class="hljs-variable">$HOSTNAME</span>
 
             
                 
-                <a href="shell.html" class="navigation navigation-prev " aria-label="Previous page: Shell">
+                <a href="shell-startup-file.html" class="navigation navigation-prev " aria-label="Previous page: Shell Startup File">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="vim.html" class="navigation navigation-next " aria-label="Next page: vim">
+                <a href="机器配置.html" class="navigation navigation-next " aria-label="Next page: 机器配置">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -598,7 +566,7 @@ ssh-keygen -R <span class="hljs-variable">$HOSTNAME</span>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"ssh","level":"1.11.1","depth":2,"next":{"title":"vim","level":"1.11.2","depth":2,"path":"docs/shell/vim.md","ref":"docs/shell/vim.md","articles":[]},"previous":{"title":"Shell","level":"1.11","depth":1,"path":"docs/shell/shell.md","ref":"docs/shell/shell.md","articles":[{"title":"ssh","level":"1.11.1","depth":2,"path":"docs/shell/ssh.md","ref":"docs/shell/ssh.md","articles":[]},{"title":"vim","level":"1.11.2","depth":2,"path":"docs/shell/vim.md","ref":"docs/shell/vim.md","articles":[]},{"title":"zsh","level":"1.11.3","depth":2,"path":"docs/shell/zsh.md","ref":"docs/shell/zsh.md","articles":[]},{"title":"Shell Startup File","level":"1.11.4","depth":2,"path":"docs/shell/shell-startup-file.md","ref":"docs/shell/shell-startup-file.md","articles":[]},{"title":"正则表达式","level":"1.11.5","depth":2,"path":"docs/shell/regex.md","ref":"docs/shell/regex.md","articles":[]},{"title":"机器配置","level":"1.11.6","depth":2,"path":"docs/shell/机器配置.md","ref":"docs/shell/机器配置.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["code","-lunr","-search","search-pro","github","hide-element","back-to-top-button","chapter-fold","-expandable-chapters-small","-expandable-chapters"],"pluginsConfig":{"chapter-fold":{},"github":{"url":"https://github.com/tzq0301"},"search-pro":{},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/shell/ssh.md","mtime":"2024-05-27T06:05:17.205Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-05-27T06:05:49.181Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"正则表达式","level":"1.11.5","depth":2,"next":{"title":"机器配置","level":"1.11.6","depth":2,"path":"docs/shell/机器配置.md","ref":"docs/shell/机器配置.md","articles":[]},"previous":{"title":"Shell Startup File","level":"1.11.4","depth":2,"path":"docs/shell/shell-startup-file.md","ref":"docs/shell/shell-startup-file.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["code","-lunr","-search","search-pro","github","hide-element","back-to-top-button","chapter-fold","-expandable-chapters-small","-expandable-chapters"],"pluginsConfig":{"chapter-fold":{},"github":{"url":"https://github.com/tzq0301"},"search-pro":{},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/shell/regex.md","mtime":"2024-05-27T06:05:17.205Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-05-27T06:05:49.181Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

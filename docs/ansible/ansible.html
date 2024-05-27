@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>vim · GitBook</title>
+        <title>Ansible · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -69,10 +69,10 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="zsh.html" />
+    <link rel="next" href="../docker/docker.html" />
     
     
-    <link rel="prev" href="ssh.html" />
+    <link rel="prev" href="../../" />
     
 
     </head>
@@ -114,9 +114,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2" data-path="../ansible/ansible.html">
+        <li class="chapter active" data-level="1.2" data-path="ansible.html">
             
-                <a href="../ansible/ansible.html">
+                <a href="ansible.html">
             
                     
                     Ansible
@@ -327,9 +327,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.11" data-path="shell.html">
+        <li class="chapter " data-level="1.11" data-path="../shell/shell.html">
             
-                <a href="shell.html">
+                <a href="../shell/shell.html">
             
                     
                     Shell
@@ -341,9 +341,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.11.1" data-path="ssh.html">
+        <li class="chapter " data-level="1.11.1" data-path="../shell/ssh.html">
             
-                <a href="ssh.html">
+                <a href="../shell/ssh.html">
             
                     
                     ssh
@@ -354,9 +354,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.11.2" data-path="vim.html">
+        <li class="chapter " data-level="1.11.2" data-path="../shell/vim.html">
             
-                <a href="vim.html">
+                <a href="../shell/vim.html">
             
                     
                     vim
@@ -367,9 +367,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.11.3" data-path="zsh.html">
+        <li class="chapter " data-level="1.11.3" data-path="../shell/zsh.html">
             
-                <a href="zsh.html">
+                <a href="../shell/zsh.html">
             
                     
                     zsh
@@ -380,9 +380,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.11.4" data-path="shell-startup-file.html">
+        <li class="chapter " data-level="1.11.4" data-path="../shell/shell-startup-file.html">
             
-                <a href="shell-startup-file.html">
+                <a href="../shell/shell-startup-file.html">
             
                     
                     Shell Startup File
@@ -393,9 +393,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.11.5" data-path="regex.html">
+        <li class="chapter " data-level="1.11.5" data-path="../shell/regex.html">
             
-                <a href="regex.html">
+                <a href="../shell/regex.html">
             
                     
                     正则表达式
@@ -406,9 +406,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.11.6" data-path="机器配置.html">
+        <li class="chapter " data-level="1.11.6" data-path="../shell/机器配置.html">
             
-                <a href="机器配置.html">
+                <a href="../shell/机器配置.html">
             
                     
                     机器配置
@@ -467,7 +467,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >vim</a>
+        <a href="../.." >Ansible</a>
     </h1>
 </div>
 
@@ -482,23 +482,35 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="vim">Vim</h1>
-<h2 id="&#x6267;&#x884C;-unix-&#x547D;&#x4EE4;">&#x6267;&#x884C; Unix &#x547D;&#x4EE4;</h2>
-<p>&#x6309;&#x4E0B; <code>Esc</code> &#x8FD4;&#x56DE;&#x547D;&#x4EE4;&#x6A21;&#x5F0F;&#xFF0C;<code>:!unix_command</code> &#x5373;&#x53EF;</p>
-<h2 id="&#x4E2D;&#x6587;&#x4E71;&#x7801;">&#x4E2D;&#x6587;&#x4E71;&#x7801;</h2>
-<pre><code class="lang-bash">tee <span class="hljs-_">-a</span> ~/.vimrc &lt;&lt;EOF
-<span class="hljs-built_in">set</span> encoding=utf-8
-EOF
+                                <h1 id="ansible">Ansible</h1>
+<h2 id="install">Install</h2>
+<p><a href="https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html" target="_blank">Installing Ansible</a></p>
+<pre><code class="lang-bash">python3 -m pip -V                      <span class="hljs-comment"># &#x67E5;&#x770B; pip &#x662F;&#x5426;&#x53EF;&#x7528;&#xFF08;&#x4F7F;&#x7528; pip &#x5B89;&#x88C5; Ansible&#xFF09;</span>
+python3 -m pip install --user ansible  <span class="hljs-comment"># &#x5B89;&#x88C5; Ansible&#xFF08;&#x82E5;&#x51FA;&#x95EE;&#x9898;&#xFF0C;&#x53EF;&#x53C2;&#x8003; Python &#x914D;&#x7F6E;&#x56FD;&#x5185;&#x955C;&#x50CF;&#x6E90;&#xFF09;</span>
+
+<span class="hljs-comment"># &#x5B89;&#x88C5;&#x5B8C;&#x53EF;&#x80FD;&#x4F1A;&#x6709;&#x9EC4;&#x8272;&#x7684; WARNING&#xFF0C;&#x63D0;&#x793A; /home/&#x7528;&#x6237;&#x540D;/.local/bin &#x4E0D;&#x5728; PATH &#x4E2D;</span>
+<span class="hljs-comment"># &#x6B64;&#x65F6;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x8FDB;&#x884C;&#x4E00;&#x4E0B;&#x914D;&#x7F6E;&#xFF0C;&#x5426;&#x5219;&#x65E0;&#x6CD5;&#x76F4;&#x63A5;&#x4F7F;&#x7528; ansible</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;export PATH=/home/<span class="hljs-variable">$(whoami)</span>/.local/bin:\$PATH&quot;</span> &gt;&gt; ~/.bashrc &amp;&amp; <span class="hljs-built_in">echo</span> <span class="hljs-built_in">source</span> ~/.bashrc &amp;&amp; <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;OK&quot;</span>
+
+ansible --version
+ansible-playbook --version
 </code></pre>
-<hr>
-<p>&#x5148;&#x67E5;&#x770B;&#x6587;&#x4EF6;&#x7684;&#x7F16;&#x7801;&#x662F;&#x5426;&#x662F; UTF-8&#xFF1A;</p>
-<pre><code class="lang-bash">file xxx.txt
+<h2 id="ansible-ad-hoc-commands">Ansible Ad-hoc Commands</h2>
+<pre><code class="lang-bash">ansible pattern -m [module] <span class="hljs-_">-a</span> <span class="hljs-string">&quot;[module options]&quot;</span>
+
+<span class="hljs-comment"># /etc/ansible/hosts        &#x9ED8;&#x8BA4;&#x7684; inventory &#x6587;&#x4EF6;</span>
+<span class="hljs-comment"># /etc/ansible/ansible.cfg  &#x9ED8;&#x8BA4;&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;</span>
+<span class="hljs-comment"># ~/.ansible.cfg            &#x5982;&#x679C;&#x5B58;&#x5728;&#xFF0C;&#x5C31; override &#x9ED8;&#x8BA4;&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;</span>
 </code></pre>
-<p>&#x4FEE;&#x6539; ~/.vimrc</p>
-<pre><code class="lang-bash">vim ~/.vimrc
-</code></pre>
-<p>&#x52A0;&#x4E0A;&#x4E00;&#x4E0B;&#x5185;&#x5BB9;&#xFF1A;</p>
-<pre><code class="lang-text">set encoding=utf-8
+<h2 id="&#x517C;&#x5BB9;-cpu-&#x67B6;&#x6784;">&#x517C;&#x5BB9; CPU &#x67B6;&#x6784;</h2>
+<pre><code class="lang-yaml"><span class="hljs-attr">- name:</span> this is x86_64
+<span class="hljs-attr">  debug:</span>
+<span class="hljs-attr">    msg:</span> <span class="hljs-string">&quot;Hello <span class="hljs-template-variable">{{ ansible_architecture }}</span>&quot;</span>
+<span class="hljs-attr">  when:</span> ansible_architecture == <span class="hljs-string">&apos;x86_64&apos;</span>
+<span class="hljs-attr">- name:</span> this is aarch64
+<span class="hljs-attr">  debug:</span>
+<span class="hljs-attr">    msg:</span> <span class="hljs-string">&quot;Hello <span class="hljs-template-variable">{{ ansible_architecture }}</span>&quot;</span>
+<span class="hljs-attr">  when:</span> ansible_architecture == <span class="hljs-string">&apos;aarch64&apos;</span>
 </code></pre>
 
                                 
@@ -527,12 +539,12 @@ EOF
 
             
                 
-                <a href="ssh.html" class="navigation navigation-prev " aria-label="Previous page: ssh">
+                <a href="../../" class="navigation navigation-prev " aria-label="Previous page: Introduction">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="zsh.html" class="navigation navigation-next " aria-label="Next page: zsh">
+                <a href="../docker/docker.html" class="navigation navigation-next " aria-label="Next page: Docker">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -543,7 +555,7 @@ EOF
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"vim","level":"1.11.2","depth":2,"next":{"title":"zsh","level":"1.11.3","depth":2,"path":"docs/shell/zsh.md","ref":"docs/shell/zsh.md","articles":[]},"previous":{"title":"ssh","level":"1.11.1","depth":2,"path":"docs/shell/ssh.md","ref":"docs/shell/ssh.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["code","-lunr","-search","search-pro","github","hide-element","back-to-top-button","chapter-fold","-expandable-chapters-small","-expandable-chapters"],"pluginsConfig":{"chapter-fold":{},"github":{"url":"https://github.com/tzq0301"},"search-pro":{},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/shell/vim.md","mtime":"2024-05-27T06:05:17.205Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-05-27T06:05:49.181Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Ansible","level":"1.2","depth":1,"next":{"title":"Docker","level":"1.3","depth":1,"path":"docs/docker/docker.md","ref":"docs/docker/docker.md","articles":[{"title":"Dockerfile","level":"1.3.1","depth":2,"path":"docs/docker/docker-file.md","ref":"docs/docker/docker-file.md","articles":[]},{"title":"Docker 镜像操作","level":"1.3.2","depth":2,"path":"docs/docker/docker-image.md","ref":"docs/docker/docker-image.md","articles":[]},{"title":"Docker in Action","level":"1.3.3","depth":2,"path":"docs/docker/in-action.md","ref":"docs/docker/in-action.md","articles":[]},{"title":"Docker 安装","level":"1.3.4","depth":2,"path":"docs/docker/install.md","ref":"docs/docker/install.md","articles":[]}]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["code","-lunr","-search","search-pro","github","hide-element","back-to-top-button","chapter-fold","-expandable-chapters-small","-expandable-chapters"],"pluginsConfig":{"chapter-fold":{},"github":{"url":"https://github.com/tzq0301"},"search-pro":{},"code":{"copyButtons":true},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"back-to-top-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/ansible/ansible.md","mtime":"2024-05-27T06:05:17.205Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-05-27T06:05:49.181Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
