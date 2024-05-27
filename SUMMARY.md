@@ -5,7 +5,7 @@
   * [Docker 镜像操作](docs/docker/docker-image.md)
   * [Docker in Action](docs/docker/in-action.md)
   * [Docker 安装](docs/docker/install.md)
-* [Git](docs/git.md)
+* [Git](docs/git/git.md)
 * [Go](docs/go/go.md)
   * [Go Library](docs/go/go-lib.md)
 * [JavaScript](docs/javascript/javascript.md)
