@@ -55,7 +55,7 @@ grep -n
 
 根据用户给出的信息在当前运行进程中查找并列出符合条件的进程 ID（PID）
 
-```shell
+```bash
 $ pgrep rsync
 294664
 
@@ -65,7 +65,7 @@ $ pgrep rsync -a
 
 ## [hgrep](https://github.com/rhysd/hgrep): Human-friendly GREP
 
-```shell
+```bash
 # Use built-in subset of ripgrep (optional)
 hgrep pattern ./dir
 
@@ -76,7 +76,7 @@ rg -nH pattern ./dir | hgrep
 
 ## [ripgrep (rg)](https://github.com/BurntSushi/ripgrep)
 
-```shell
+```bash
 rg pattern        # 搜索当前目录及其子目录（忽略 .gitignore 包含的文件/目录）
 rg pattern -i     # 忽略大小写
 rg pattern -t py  # 匹配文件类型（可用 rg --type-list 查看）
@@ -87,7 +87,7 @@ rg pattern -w     # 匹配单词
 
 ## [bat](https://github.com/sharkdp/bat): A cat(1) clone with syntax highlighting and Git integration.
 
-```shell
+```bash
 bat README.md      # 查看单个文件
 bat src/*.rs       # 查看多个文件
 bat -A /etc/hosts  # 高亮 non-printable characters

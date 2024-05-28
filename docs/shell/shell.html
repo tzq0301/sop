@@ -537,32 +537,32 @@ grep -n
 </code></pre>
 <h2 id="pgrep">pgrep</h2>
 <p>&#x6839;&#x636E;&#x7528;&#x6237;&#x7ED9;&#x51FA;&#x7684;&#x4FE1;&#x606F;&#x5728;&#x5F53;&#x524D;&#x8FD0;&#x884C;&#x8FDB;&#x7A0B;&#x4E2D;&#x67E5;&#x627E;&#x5E76;&#x5217;&#x51FA;&#x7B26;&#x5408;&#x6761;&#x4EF6;&#x7684;&#x8FDB;&#x7A0B; ID&#xFF08;PID&#xFF09;</p>
-<pre><code class="lang-shell">$ pgrep rsync
+<pre><code class="lang-bash">$ pgrep rsync
 294664
 
-$ pgrep rsync -a
+$ pgrep rsync <span class="hljs-_">-a</span>
 294664 ./bin/rsync-x86_64-linux-musl --daemon --config=/tmp/registry-test/rsyncd.conf
 </code></pre>
 <h2 id="hgrep-human-friendly-grep"><a href="https://github.com/rhysd/hgrep" target="_blank">hgrep</a>: Human-friendly GREP</h2>
-<pre><code class="lang-shell"># Use built-in subset of ripgrep (optional)
+<pre><code class="lang-bash"><span class="hljs-comment"># Use built-in subset of ripgrep (optional)</span>
 hgrep pattern ./dir
 
-# Read results of grep command via stdin
+<span class="hljs-comment"># Read results of grep command via stdin</span>
 grep -nH pattern -R ./dir | hgrep
 rg -nH pattern ./dir | hgrep
 </code></pre>
 <h2 id="ripgrep-rg"><a href="https://github.com/BurntSushi/ripgrep" target="_blank">ripgrep (rg)</a></h2>
-<pre><code class="lang-shell">rg pattern        # &#x641C;&#x7D22;&#x5F53;&#x524D;&#x76EE;&#x5F55;&#x53CA;&#x5176;&#x5B50;&#x76EE;&#x5F55;&#xFF08;&#x5FFD;&#x7565; .gitignore &#x5305;&#x542B;&#x7684;&#x6587;&#x4EF6;/&#x76EE;&#x5F55;&#xFF09;
-rg pattern -i     # &#x5FFD;&#x7565;&#x5927;&#x5C0F;&#x5199;
-rg pattern -t py  # &#x5339;&#x914D;&#x6587;&#x4EF6;&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x7528; rg --type-list &#x67E5;&#x770B;&#xFF09;
-                  # &#x4F8B;&#x5982;&#xFF1A;-t py &#x5BF9;&#x5E94; *.py &#x548C; *.pyi&#xFF1B;-t yaml &#x5BF9;&#x5E94; *.yaml &#x548C; *.yml
-rg pattern -c     # &#x7EDF;&#x8BA1;&#x884C;&#x6570;
-rg pattern -w     # &#x5339;&#x914D;&#x5355;&#x8BCD;
+<pre><code class="lang-bash">rg pattern        <span class="hljs-comment"># &#x641C;&#x7D22;&#x5F53;&#x524D;&#x76EE;&#x5F55;&#x53CA;&#x5176;&#x5B50;&#x76EE;&#x5F55;&#xFF08;&#x5FFD;&#x7565; .gitignore &#x5305;&#x542B;&#x7684;&#x6587;&#x4EF6;/&#x76EE;&#x5F55;&#xFF09;</span>
+rg pattern -i     <span class="hljs-comment"># &#x5FFD;&#x7565;&#x5927;&#x5C0F;&#x5199;</span>
+rg pattern -t py  <span class="hljs-comment"># &#x5339;&#x914D;&#x6587;&#x4EF6;&#x7C7B;&#x578B;&#xFF08;&#x53EF;&#x7528; rg --type-list &#x67E5;&#x770B;&#xFF09;</span>
+                  <span class="hljs-comment"># &#x4F8B;&#x5982;&#xFF1A;-t py &#x5BF9;&#x5E94; *.py &#x548C; *.pyi&#xFF1B;-t yaml &#x5BF9;&#x5E94; *.yaml &#x548C; *.yml</span>
+rg pattern -c     <span class="hljs-comment"># &#x7EDF;&#x8BA1;&#x884C;&#x6570;</span>
+rg pattern -w     <span class="hljs-comment"># &#x5339;&#x914D;&#x5355;&#x8BCD;</span>
 </code></pre>
 <h2 id="bat-a-cat1-clone-with-syntax-highlighting-and-git-integration"><a href="https://github.com/sharkdp/bat" target="_blank">bat</a>: A cat(1) clone with syntax highlighting and Git integration.</h2>
-<pre><code class="lang-shell">bat README.md      # &#x67E5;&#x770B;&#x5355;&#x4E2A;&#x6587;&#x4EF6;
-bat src/*.rs       # &#x67E5;&#x770B;&#x591A;&#x4E2A;&#x6587;&#x4EF6;
-bat -A /etc/hosts  # &#x9AD8;&#x4EAE; non-printable characters
+<pre><code class="lang-bash">bat README.md      <span class="hljs-comment"># &#x67E5;&#x770B;&#x5355;&#x4E2A;&#x6587;&#x4EF6;</span>
+bat src/*.rs       <span class="hljs-comment"># &#x67E5;&#x770B;&#x591A;&#x4E2A;&#x6587;&#x4EF6;</span>
+bat -A /etc/hosts  <span class="hljs-comment"># &#x9AD8;&#x4EAE; non-printable characters</span>
 </code></pre>
 <h2 id="sed-&#x83B7;&#x53D6;&#x6307;&#x5B9A;&#x884C;">sed &#x83B7;&#x53D6;&#x6307;&#x5B9A;&#x884C;</h2>
 <pre><code class="lang-bash"><span class="hljs-comment"># -n &#x9759;&#x9ED8;&#x6A21;&#x5F0F;&#xFF0C;&#x9632;&#x6B62;&#x8F93;&#x51FA;&#x6587;&#x4EF6;&#x5168;&#x90E8;&#x5185;&#x5BB9;</span>
@@ -982,7 +982,7 @@ id <span class="hljs-variable">$UserName</span>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Shell","level":"1.11","depth":1,"next":{"title":"Debug","level":"1.11.1","depth":2,"path":"docs/shell/机器配置.md","ref":"docs/shell/机器配置.md","articles":[]},"previous":{"title":"Python 安装","level":"1.10.1","depth":2,"path":"docs/python/install.md","ref":"docs/python/install.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["code","github"],"pluginsConfig":{"github":{"url":"https://github.com/tzq0301"},"code":{"copyButtons":true},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/shell/shell.md","mtime":"2024-05-27T08:11:02.128Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-05-27T08:11:30.876Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Shell","level":"1.11","depth":1,"next":{"title":"Debug","level":"1.11.1","depth":2,"path":"docs/shell/机器配置.md","ref":"docs/shell/机器配置.md","articles":[]},"previous":{"title":"Python 安装","level":"1.10.1","depth":2,"path":"docs/python/install.md","ref":"docs/python/install.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["code","github"],"pluginsConfig":{"github":{"url":"https://github.com/tzq0301"},"code":{"copyButtons":true},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/shell/shell.md","mtime":"2024-05-28T03:09:13.959Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-05-28T03:09:42.067Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
