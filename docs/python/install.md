@@ -1,11 +1,5 @@
 # 安装 Python
 
-## apt 安装
-
-```shell
-sudo apt update && sudo apt upgrade python3
-```
-
 ## 编译 Python 3 源码，安装 Python 3，并配置为默认 Python Interpreter
 
 安装编译 Python 源码所需要的组件
@@ -73,3 +67,9 @@ pip3 config list  # 查看镜像地址，验证是否已经成功修改镜像
 | 豆瓣 | [http://pypi.douban.com/simple/](http://pypi.douban.com/simple/) |
 | 网易开源镜像站 | [http://mirrors.163.com/](http://mirrors.163.com/) |
 | 搜狐开源镜像 | [http://mirrors.sohu.com/](http://mirrors.sohu.com/) |
+
+## apt 升级 Python 3 版本
+
+```shell
+sudo apt update && sudo apt upgrade python3
+```
