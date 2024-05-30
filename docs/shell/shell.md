@@ -2,6 +2,16 @@
 
 * [Bash 脚本教程 - WangDoc](https://wangdoc.com/bash/)
 
+## command
+
+```bash
+command -v $COMMAND  # 查看某个命令是否存在
+
+if command -v $COMMAND > /dev/null; then
+  # 执行命令...
+fi
+```
+
 ## ls
 
 * **-l 使用 long listing format**
