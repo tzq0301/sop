@@ -84,5 +84,7 @@ COPY . .
 
 RUN gcc -o main main.c
 
+RUN apk add --no-cache bash 
+
 ENTRYPOINT ./main
 ```
