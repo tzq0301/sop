@@ -4,8 +4,6 @@
   * [C++ 编译](docs/cpp/build.md)
 * [Docker](docs/docker/docker.md)
   * [Dockerfile](docs/docker/docker-file.md)
-  * [Docker 镜像操作](docs/docker/docker-image.md)
-  * [Docker in Action](docs/docker/in-action.md)
   * [Docker 安装](docs/docker/install.md)
 * [Git](docs/git/git.md)
 * [Go](docs/go/go.md)
