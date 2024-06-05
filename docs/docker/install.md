@@ -1,5 +1,13 @@
 # Docker 安装
 
+## 安装 buildx 插件，支持多架构构建
+
+根据 https://docs.docker.com/engine/install/ 安装 docker-buildx-plugin
+
+```bash
+docker buildx create --name multiarch --platform linux/amd64,linux/arm64 --use --bootstrap
+```
+
 ## 配置镜像源
 
 若无 `/etc/docker/daemon.json` 文件，则执行以下命令（若存在该命令，则照猫画虎，修改对应 json 属性即可）：
