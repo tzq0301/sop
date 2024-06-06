@@ -79,3 +79,36 @@ tree out
 #     ├── chronyc
 #     └── chronyd
 ```
+
+## 【示例】alpine 镜像源
+
+```dockerfile
+FROM alpine
+
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.tuna.tsinghua.edu.cn/g' /etc/apk/repositories
+
+RUN apk update && \
+    apk add --no-cache bash
+
+ENTRYPOINT [ "bash", "-c", "ls" ]
+```
+
+## 【示例】ubuntu 镜像源
+
+```dockerfile
+FROM ubuntu
+
+RUN sed -i s/archive.ubuntu.com/mirrors.aliyun.com/g  /etc/apt/sources.list && \
+    sed -i s/security.ubuntu.com/mirrors.aliyun.com/g /etc/apt/sources.list && \
+    sed -i s/archive.ubuntu.com/mirrors.aliyun.com/g  /etc/apt/sources.list.d/ubuntu.sources && \
+    sed -i s/security.ubuntu.com/mirrors.aliyun.com/g /etc/apt/sources.list.d/ubuntu.sources
+
+RUN apt update  -q -y && \
+    apt install -q -y --no-install-recommends make
+
+# RUN apt update  -q -y && \
+#     apt install -q -y --no-install-recommends make && \
+#     rm -rf /var/lib/apt/lists/*  # remove cached data that might endup in your image
+
+ENTRYPOINT [ "make", "--version" ]
+```
