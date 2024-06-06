@@ -49,6 +49,7 @@ WORKDIR /build
 VOLUME /build/chrony/build/bin
 VOLUME /build/chrony/build/sbin
 COPY . .
+# 使用国内的镜像源
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.tuna.tsinghua.edu.cn/g' /etc/apk/repositories
 RUN apk add --no-cache bash bison asciidoctor
 RUN bash build.sh
