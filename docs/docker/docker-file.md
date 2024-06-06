@@ -39,3 +39,42 @@ USER nonroot:nonroot
 
 ENTRYPOINT ["/main"]
 ```
+
+## 【示例】多阶段构建：编译、导出产物
+
+```dockerfile
+FROM alpinelinux/build-base AS build-stage
+USER root
+WORKDIR /build
+VOLUME /build/chrony/build/bin
+VOLUME /build/chrony/build/sbin
+COPY . .
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.tuna.tsinghua.edu.cn/g' /etc/apk/repositories
+RUN apk add --no-cache bash bison asciidoctor
+RUN bash build.sh
+
+FROM scratch AS export-stage
+COPY --from=build-stage /build/chrony/build/bin/chronyc  /
+COPY --from=build-stage /build/chrony/build/sbin/chronyd /
+```
+
+运行以下命令可将产物（上述 Dockerfile 的最后两行）导出到 out 目录：
+
+```bash
+docker build -o out .
+```
+
+运行以下命令可进行多架构的构建，最终将产物（上述 Dockerfile 的最后两行）分别导出到 out 目录下的、以架构命名的目录：
+
+```bash
+docker build -o out --platform linux/amd64,linux/arm64 .
+
+tree out
+# out
+# ├── linux_amd64
+# │   ├── chronyc
+# │   └── chronyd
+# └── linux_arm64
+#     ├── chronyc
+#     └── chronyd
+```
