@@ -1,5 +1,15 @@
 # Docker 安装
 
+## Post Steps
+
+```bash
+sudo groupadd docker  # 这步一般会报“group 已存在”的错误，忽视即可，该报错符合预期
+
+sudo usermod -aG docker $USER
+
+# 打开一个新的终端，即可使用 docker 命令而无需 sudo
+```
+
 ## 安装 buildx 插件，支持多架构构建
 
 根据 https://docs.docker.com/engine/install/ 安装 docker-buildx-plugin
