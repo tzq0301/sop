@@ -103,12 +103,21 @@ RUN sed -i s/archive.ubuntu.com/mirrors.aliyun.com/g  /etc/apt/sources.list && \
     sed -i s/archive.ubuntu.com/mirrors.aliyun.com/g  /etc/apt/sources.list.d/ubuntu.sources && \
     sed -i s/security.ubuntu.com/mirrors.aliyun.com/g /etc/apt/sources.list.d/ubuntu.sources
 
-RUN apt update  -q -y && \
-    apt install -q -y --no-install-recommends make
+# RUN apt update  -q -y && \
+#     apt install -q -y --no-install-recommends make
 
 # RUN apt update  -q -y && \
 #     apt install -q -y --no-install-recommends make && \
 #     rm -rf /var/lib/apt/lists/*  # remove cached data that might endup in your image
+
+RUN apt-get update && apt-get install -y \
+  bzr \
+  cvs \
+  git \
+  make \
+  mercurial \
+  subversion \
+  && rm -rf /var/lib/apt/lists/*
 
 ENTRYPOINT [ "make", "--version" ]
 ```
