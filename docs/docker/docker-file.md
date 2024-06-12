@@ -110,7 +110,7 @@ RUN sed -i s/archive.ubuntu.com/mirrors.aliyun.com/g  /etc/apt/sources.list && \
 #     apt install -q -y --no-install-recommends make && \
 #     rm -rf /var/lib/apt/lists/*  # remove cached data that might endup in your image
 
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install --no-install-recommends -y \
   bzr \
   cvs \
   git \
