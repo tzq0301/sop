@@ -20,14 +20,15 @@ docker buildx create --name multiarch --platform linux/amd64,linux/arm64 --use -
 
 ## 配置镜像源
 
+* https://do.nark.eu.org
+
 若无 `/etc/docker/daemon.json` 文件，则执行以下命令（若存在该命令，则照猫画虎，修改对应 json 属性即可）：
 
 ```bash
 sudo tee /etc/docker/daemon.json <<EOF
 {
   "registry-mirrors": [
-    "https://hub-mirror.c.163.com",
-    "https://mirror.baidubce.com"
+    "https://do.nark.eu.org"
   ]
 }
 EOF
