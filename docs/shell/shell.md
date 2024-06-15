@@ -104,6 +104,8 @@ bat src/*.rs       # 查看多个文件
 bat -A /etc/hosts  # 高亮 non-printable characters
 ```
 
+## [fd](https://github.com/sharkdp/fd): A simple, fast and user-friendly alternative to 'find'
+
 ## sed 获取指定行
 
 ```bash
