@@ -31,7 +31,7 @@ git commit --amend --no-edit  # --amend 不修改 commit message
 ## git log
 
 ```bash
-git log --online  # 一行显示一个 commit 信息
+git log --oneline  # 一行显示一个 commit 信息
 ```
 
 ## git rev-parse
