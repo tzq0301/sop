@@ -7,6 +7,7 @@
 ## Useful Tools
 
 * [bat](https://github.com/sharkdp/bat)
+* [fd](https://github.com/sharkdp/fd)
 * [fzf](https://github.com/junegunn/fzf)
 * [httpie](https://github.com/httpie/cli)
 * [ripgrep (rg)](https://github.com/BurntSushi/ripgrep)
