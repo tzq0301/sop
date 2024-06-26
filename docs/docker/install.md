@@ -34,6 +34,12 @@ sudo tee /etc/docker/daemon.json <<EOF
 EOF
 ```
 
+或者：
+
+```bash
+sudo yq -i '.registry-mirrors += ["https://do.nark.eu.org"]' /etc/docker/daemon.json
+```
+
 重新启动服务即可：
 
 ```bash
