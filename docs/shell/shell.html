@@ -520,6 +520,10 @@
   <span class="hljs-comment"># &#x6267;&#x884C;&#x547D;&#x4EE4;...</span>
 <span class="hljs-keyword">fi</span>
 </code></pre>
+<h2 id="cd">cd</h2>
+<pre><code class="lang-bash"><span class="hljs-comment"># &#x4F5C;&#x7528;&#x7B49;&#x540C;&#x4E8E; cd -&#xFF0C;&#x4E14;&#x4E0D;&#x4F1A;&#x6253;&#x5370;&#x8DEF;&#x5F84;</span>
+<span class="hljs-built_in">cd</span> ~-
+</code></pre>
 <h2 id="ls">ls</h2>
 <ul>
 <li><strong>-l &#x4F7F;&#x7528; long listing format</strong></li>
@@ -712,6 +716,14 @@ mkdir PRETTY_NAME &amp;&amp; tar xf UGLY_NAME.tar -C PRETTY_NAME --strip-compone
 <span class="hljs-comment"># z -&gt; &#x4F7F;&#x7528; gzip &#x8FDB;&#x884C;&#x538B;&#x7F29;&#xFF08;&#x4E0D;&#x52A0; -z &#x5373;&#x4E3A;&#x201C;&#x4EC5;&#x5F52;&#x6863;&#x3001;&#x4E0D;&#x538B;&#x7F29;&#x201D;&#xFF09;</span>
 tar zcf <span class="hljs-variable">$Folder</span>.tar.gz <span class="hljs-variable">$Folder</span>/  <span class="hljs-comment"># .tar.gz &#x662F;&#x7ECF;&#x8FC7; gzip &#x547D;&#x4EE4;&#x538B;&#x7F29;&#x8FC7;&#x7684; .tar &#x6587;&#x4EF6;</span>
 tar  cf <span class="hljs-variable">$Folder</span>.tar    <span class="hljs-variable">$Folder</span>/  <span class="hljs-comment"># .tar &#x6587;&#x4EF6;&#xFF1A;tar &#x662F; Tape Archive &#x7684;&#x7F29;&#x5199;&#xFF0C;&#x8868;&#x793A;&#x5F52;&#x6863;</span>
+</code></pre>
+<p>macOS &#x4E0A;&#x7684; tar &#x547D;&#x4EE4;&#xFF0C;&#x9ED8;&#x8BA4;&#x4F7F;&#x7528; BSD tar&#xFF0C;&#x800C; Linux &#x9ED8;&#x8BA4;&#x4F7F;&#x7528; GNU tar&#xFF1B;BSD tar &#x5728;&#x521B;&#x5EFA;&#x5F52;&#x6863;&#x6587;&#x4EF6;&#x7684;&#x540C;&#x65F6;&#x52A0;&#x5165;&#x4E86;&#x4E00;&#x4E9B; macOS &#x6587;&#x4EF6;&#x7279;&#x6709;&#x7684;&#x6269;&#x5C55;&#x5C5E;&#x6027;&#xFF0C;&#x5982; xattr.com.apple.quarantine&#xFF0C;&#x8FD9;&#x4E9B;&#x4FE1;&#x606F;&#x4E0D;&#x88AB; GNU tar &#x6240;&#x8BC6;&#x522B;&#xFF0C;&#x56E0;&#x6B64;&#x9700;&#x8981;&#x4F7F;&#x7528; --no-xattrs &#x9009;&#x9879;&#x6765;&#x5FFD;&#x7565;&#x8FD9;&#x4E9B;&#x5C5E;&#x6027;&#xFF1A;</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># tar: Ignoring unknown extended header keyword &apos;LIBARCHIVE.xattr.com.apple.quarantine&apos;</span>
+<span class="hljs-comment"># tar: Ignoring unknown extended header keyword &apos;LIBARCHIVE.xattr.com.apple.provenance&apos;</span>
+<span class="hljs-comment"># tar: Ignoring unknown extended header keyword &apos;LIBARCHIVE.xattr.com.apple.metadata:kMDItemWhereFroms&apos;</span>
+<span class="hljs-comment"># tar: Ignoring unknown extended header keyword &apos;LIBARCHIVE.xattr.com.apple.macl&apos;</span>
+
+tar --no-xattrs -zcvf &lt;tar_file&gt; &lt;file&gt;
 </code></pre>
 <h2 id="basename--dirname">basename &amp; dirname</h2>
 <pre><code class="lang-bash">basename a/b/ccc.gz      <span class="hljs-comment"># ccc.gz</span>
@@ -1012,7 +1024,7 @@ id <span class="hljs-variable">$UserName</span>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Shell","level":"1.13","depth":1,"next":{"title":"debug","level":"1.13.1","depth":2,"path":"docs/shell/debug.md","ref":"docs/shell/debug.md","articles":[]},"previous":{"title":"Python 安装","level":"1.12.1","depth":2,"path":"docs/python/install.md","ref":"docs/python/install.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["github"],"pluginsConfig":{"github":{"url":"https://github.com/tzq0301"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/shell/shell.md","mtime":"2024-06-26T03:03:53.723Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-06-26T03:04:22.706Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Shell","level":"1.13","depth":1,"next":{"title":"debug","level":"1.13.1","depth":2,"path":"docs/shell/debug.md","ref":"docs/shell/debug.md","articles":[]},"previous":{"title":"Python 安装","level":"1.12.1","depth":2,"path":"docs/python/install.md","ref":"docs/python/install.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["github"],"pluginsConfig":{"github":{"url":"https://github.com/tzq0301"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/shell/shell.md","mtime":"2024-06-27T03:11:46.701Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-06-27T03:12:16.456Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

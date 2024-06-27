@@ -13,6 +13,13 @@ if command -v $COMMAND > /dev/null; then
 fi
 ```
 
+## cd
+
+```bash
+# 作用等同于 cd -，且不会打印路径
+cd ~-
+```
+
 ## ls
 
 * **-l 使用 long listing format**
@@ -256,6 +263,17 @@ mkdir PRETTY_NAME && tar xf UGLY_NAME.tar -C PRETTY_NAME --strip-components 1
 # z -> 使用 gzip 进行压缩（不加 -z 即为“仅归档、不压缩”）
 tar zcf $Folder.tar.gz $Folder/  # .tar.gz 是经过 gzip 命令压缩过的 .tar 文件
 tar  cf $Folder.tar    $Folder/  # .tar 文件：tar 是 Tape Archive 的缩写，表示归档
+```
+
+macOS 上的 tar 命令，默认使用 BSD tar，而 Linux 默认使用 GNU tar；BSD tar 在创建归档文件的同时加入了一些 macOS 文件特有的扩展属性，如 xattr.com.apple.quarantine，这些信息不被 GNU tar 所识别，因此需要使用 --no-xattrs 选项来忽略这些属性：
+
+```bash
+# tar: Ignoring unknown extended header keyword 'LIBARCHIVE.xattr.com.apple.quarantine'
+# tar: Ignoring unknown extended header keyword 'LIBARCHIVE.xattr.com.apple.provenance'
+# tar: Ignoring unknown extended header keyword 'LIBARCHIVE.xattr.com.apple.metadata:kMDItemWhereFroms'
+# tar: Ignoring unknown extended header keyword 'LIBARCHIVE.xattr.com.apple.macl'
+
+tar --no-xattrs -zcvf <tar_file> <file>
 ```
 
 ## basename & dirname
