@@ -16,6 +16,7 @@ echo -e "echo \\\$LANG (the current locale)                                     
 echo -e "echo \\\$LANGUAGE (the current language)                                 = $(echo $LANGUAGE)"
 echo -e "echo \\\$LC_ALL (the current locale)                                     = $(echo $LC_ALL)"
 echo -e "umask (the current umask)                                             = $(umask)"
+echo -e "getconf PAGESIZE (the page size)                                      = $(getconf PAGESIZE)"
 echo
 EOF
 ```
