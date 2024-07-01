@@ -12,3 +12,9 @@
 * [httpie](https://github.com/httpie/cli)
 * [ripgrep (rg)](https://github.com/BurntSushi/ripgrep)
 * [yq](https://github.com/mikefarah/yq)
+
+## Useful Alias
+
+```bash
+alias l="ls -alFSh"
+```
