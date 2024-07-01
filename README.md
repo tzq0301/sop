@@ -16,5 +16,5 @@
 ## Useful Alias
 
 ```bash
-alias l="ls -alFSh"
+alias l="ls -alFh"
 ```
