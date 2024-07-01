@@ -9,6 +9,7 @@
 * [bat](https://github.com/sharkdp/bat)
 * [fd](https://github.com/sharkdp/fd)
 * [fzf](https://github.com/junegunn/fzf)
+* [glow](https://github.com/charmbracelet/glow): markdown renderer in terminal
 * [httpie](https://github.com/httpie/cli)
 * [ripgrep (rg)](https://github.com/BurntSushi/ripgrep)
 * [yq](https://github.com/mikefarah/yq)
