@@ -313,6 +313,19 @@ sudo apt install -qq iptables
 sudo apt install --no-install-recommends ...
 ```
 
+## yum
+
+```bash
+# To see what particular versions are available to you via yum you can use the --showduplicates switch . It gives you a list like "package name.architecture version":
+yum --showduplicates list httpd | expand
+
+# If you're ever unsure that you're constructing the arguments right you can consult with repoquery too.
+$ sudo yum install yum-utils  # (to get `repoquery`)
+$ repoquery --show-duplicates httpd-2.4*
+httpd-0:2.4.6-6.fc20.x86_64
+httpd-0:2.4.10-1.fc20.x86_64
+```
+
 ## 输入输出重定向
 
 Shell 中，总有三个文件处于打开状态 —— 标准输入（键盘输入）、标准输出（输出到屏幕）、标准错误（输出到屏幕），分别对应的文件描述符（file description）为 0、1、2
