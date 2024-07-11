@@ -6,7 +6,7 @@
 
 ## Useful Tools
 
-* [bat](https://github.com/sharkdp/bat)
+* [bat](https://github.com/sharkdp/bat): `bat -pp` <=> `cat`
 * [fd](https://github.com/sharkdp/fd)
 * [fzf](https://github.com/junegunn/fzf)
 * [glow](https://github.com/charmbracelet/glow): markdown renderer in terminal
