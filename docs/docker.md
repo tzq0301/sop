@@ -24,3 +24,56 @@ docker buildx build \
   --push \                              # 构建完就 push（如果只想 build、不想 push，就去掉 --push）
   $PWD                                  # Dockerfile 所在的文件夹
 ```
+
+## 安装 Docker (Linux)
+
+```bash
+yq -V > /dev/null 2>&1 || (echo "yq 未安装，请先安装 yq" && exit 1)
+
+VERSION=27.0.3  # 在 https://download.docker.com/linux/static/stable/x86_64/ 中，选择一个 Docker 的版本
+wget https://download.docker.com/linux/static/stable/$(uname -m)/docker-$VERSION.tgz
+tar xf docker-$VERSION.tgz
+
+sudo cp docker/* /usr/bin/
+
+sudo tee /etc/systemd/system/docker.service <<EOF
+[Unit]
+Description=Docker Application Container Engine
+Documentation=https://docs.docker.com
+After=network-online.target firewalld.service
+Wants=network-online.target
+
+[Service]
+Type=notify
+ExecStart=/usr/bin/dockerd
+ExecReload=/bin/kill -s HUP \$MAINPID
+LimitNOFILE=infinity
+LimitNPROC=infinity
+TimeoutStartSec=0
+Delegate=yes
+KillMode=process
+Restart=on-failure
+StartLimitBurst=3
+StartLimitInterval=60s
+
+[Install]
+WantedBy=multi-user.target
+
+EOF
+
+sudo groupadd docker || true
+sudo usermod -aG docker $USER
+
+sudo systemctl enable docker.service
+
+[[ -d /etc/docker ]] || sudo mkdir /etc/docker
+[[ -f /etc/docker/daemon.json ]] || sudo touch /etc/docker/daemon.json
+
+# 设置镜像源
+sudo yq -i '.registry-mirrors += ["https://docker.m.daocloud.io"]' /etc/docker/daemon.json
+
+sudo systemctl daemon-reload
+sudo systemctl restart docker
+```
+
+logout 再 login 即可

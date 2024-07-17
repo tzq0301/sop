@@ -1,7 +1,7 @@
 * [Introduction](README.md)
 * [C++](docs/cpp.md)
 * [Docker](docs/docker.md)
-* [Dockerfile](docs/dockerfile.md)
+* [Dockerfile](docs/docker-file.md)
 * [Git](docs/git.md)
 * [Go](docs/go.md)
 * [Java](docs/java.md)
