@@ -367,7 +367,7 @@ rsync -r -v -e "ssh -i ~/.ssh/id_rsa" tmp/ hello@192.168.1.1:/tmp/abc
 
 ## tcpdump
 
-```shell
+```bash
 # -i any       ->  在所有网络接口上捕获数据包
 # -n           ->  直接显示 IP 地址，不将其解析为主机名
 # 'port 5000'  ->  只捕获目标或源端口为 5000 的数据包
