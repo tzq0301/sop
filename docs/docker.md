@@ -69,7 +69,7 @@ sudo systemctl enable docker.service
 [[ -d /etc/docker ]] || sudo mkdir /etc/docker
 [[ -f /etc/docker/daemon.json ]] || sudo touch /etc/docker/daemon.json
 
-# 设置镜像源
+# 设置镜像源 https://github.com/DaoCloud/public-image-mirror
 sudo yq -i '.registry-mirrors += ["https://docker.m.daocloud.io"]' /etc/docker/daemon.json
 
 sudo systemctl daemon-reload
