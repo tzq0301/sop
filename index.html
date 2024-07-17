@@ -257,35 +257,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.11.3" data-path="docs/shell/vim.html">
+        <li class="chapter " data-level="1.11.3" data-path="docs/shell/shell-startup-file.md">
             
-                <a href="docs/shell/vim.html">
-            
-                    
-                    vim
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.11.4" data-path="docs/shell/zsh.html">
-            
-                <a href="docs/shell/zsh.html">
-            
-                    
-                    zsh
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.11.5" data-path="docs/shell/shell-startup-file.html">
-            
-                <a href="docs/shell/shell-startup-file.html">
+                <span>
             
                     
                     Shell Startup File
@@ -296,7 +270,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.11.6" data-path="docs/shell/regex.html">
+        <li class="chapter " data-level="1.11.4" data-path="docs/shell/regex.html">
             
                 <a href="docs/shell/regex.html">
             
@@ -387,7 +361,9 @@
 <li><a href="https://github.com/mikefarah/yq" target="_blank">yq</a></li>
 </ul>
 <h2 id="useful-alias">Useful Alias</h2>
-<pre><code class="lang-bash"><span class="hljs-built_in">alias</span> l=<span class="hljs-string">&quot;ls -alFh&quot;</span>
+<pre><code class="lang-bash"><span class="hljs-keyword">if</span> [[ -z <span class="hljs-string">&quot;<span class="hljs-variable">${aliases[l]}</span>&quot;</span> ]]; <span class="hljs-keyword">then</span>
+    <span class="hljs-built_in">alias</span> l=<span class="hljs-string">&quot;ls -alFh&quot;</span>
+<span class="hljs-keyword">fi</span>
 </code></pre>
 
                                 
@@ -428,7 +404,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"C++","level":"1.2","depth":1,"path":"docs/cpp.md","ref":"docs/cpp.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["github"],"pluginsConfig":{"github":{"url":"https://github.com/tzq0301"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2024-07-17T10:12:30.055Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-07-17T10:12:59.012Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"next":{"title":"C++","level":"1.2","depth":1,"path":"docs/cpp.md","ref":"docs/cpp.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["github"],"pluginsConfig":{"github":{"url":"https://github.com/tzq0301"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2024-07-17T10:50:47.906Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-07-17T10:51:15.812Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
