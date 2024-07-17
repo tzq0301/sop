@@ -11,8 +11,6 @@
 * [Shell](docs/shell/shell.md)
   * [debug](docs/shell/debug.md)
   * [ssh](docs/shell/ssh.md)
-  * [vim](docs/shell/vim.md)
-  * [zsh](docs/shell/zsh.md)
   * [Shell Startup File](docs/shell/shell-startup-file.md)
   * [正则表达式](docs/shell/regex.md)
 * [Visual Studio Code](docs/vscode.md)

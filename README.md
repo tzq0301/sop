@@ -18,5 +18,7 @@
 ## Useful Alias
 
 ```bash
-alias l="ls -alFh"
+if [[ -z "${aliases[l]}" ]]; then
+    alias l="ls -alFh"
+fi
 ```
