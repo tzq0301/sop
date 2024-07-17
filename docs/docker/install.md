@@ -28,7 +28,7 @@ docker buildx create --name multiarch --platform linux/amd64,linux/arm64 --use -
 sudo tee /etc/docker/daemon.json <<EOF
 {
   "registry-mirrors": [
-    "https://do.nark.eu.org"
+    "https://docker.m.daocloud.io"
   ]
 }
 EOF
@@ -37,7 +37,7 @@ EOF
 或者：
 
 ```bash
-sudo yq -i '.registry-mirrors += ["https://do.nark.eu.org"]' /etc/docker/daemon.json
+sudo yq -i '.registry-mirrors += ["https://docker.m.daocloud.io"]' /etc/docker/daemon.json
 ```
 
 重新启动服务即可：
