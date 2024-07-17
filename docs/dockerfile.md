@@ -43,20 +43,35 @@ ENTRYPOINT ["/main"]
 ## 【示例】多阶段构建：编译、导出产物
 
 ```dockerfile
+# build-stage
+
 FROM alpinelinux/build-base AS build-stage
+
 USER root
+
 WORKDIR /build
+
 VOLUME /build/chrony/build/bin
+
 VOLUME /build/chrony/build/sbin
+
 COPY . .
+
 # 使用国内的镜像源
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.tuna.tsinghua.edu.cn/g' /etc/apk/repositories
+
 RUN apk add --no-cache bash bison asciidoctor
+
 RUN bash build.sh
 
+# export-stage
+
 FROM scratch AS export-stage
+
 COPY --from=build-stage /build/chrony/build/bin/chronyc  /
+
 COPY --from=build-stage /build/chrony/build/sbin/chronyd /
+
 ```
 
 运行以下命令可将产物（上述 Dockerfile 的最后两行）导出到 out 目录：
