@@ -385,6 +385,17 @@ wget -P 目标文件夹 URL
 wget -q -O - URL
 ```
 
+## journalctl
+
+```bash
+sudo journalctl -u docker        # 交互式，有点难用
+sudo journalctl -u docker > log  # 不如写到一个日志文件里
+
+# 清空
+sudo journalctl --rotate
+sudo journalctl --vacuum-time=1s
+```
+
 ## 输入输出重定向
 
 Shell 中，总有三个文件处于打开状态 —— 标准输入（键盘输入）、标准输出（输出到屏幕）、标准错误（输出到屏幕），分别对应的文件描述符（file description）为 0、1、2
