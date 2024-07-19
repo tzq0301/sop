@@ -305,6 +305,8 @@ date '+%Y%m%d%H%M%S'       # 20240428080414
 ```bash
 ls -lSh
 du -h | sort -hr
+
+du -sh $YOUR_PATH  # 查看某个目录的总大小
 ```
 
 ## apt
