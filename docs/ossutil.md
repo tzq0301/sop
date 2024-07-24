@@ -2,10 +2,23 @@
 
 [ossutil](https://help.aliyun.com/zh/oss/developer-reference/overview-59) 支持通过 Windows、Linux 和 macOS 系统以命令行方式管理 OSS 数据
 
+```bash
+export OSS_BUCKET=
+
+upload() {
+  ossutil cp "$1" "oss://$OSS_BUCKET/$(basename $1)"
+}
+
+download() {
+  ossutil cp "oss://$OSS_BUCKET/$(basename $1)" "$1"
+}
+```
+
 ## 安装 ossutil
 
 ```bash
-URL=https://gosspublic.alicdn.com/ossutil/1.7.19/ossutil-v1.7.19-linux-arm64.zip  # https://help.aliyun.com/zh/oss/developer-reference/install-ossutil
+# https://help.aliyun.com/zh/oss/developer-reference/install-ossutil
+URL=https://gosspublic.alicdn.com/ossutil/1.7.19/ossutil-v1.7.19-linux-arm64.zip
 
 OSSUTIL_DIR=/opt/ossutil
 
