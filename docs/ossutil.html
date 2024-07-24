@@ -318,8 +318,19 @@
                                 
                                 <h1 id="ossutil">ossutil</h1>
 <p><a href="https://help.aliyun.com/zh/oss/developer-reference/overview-59" target="_blank">ossutil</a> &#x652F;&#x6301;&#x901A;&#x8FC7; Windows&#x3001;Linux &#x548C; macOS &#x7CFB;&#x7EDF;&#x4EE5;&#x547D;&#x4EE4;&#x884C;&#x65B9;&#x5F0F;&#x7BA1;&#x7406; OSS &#x6570;&#x636E;</p>
+<pre><code class="lang-bash"><span class="hljs-built_in">export</span> OSS_BUCKET=
+
+<span class="hljs-function"><span class="hljs-title">upload</span></span>() {
+  ossutil cp <span class="hljs-string">&quot;<span class="hljs-variable">$1</span>&quot;</span> <span class="hljs-string">&quot;oss://<span class="hljs-variable">$OSS_BUCKET</span>/<span class="hljs-variable">$(basename $1)</span>&quot;</span>
+}
+
+<span class="hljs-function"><span class="hljs-title">download</span></span>() {
+  ossutil cp <span class="hljs-string">&quot;oss://<span class="hljs-variable">$OSS_BUCKET</span>/<span class="hljs-variable">$(basename $1)</span>&quot;</span> <span class="hljs-string">&quot;<span class="hljs-variable">$1</span>&quot;</span>
+}
+</code></pre>
 <h2 id="&#x5B89;&#x88C5;-ossutil">&#x5B89;&#x88C5; ossutil</h2>
-<pre><code class="lang-bash">URL=https://gosspublic.alicdn.com/ossutil/1.7.19/ossutil-v1.7.19-linux-arm64.zip  <span class="hljs-comment"># https://help.aliyun.com/zh/oss/developer-reference/install-ossutil</span>
+<pre><code class="lang-bash"><span class="hljs-comment"># https://help.aliyun.com/zh/oss/developer-reference/install-ossutil</span>
+URL=https://gosspublic.alicdn.com/ossutil/1.7.19/ossutil-v1.7.19-linux-arm64.zip
 
 OSSUTIL_DIR=/opt/ossutil
 
@@ -403,7 +414,7 @@ EOF
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"ossutil","level":"1.10","depth":1,"next":{"title":"Python","level":"1.11","depth":1,"path":"docs/python.md","ref":"docs/python.md","articles":[]},"previous":{"title":"Nginx","level":"1.9","depth":1,"path":"docs/nginx.md","ref":"docs/nginx.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["github"],"pluginsConfig":{"github":{"url":"https://github.com/tzq0301"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/ossutil.md","mtime":"2024-07-24T15:59:16.584Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-07-24T15:59:46.485Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"ossutil","level":"1.10","depth":1,"next":{"title":"Python","level":"1.11","depth":1,"path":"docs/python.md","ref":"docs/python.md","articles":[]},"previous":{"title":"Nginx","level":"1.9","depth":1,"path":"docs/nginx.md","ref":"docs/nginx.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["github"],"pluginsConfig":{"github":{"url":"https://github.com/tzq0301"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/ossutil.md","mtime":"2024-07-24T16:51:08.210Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-07-24T16:51:37.402Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
