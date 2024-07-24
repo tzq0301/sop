@@ -1,5 +1,16 @@
 # Go
 
+## Data Race Detector
+
+https://go.dev/doc/articles/race_detector
+
+```bash
+go test -race mypkg     # to test the package
+go run -race mysrc.go   # to run the source file
+go build -race mycmd    # to build the command
+go install -race mypkg  # to install the package
+```
+
 ## Library
 
 * [google/safetext](https://github.com/google/safetext) 防止 yaml 注入和 shell 注入，用于替代 `text/template`
