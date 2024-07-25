@@ -81,3 +81,27 @@ sudo systemctl restart docker
 ```
 
 logout 再 login 即可
+
+## 安装 Docker Buildx (Linux)
+
+```bash
+# https://github.com/docker/buildx/releases/latest
+URL=https://github.com/docker/buildx/releases/download/v0.16.1/buildx-v0.16.1.linux-amd64
+
+wget "$URL"
+
+PLUGIN_DIR="$HOME/.docker/cli-plugins"
+
+mkdir -p "$PLUGIN_DIR"
+
+mv "$(basename "$URL")" "$PLUGIN_DIR"/docker-buildx
+
+chmod +x "$PLUGIN_DIR"/docker-buildx
+
+docker buildx install
+
+docker buildx use "$(docker buildx create)"
+
+docker buildx version
+docker buildx ls
+```
