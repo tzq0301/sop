@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>mihomo · GitBook</title>
+        <title>MySQL · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="mysql.html" />
+    <link rel="next" href="nginx.html" />
     
     
-    <link rel="prev" href="javascript.html" />
+    <link rel="prev" href="mihomo.html" />
     
 
     </head>
@@ -193,7 +193,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.9" data-path="mihomo.html">
+        <li class="chapter " data-level="1.9" data-path="mihomo.html">
             
                 <a href="mihomo.html">
             
@@ -206,7 +206,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.10" data-path="mysql.html">
+        <li class="chapter active" data-level="1.10" data-path="mysql.html">
             
                 <a href="mysql.html">
             
@@ -340,7 +340,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >mihomo</a>
+        <a href=".." >MySQL</a>
     </h1>
 </div>
 
@@ -355,68 +355,8 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="mihomo">mihomo</h1>
-<ul>
-<li><a href="https://wiki.metacubex.one/" target="_blank">Mihomo Wiki</a></li>
-<li><a href="https://github.com/MetaCubeX/mihomo" target="_blank">GitHub Repository</a></li>
-</ul>
-<pre><code class="lang-bash">MIHOMO_DIR=/opt/mihomo
-
-sudo mkdir -p <span class="hljs-string">&quot;<span class="hljs-variable">$MIHOMO_DIR</span>&quot;</span>
-
-<span class="hljs-built_in">cd</span> <span class="hljs-string">&quot;<span class="hljs-variable">$MIHOMO_DIR</span>&quot;</span>
-
-URL=https://github.com/MetaCubeX/mihomo/releases/download/v1.18.6/mihomo-linux-arm64-v1.18.6.gz
-
-wget <span class="hljs-string">&quot;<span class="hljs-variable">$URL</span>&quot;</span>
-
-sudo gzip <span class="hljs-_">-f</span> <span class="hljs-string">&quot;<span class="hljs-variable">$(basename -s .gz &quot;$URL&quot;)</span>&quot;</span> <span class="hljs-_">-d</span>
-
-sudo mv <span class="hljs-string">&quot;<span class="hljs-variable">$(basename -s .gz &quot;$URL&quot;)</span>&quot;</span> mihomo
-
-sudo chmod +x mihomo
-
-CONFIG_URL=
-
-wget <span class="hljs-string">&quot;<span class="hljs-variable">$CONFIG_URL</span>&quot;</span>
-
-COUNTRY_MMDB_URL=https://github.com/Dreamacro/maxmind-geoip/releases/download/20240712/Country.mmdb
-
-wget <span class="hljs-string">&quot;<span class="hljs-variable">$COUNTRY_MMDB_URL</span>&quot;</span>
-
-sudo tee /etc/systemd/system/mihomo.service &lt;&lt;EOF
-[Unit]
-Description=mihomo Daemon, Another Clash Kernel.
-After=network.target NetworkManager.service systemd-networkd.service iwd.service
-
-[Service]
-Type=simple
-LimitNPROC=500
-LimitNOFILE=1000000
-CapabilityBoundingSet=CAP_NET_ADMIN CAP_NET_RAW CAP_NET_BIND_SERVICE CAP_SYS_TIME CAP_SYS_PTRACE CAP_DAC_READ_SEARCH CAP_DAC_OVERRIDE
-AmbientCapabilities=CAP_NET_ADMIN CAP_NET_RAW CAP_NET_BIND_SERVICE CAP_SYS_TIME CAP_SYS_PTRACE CAP_DAC_READ_SEARCH CAP_DAC_OVERRIDE
-Restart=always
-ExecStartPre=/usr/bin/sleep 1s
-ExecStart=<span class="hljs-variable">$MIHOMO_DIR</span>/mihomo <span class="hljs-_">-d</span> <span class="hljs-variable">$MIHOMO_DIR</span>
-ExecReload=/bin/<span class="hljs-built_in">kill</span> -HUP \<span class="hljs-variable">$MAINPID</span>
-
-[Install]
-WantedBy=multi-user.target
-EOF
-
-sudo systemctl daemon-reload
-
-sudo systemctl <span class="hljs-built_in">enable</span> mihomo
-
-sudo systemctl start mihomo
-
-sudo systemctl status mihomo
-
-tee <span class="hljs-_">-a</span> <span class="hljs-string">&quot;<span class="hljs-variable">$HOME</span>/.bashrc&quot;</span> &lt;&lt;EOF
-<span class="hljs-built_in">export</span> https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890
-EOF
-
-<span class="hljs-built_in">source</span> <span class="hljs-string">&quot;<span class="hljs-variable">$HOME</span>/.bashrc&quot;</span>
+                                <h1 id="mysql">MySQL</h1>
+<pre><code class="lang-bash">docker run -p 3306:3306 --name mysql <span class="hljs-_">-e</span> MYSQL_ALLOW_EMPTY_PASSWORD=yes <span class="hljs-_">-d</span> mysql
 </code></pre>
 
                                 
@@ -445,12 +385,12 @@ EOF
 
             
                 
-                <a href="javascript.html" class="navigation navigation-prev " aria-label="Previous page: JavaScript">
+                <a href="mihomo.html" class="navigation navigation-prev " aria-label="Previous page: mihomo">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="mysql.html" class="navigation navigation-next " aria-label="Next page: MySQL">
+                <a href="nginx.html" class="navigation navigation-next " aria-label="Next page: Nginx">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -461,7 +401,7 @@ EOF
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"mihomo","level":"1.9","depth":1,"next":{"title":"MySQL","level":"1.10","depth":1,"path":"docs/mysql.md","ref":"docs/mysql.md","articles":[]},"previous":{"title":"JavaScript","level":"1.8","depth":1,"path":"docs/javascript.md","ref":"docs/javascript.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["github"],"pluginsConfig":{"github":{"url":"https://github.com/tzq0301"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/mihomo.md","mtime":"2024-07-26T13:45:59.312Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-07-26T13:46:29.576Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"MySQL","level":"1.10","depth":1,"next":{"title":"Nginx","level":"1.11","depth":1,"path":"docs/nginx.md","ref":"docs/nginx.md","articles":[]},"previous":{"title":"mihomo","level":"1.9","depth":1,"path":"docs/mihomo.md","ref":"docs/mihomo.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["github"],"pluginsConfig":{"github":{"url":"https://github.com/tzq0301"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/mysql.md","mtime":"2024-07-26T13:45:59.312Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-07-26T13:46:29.576Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
