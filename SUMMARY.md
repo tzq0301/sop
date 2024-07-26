@@ -6,6 +6,7 @@
 * [Go](docs/go.md)
 * [Java](docs/java.md)
 * [JavaScript](docs/javascript.md)
+* [mihomo](docs/mihomo.md)
 * [Nginx](docs/nginx.md)
 * [ossutil](docs/ossutil.md)
 * [Python](docs/python.md)
