@@ -2,6 +2,22 @@
 
 * [Makefiles, autotools & CMake](https://indico.cern.ch/event/1127483/attachments/2387906/4081279/makefile.pdf)
 
+## g++ 接收标准输入
+
+```bash
+g++ -x c++ -o version - <<EOF
+#include <stdio.h>
+
+#include "src/version.h"
+
+int main() {
+  printf(REDIS_VERSION);
+}
+EOF
+
+./version
+```
+
 ## 【示例】CMake 使用 FetchContent
 
 ```cmake
