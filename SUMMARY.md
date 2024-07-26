@@ -7,6 +7,7 @@
 * [Java](docs/java.md)
 * [JavaScript](docs/javascript.md)
 * [mihomo](docs/mihomo.md)
+* [MySQL](docs/mysql.md)
 * [Nginx](docs/nginx.md)
 * [ossutil](docs/ossutil.md)
 * [Python](docs/python.md)

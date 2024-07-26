@@ -7,9 +7,6 @@
 * scratch: 一个空镜像，它不包含任何文件，因此无法运行任何应用程序，常用于作为基础镜像来构建产物
 
 ```bash
-# 快速启动 MySQL 实例
-docker run -p 3306:3306 --name mysql -e MYSQL_ALLOW_EMPTY_PASSWORD=yes -d mysql
-
 docker run --rm $(docker build . -q)
 
 docker save -o helloworld.tar hello-world:1.0.0
