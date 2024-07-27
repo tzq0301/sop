@@ -7,3 +7,23 @@
 ```bash
 pip config set global.index-url https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple
 ```
+
+## Python 离线部署
+
+收集依赖信息：
+
+```bash
+pip3 freeze > requirements.txt
+```
+
+将 requirements.txt 中的依赖下载到 packages 文件夹中：
+
+```bash
+pip3 download -r requirements.txt -d $PWD/packages
+```
+
+离线部署时，安装 packages 中的包：
+
+```bash
+pip3 download -r requirements.txt -d $PWD/packages
+```
