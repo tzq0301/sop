@@ -356,6 +356,36 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="go">Go</h1>
+<pre><code class="lang-bash"><span class="hljs-keyword">if</span> [ <span class="hljs-string">&quot;<span class="hljs-variable">$(uname -m)</span>&quot;</span> = <span class="hljs-string">&quot;x86_64&quot;</span> ]; <span class="hljs-keyword">then</span>
+    ARCH=<span class="hljs-string">&quot;amd64&quot;</span>
+<span class="hljs-keyword">else</span>
+    ARCH=<span class="hljs-string">&quot;arm64&quot;</span>
+<span class="hljs-keyword">fi</span>
+
+VERSION=1.22.5
+
+URL=<span class="hljs-string">&quot;http://mirror.nju.edu.cn/golang/go<span class="hljs-variable">$VERSION</span>.linux-<span class="hljs-variable">$ARCH</span>.tar.gz&quot;</span>
+
+GOROOT=/opt/go<span class="hljs-variable">$VERSION</span>
+
+sudo mkdir -p <span class="hljs-string">&quot;<span class="hljs-variable">$GO_DIR</span>&quot;</span>
+
+wget <span class="hljs-string">&quot;<span class="hljs-variable">$URL</span>&quot;</span>
+
+tar xf <span class="hljs-string">&quot;<span class="hljs-variable">$(basename &quot;$URL&quot;)</span>&quot;</span> -C <span class="hljs-string">&quot;<span class="hljs-variable">$GO_DIR</span>&quot;</span> --strip-components=1
+
+tee <span class="hljs-_">-a</span> <span class="hljs-string">&quot;<span class="hljs-variable">$HOME</span>/.bashrc&quot;</span> &lt;&lt;EOF
+<span class="hljs-built_in">export</span> GOROOT=<span class="hljs-string">&quot;<span class="hljs-variable">$GOROOT</span>&quot;</span>
+<span class="hljs-built_in">export</span> GOPATH=<span class="hljs-string">&quot;\$HOME/go&quot;</span>
+
+<span class="hljs-built_in">export</span> PATH=\<span class="hljs-variable">$GOROOT</span>/bin:\<span class="hljs-variable">$GOPATH</span>/bin:\<span class="hljs-variable">$PATH</span>
+
+EOF
+
+<span class="hljs-built_in">source</span> <span class="hljs-string">&quot;<span class="hljs-variable">$HOME</span>/.bashrc&quot;</span>
+
+go version
+</code></pre>
 <h2 id="data-race-detector">Data Race Detector</h2>
 <p><a href="https://go.dev/doc/articles/race_detector" target="_blank">https://go.dev/doc/articles/race_detector</a></p>
 <pre><code class="lang-bash">go <span class="hljs-built_in">test</span> -race mypkg     <span class="hljs-comment"># to test the package</span>
@@ -413,7 +443,7 @@ go install -race mypkg  <span class="hljs-comment"># to install the package</spa
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Go","level":"1.6","depth":1,"next":{"title":"Java","level":"1.7","depth":1,"path":"docs/java.md","ref":"docs/java.md","articles":[]},"previous":{"title":"Git","level":"1.5","depth":1,"path":"docs/git.md","ref":"docs/git.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["github"],"pluginsConfig":{"github":{"url":"https://github.com/tzq0301"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/go.md","mtime":"2024-07-28T13:59:13.969Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-07-28T13:59:42.187Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Go","level":"1.6","depth":1,"next":{"title":"Java","level":"1.7","depth":1,"path":"docs/java.md","ref":"docs/java.md","articles":[]},"previous":{"title":"Git","level":"1.5","depth":1,"path":"docs/git.md","ref":"docs/git.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["github"],"pluginsConfig":{"github":{"url":"https://github.com/tzq0301"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/go.md","mtime":"2024-07-28T16:14:20.944Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-07-28T16:14:50.384Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
