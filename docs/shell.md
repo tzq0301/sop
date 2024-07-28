@@ -634,7 +634,11 @@ EOF
 默认会生成（1）公钥文件 ~/.ssh/id_rsa.pub（2）私钥文件 ~/.ssh/id_rsa
 
 ```bash
-ssh-keygen -t rsa -N "" -C "user=$USER hostname=$HOSTNAME" -f "$HOME/.ssh/id_rsa"
+ssh-keygen -t ed25519 -a 100 -N "" -C "$USER@"$(hostname)"" -f "$HOME/.ssh/id_rsa" -q
+```
+
+```bash
+cat "$HOME/.ssh/id_rsa.pub" | pbcopy
 ```
 
 生成密钥以后，建议修改它们的权限，防止其他人读取：
