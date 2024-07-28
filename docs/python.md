@@ -8,6 +8,17 @@
 pip config set global.index-url https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple
 ```
 
+## Python 虚拟环境
+
+```bash
+sudo apt install -y python3-venv
+```
+
+```bash
+python3 -m venv "$PWD/.venv"
+source "$PWD/.venv/bin/activate"
+```
+
 ## Python 离线部署
 
 收集依赖信息：
