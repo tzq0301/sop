@@ -13,11 +13,11 @@ URL="http://mirror.nju.edu.cn/golang/go$VERSION.linux-$ARCH.tar.gz"
 
 GOROOT=/opt/go$VERSION
 
-sudo mkdir -p "$GO_DIR"
+sudo mkdir -p "$GOROOT"
 
 wget "$URL"
 
-tar xf "$(basename "$URL")" -C "$GO_DIR" --strip-components=1
+tar xf "$(basename "$URL")" -C "$GOROOT" --strip-components=1
 
 tee -a "$HOME/.bashrc" <<EOF
 export GOROOT="$GOROOT"
