@@ -644,7 +644,7 @@ chmod 600 ~/.ssh/id_rsa
 chmod 600 ~/.ssh/id_rsa.pub
 ```
 
-macOS 上可以 copy 公钥：
+可以 copy 公钥：
 
 ```bash
 cat "$HOME/.ssh/id_rsa.pub" | pbcopy
