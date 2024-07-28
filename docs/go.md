@@ -9,7 +9,7 @@ fi
 
 VERSION=1.22.5
 
-URL="http://mirror.nju.edu.cn/golang/go$VERSION.linux-$ARCH.tar.gz"
+URL="http://mirror.nju.edu.cn/golang/go$VERSION.linux-$ARCH.tar.gz"  # http://mirror.nju.edu.cn/golang/
 
 GOROOT=/opt/go$VERSION
 
