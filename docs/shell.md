@@ -15,14 +15,6 @@
 * [ripgrep (rg)](https://github.com/BurntSushi/ripgrep)
 * [yq](https://github.com/mikefarah/yq)
 
-## 设置 alias
-
-```bash
-if [[ -z "${aliases[l]}" ]]; then
-    alias l="ls -alFh"
-fi
-```
-
 ## 机器信息 & 操作系统信息
 
 ```bash
