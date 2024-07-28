@@ -56,9 +56,9 @@ sudo systemctl start mihomo
 
 sudo systemctl status mihomo
 
-tee -a "$HOME/.bashrc" <<EOF
+tee -a "$HOME/.profile" <<EOF
 export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890
 EOF
 
-source "$HOME/.bashrc"
+source "$HOME/.profile"
 ```

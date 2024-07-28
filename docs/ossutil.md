@@ -28,13 +28,13 @@ unzip "$(basename $URL)"
 
 sudo mv "$(basename -s .zip $URL)" "$OSSUTIL_DIR"
 
-sudo tee -a "$HOME/.bashrc" <<EOF
+sudo tee -a "$HOME/.profile" <<EOF
 # ossutil
 export PATH=$OSSUTIL_DIR:\$PATH
 
 EOF
 
-source "$HOME/.bashrc"
+source "$HOME/.profile"
 
 ossutil --version
 ```
