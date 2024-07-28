@@ -25,5 +25,5 @@ pip3 download -r requirements.txt -d $PWD/packages
 离线部署时，安装 packages 中的包：
 
 ```bash
-pip3 download -r requirements.txt -d $PWD/packages
+pip3 install --no-index --find-links=$PWD/packages -r requirements.txt
 ```
