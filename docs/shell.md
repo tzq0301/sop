@@ -637,15 +637,17 @@ EOF
 ssh-keygen -t ed25519 -a 100 -N "" -C "$USER@"$(hostname)"" -f "$HOME/.ssh/id_rsa" -q
 ```
 
-```bash
-cat "$HOME/.ssh/id_rsa.pub" | pbcopy
-```
-
 生成密钥以后，建议修改它们的权限，防止其他人读取：
 
 ```bash
 chmod 600 ~/.ssh/id_rsa
 chmod 600 ~/.ssh/id_rsa.pub
+```
+
+macOS 上可以 copy 公钥：
+
+```bash
+cat "$HOME/.ssh/id_rsa.pub" | pbcopy
 ```
 
 ## ssh 连接远程服务器
