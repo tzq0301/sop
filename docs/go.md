@@ -19,7 +19,7 @@ wget "$URL"
 
 tar xf "$(basename "$URL")" -C "$GOROOT" --strip-components=1
 
-tee -a "$HOME/.bashrc" <<EOF
+tee -a "$HOME/.profile" <<EOF
 export GOROOT="$GOROOT"
 export GOPATH="\$HOME/go"
 
@@ -27,7 +27,7 @@ export PATH=\$GOROOT/bin:\$GOPATH/bin:\$PATH
 
 EOF
 
-source "$HOME/.bashrc"
+source "$HOME/.profile"
 
 go version
 ```
