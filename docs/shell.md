@@ -644,10 +644,16 @@ chmod 600 ~/.ssh/id_rsa
 chmod 600 ~/.ssh/id_rsa.pub
 ```
 
-可以 copy 公钥：
+可以 copy 公钥，放到 GitHub / GitLab 等代码仓库上：
 
 ```bash
 cat "$HOME/.ssh/id_rsa.pub" | pbcopy
+```
+
+或者直接 copy 到远程主机：
+
+```bash
+ssh-copy-id $RemoteUserName@$RemoteIP
 ```
 
 ## ssh 连接远程服务器
