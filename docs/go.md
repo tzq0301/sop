@@ -1,5 +1,37 @@
 # Go
 
+```bash
+if [ "$(uname -m)" = "x86_64" ]; then
+    ARCH="amd64"
+else
+    ARCH="arm64"
+fi
+
+VERSION=1.22.5
+
+URL="http://mirror.nju.edu.cn/golang/go$VERSION.linux-$ARCH.tar.gz"
+
+GOROOT=/opt/go$VERSION
+
+sudo mkdir -p "$GO_DIR"
+
+wget "$URL"
+
+tar xf "$(basename "$URL")" -C "$GO_DIR" --strip-components=1
+
+tee -a "$HOME/.bashrc" <<EOF
+export GOROOT="$GOROOT"
+export GOPATH="\$HOME/go"
+
+export PATH=\$GOROOT/bin:\$GOPATH/bin:\$PATH
+
+EOF
+
+source "$HOME/.bashrc"
+
+go version
+```
+
 ## Data Race Detector
 
 https://go.dev/doc/articles/race_detector
