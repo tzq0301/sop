@@ -3,7 +3,7 @@
 * [alpine](https://hub.docker.com/_/alpine): 一个轻量级的 Linux 发行版，只包含了最基本的工具和库
 * [alpinelinux/build-base](https://hub.docker.com/r/alpinelinux/build-base): 包含构建和编译所需的工具和库的镜像，例如 GCC、G++、Make、libc-dev 等
 * distroless: 不包含任何包管理工具或 shell，提高容器安全性
-* [busybox](): 一个精简的 Linux 工具箱，包含了数百个常用的 Linux 命令，例如 ls、cp、cat、rm 等
+* busybox: 一个精简的 Linux 工具箱，包含了数百个常用的 Linux 命令，例如 ls、cp、cat、rm 等
 * scratch: 一个空镜像，它不包含任何文件，因此无法运行任何应用程序，常用于作为基础镜像来构建产物
 
 ```bash
