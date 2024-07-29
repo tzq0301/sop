@@ -17,8 +17,14 @@ download() {
 ## 安装 ossutil
 
 ```bash
+if [ "$(uname -m)" = "x86_64" ]; then
+    ARCH="amd64"
+else
+    ARCH="arm64"
+fi
+
 # https://help.aliyun.com/zh/oss/developer-reference/install-ossutil
-URL=https://gosspublic.alicdn.com/ossutil/1.7.19/ossutil-v1.7.19-linux-arm64.zip
+URL="https://gosspublic.alicdn.com/ossutil/1.7.19/ossutil-v1.7.19-linux-$ARCH.zip"
 
 OSSUTIL_DIR=/opt/ossutil
 

@@ -368,8 +368,14 @@
 }
 </code></pre>
 <h2 id="&#x5B89;&#x88C5;-ossutil">&#x5B89;&#x88C5; ossutil</h2>
-<pre><code class="lang-bash"><span class="hljs-comment"># https://help.aliyun.com/zh/oss/developer-reference/install-ossutil</span>
-URL=https://gosspublic.alicdn.com/ossutil/1.7.19/ossutil-v1.7.19-linux-arm64.zip
+<pre><code class="lang-bash"><span class="hljs-keyword">if</span> [ <span class="hljs-string">&quot;<span class="hljs-variable">$(uname -m)</span>&quot;</span> = <span class="hljs-string">&quot;x86_64&quot;</span> ]; <span class="hljs-keyword">then</span>
+    ARCH=<span class="hljs-string">&quot;amd64&quot;</span>
+<span class="hljs-keyword">else</span>
+    ARCH=<span class="hljs-string">&quot;arm64&quot;</span>
+<span class="hljs-keyword">fi</span>
+
+<span class="hljs-comment"># https://help.aliyun.com/zh/oss/developer-reference/install-ossutil</span>
+URL=<span class="hljs-string">&quot;https://gosspublic.alicdn.com/ossutil/1.7.19/ossutil-v1.7.19-linux-<span class="hljs-variable">$ARCH</span>.zip&quot;</span>
 
 OSSUTIL_DIR=/opt/ossutil
 
@@ -453,7 +459,7 @@ EOF
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"ossutil","level":"1.12","depth":1,"next":{"title":"Python","level":"1.13","depth":1,"path":"docs/python.md","ref":"docs/python.md","articles":[]},"previous":{"title":"Nginx","level":"1.11","depth":1,"path":"docs/nginx.md","ref":"docs/nginx.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["github"],"pluginsConfig":{"github":{"url":"https://github.com/tzq0301"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/ossutil.md","mtime":"2024-07-29T15:40:09.326Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-07-29T15:40:38.454Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"ossutil","level":"1.12","depth":1,"next":{"title":"Python","level":"1.13","depth":1,"path":"docs/python.md","ref":"docs/python.md","articles":[]},"previous":{"title":"Nginx","level":"1.11","depth":1,"path":"docs/nginx.md","ref":"docs/nginx.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["github"],"pluginsConfig":{"github":{"url":"https://github.com/tzq0301"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/ossutil.md","mtime":"2024-07-29T15:46:59.431Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-07-29T15:47:28.342Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
