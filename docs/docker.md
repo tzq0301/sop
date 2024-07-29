@@ -24,7 +24,11 @@ docker buildx build \
 
 ## 安装 Docker (Linux)
 
+Docker 需要前置安装 iptables
+
 ```bash
+yq -V > /dev/null 2>&1 || (echo "yq 未安装，请先安装 yq" && exit 1)
+
 # VERSION=27.0.3  # 在 https://download.docker.com/linux/static/stable/x86_64/ 中，选择一个 Docker 的版本
 # wget https://download.docker.com/linux/static/stable/$(uname -m)/docker-$VERSION.tgz
 # tar xf docker-$VERSION.tgz
