@@ -1,7 +1,7 @@
 # JavaScript
 
 ```bash
-npm config set registry https://registry.npmmirror.com/
+npm  config set registry https://registry.npmmirror.com
 yarn config set registry https://registry.npmmirror.com
 pnpm config set registry https://registry.npmmirror.com
 ```
