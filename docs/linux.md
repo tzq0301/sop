@@ -1,4 +1,4 @@
-# Shell
+# Linux
 
 * [Bash 脚本教程 - WangDoc](https://wangdoc.com/bash/)
 * [cron 表达式](https://crontab.guru/#)
@@ -6,12 +6,11 @@
 
 ## 实用工具
 
-* [bat](https://github.com/sharkdp/bat): `bat -pp` <=> `cat`
-* [fd](https://github.com/sharkdp/fd)
-* [fzf](https://github.com/junegunn/fzf)
+* [bat](https://github.com/sharkdp/bat)
+* [fd](https://github.com/sharkdp/fd): `fd PATTERN` instead of `find -iname '*PATTERN*'`
+* [fzf](https://github.com/junegunn/fzf): fuzzy finder
 * [glow](https://github.com/charmbracelet/glow): markdown renderer in terminal
 * [httpie](https://github.com/httpie/cli)
-* [Hurl](https://hurl.dev/)
 * [ripgrep (rg)](https://github.com/BurntSushi/ripgrep)
 * [yq](https://github.com/mikefarah/yq)
 
@@ -371,12 +370,28 @@ sudo tcpdump -i any -n 'port 5000'
 ## 下载文件 wget
 
 ```bash
-wget -O 新名字    URL
-wget -P 目标文件夹 URL
+wget -O 新名字    $URL
+wget -P 目标文件夹 $URL
 
 # -q    不打印信息
 # -O -  输出到标准输出
-wget -q -O - URL
+wget -q -O - $URL
+```
+
+## chrony
+
+[Chrony NTP 服务器的时钟同步原理与应用](http://www.nav-cn.com/kepu/8926.html)
+
+Chrony 是一个高效的网络时间协议（NTP）服务器，用于**同步系统时钟**
+
+与传统的 NTP 工具相比，Chrony 采用了一种称为渐进线性补偿（PLC）的算法，更准确地估算系统时钟的偏移和漂移，从而提供更精确的时间同步
+
+通过综合考虑网络延迟、时钟偏移和漂移等因素，Chrony 能够提供比传统 NTP 更高的时间同步准确性
+
+```bash
+chronyc sources -v  # 查看系统时钟的状态
+chronyc tracking    # 显示有关系统时钟同步状态的详细信息
+systemctl status chronyd.service
 ```
 
 ## journalctl
