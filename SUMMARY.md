@@ -6,6 +6,7 @@
 * [Go](docs/go.md)
 * [Java](docs/java.md)
 * [JavaScript](docs/javascript.md)
+* [Linux](docs/linux.md)
 * [mihomo](docs/mihomo.md)
 * [MySQL](docs/mysql.md)
 * [Nginx](docs/nginx.md)
@@ -13,5 +14,4 @@
 * [Python](docs/python.md)
 * [Redis](docs/redis.md)
 * [RegExp 正则表达式](docs/regex.md)
-* [Shell](docs/shell.md)
 * [Visual Studio Code](docs/vscode.md)
