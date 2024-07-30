@@ -32,7 +32,7 @@ source "$HOME/.profile"
 go version
 
 go env -w GO111MODULE=on
-go env -w GOPROXY="https://repo.nju.edu.cn/repository/go/,direct"
+go env -w GOPROXY="https://repo.nju.edu.cn/repository/go/,direct"  # 设置代理
 
 go env | grep -E "GO111MODULE|GOPROXY"
 ```
