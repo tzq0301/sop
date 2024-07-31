@@ -73,7 +73,8 @@ sudo systemctl enable docker.service
 [[ -f /etc/docker/daemon.json ]] || sudo touch /etc/docker/daemon.json
 
 # 设置镜像源 https://github.com/DaoCloud/public-image-mirror
-sudo yq -i '.registry-mirrors += ["https://docker.m.daocloud.io"]' /etc/docker/daemon.json
+# 通过 cloudflare 搭建镜像教程：https://blog.csdn.net/QQ727338622/article/details/139903363、https://www.wanpeng.life/2953.html
+sudo yq -i '.registry-mirrors += ["https://tzq.asia"]' /etc/docker/daemon.json
 
 sudo systemctl daemon-reload
 sudo systemctl restart docker
