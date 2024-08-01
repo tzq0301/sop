@@ -1,6 +1,9 @@
 # C++
 
 * [Makefiles, autotools & CMake](https://indico.cern.ch/event/1127483/attachments/2387906/4081279/makefile.pdf)
+* [How to Write C++ Code | ClickHouse Docs](https://clickhouse.com/docs/en/development/style)
+* [Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html)
+* [C++ docs | Microsoft](https://learn.microsoft.com/en-us/cpp/cpp/?view=msvc-170)
 
 ## g++ 接收标准输入
 

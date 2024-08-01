@@ -3,6 +3,7 @@
 * [Bash 脚本教程 - WangDoc](https://wangdoc.com/bash/)
 * [cron 表达式](https://crontab.guru/#)
 * [SSH 教程 - WangDoc](https://wangdoc.com/ssh)
+* [explainshell.com](https://explainshell.com/)
 
 ## 实用工具
 
