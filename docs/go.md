@@ -1,6 +1,13 @@
 # Go
 
 ```bash
+# CGO_ENABLED=0 若不强制指定，那么当遇到类似 net.LookupHost 的函数时，Go 编译器可能会选择 CGO 的实现，最终编译出来的产物就是 dynamically linked 了
+CGO_ENABLED=0 go build main.go
+```
+
+## 安装 Install
+
+```bash
 if [ "$(uname -m)" = "x86_64" ]; then
     ARCH="amd64"
 else
