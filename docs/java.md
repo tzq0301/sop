@@ -1,5 +1,7 @@
 # Java
 
+* [Design Pattern Catalog](https://java-design-patterns.com/patterns/)
+
 ## Spring Boot Configuration Properties Migrator
 
 https://www.baeldung.com/spring-boot-properties-migrator
