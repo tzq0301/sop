@@ -4,6 +4,7 @@
 * [cron 表达式](https://crontab.guru/#)
 * [SSH 教程 - WangDoc](https://wangdoc.com/ssh)
 * [explainshell.com](https://explainshell.com/)
+* [Filesystem Hierarchy Standard](https://www.pathname.com/fhs/pub/fhs-2.3.html)
 
 ## 实用工具
 
